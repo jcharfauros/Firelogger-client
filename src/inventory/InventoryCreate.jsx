@@ -46,7 +46,7 @@ const InventoryCreate = (props) => {
 
   return (
     <Container>
-      <h3>Add new item to Inventory</h3>
+      <h3>Add item to Inventory</h3>
       <Form onSubmit={handleSubmit}>
         <FormGroup>
           <Label htmlFor="category" />
