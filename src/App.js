@@ -1,10 +1,6 @@
 import React, { useState, useEffect } from "react";
-import InventoryCreate from "./inventory/InventoryCreate";
-import InventoryTable from "./inventory/InventoryTable";
-import Login from "./auth/Login";
-import Signup from "./auth/Signup";
+import InventoryIndex from "./inventory/InventoryIndex";
 import Auth from "./auth/Auth";
-import "./App.css";
 import FireloggerNavbar from './home/Navbar';
 
 function App() {
@@ -21,24 +17,26 @@ function App() {
     setSessionToken(newToken);
     console.log(sessionToken);
   };
+
   const clearToken = () => {
     localStorage.clear();
-    setSessionToken("");
+    setSessionToken('');
+  }
+
+  const protectedViews = () => {
+    return sessionToken === localStorage.getItem("token") ? (
+      <InventoryIndex token={sessionToken} />
+    ) : (
+      <Auth updateToken={updateToken} />
+    );
   };
-  // let protectedViews = () => {
-  //   return sessionToken === localStorage.getItem("token") ? (
-  //     <InventoryIndex token={sessionToken} clearToken={clearToken} />
-  //   ) : (
-  //   );
-  // };
+
+ 
   return (
     <div>
-      <InventoryCreate />
-      <InventoryTable />
-      <Auth updateToken={updateToken} />;{/* <Signup /> */}
-      <Login updateToken={updateToken} />
-      {/* {protectedViews()} */}
-      <FireloggerNavbar />
+      <Auth updateToken={updateToken} />
+      <FireloggerNavbar clickLogout={clearToken} />
+      {protectedViews()}
     </div>
   );
 }
