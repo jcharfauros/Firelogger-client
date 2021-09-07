@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import Sitebar from "./home/Navbar";
-import Auth from "./auth/Auth";
 import InventoryIndex from "./inventory/InventoryIndex";
+import Auth from "./auth/Auth";
+import FireloggerNavbar from './home/Navbar';
 
 function App() {
   const [sessionToken, setSessionToken] = useState("");
@@ -31,9 +31,11 @@ function App() {
     );
   };
 
+ 
   return (
     <div>
-      <Sitebar clickLogout={clearToken} />
+      <Auth updateToken={updateToken} />
+      <FireloggerNavbar clickLogout={clearToken} />
       {protectedViews()}
     </div>
   );
