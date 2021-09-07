@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Login from "./auth/Login";
 import Signup from "./auth/Signup";
 import Auth from "./auth/Auth";
+import "./App.css";
 
 function App() {
   const [sessionToken, setSessionToken] = useState("");

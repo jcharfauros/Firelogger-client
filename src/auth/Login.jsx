@@ -25,9 +25,9 @@ const Login = (props) => {
   return (
     <div>
       <h1> Login</h1>
-      <Form onSubmit={handleSubmit}>
+      <Form className="login" onSubmit={handleSubmit}>
         <FormGroup>
-          <Label htmlFor="email">Email</Label>
+          <Label htmlFor="email">Email: &nbsp;</Label>
           <Input
             onChange={(e) => setEmail(e.target.value)}
             name="email"
@@ -35,8 +35,10 @@ const Login = (props) => {
           />
         </FormGroup>
 
+        <br></br>
+
         <FormGroup>
-          <Label htmlFor="password"> Password</Label>
+          <Label htmlFor="password"> Password: &nbsp;</Label>
           <Input
             onChange={(e) => setPassword(e.target.value)}
             name="password"

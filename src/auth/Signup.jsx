@@ -24,33 +24,41 @@ const Signup = (props) => {
   };
   return (
     <div>
-      <h1>Sign up</h1>
-      <Form onSubmit={handleSubmit}>
+      <h1 className="signuptitle">Sign up </h1>
+      <Form onSubmit={handleSubmit} className="signup">
         <FormGroup>
-          <Label htmlFor="name">Name</Label>
+          <Label htmlFor="name">Name:&nbsp;</Label>
           <Input
             onChange={(e) => setName(e.target.value)}
             name="name"
             value={name}
           />
+          <br></br>
+          <br></br>
         </FormGroup>
         <FormGroup>
-          <Label htmlFor="email">Email</Label>
+          <Label htmlFor="email">Email: &nbsp;</Label>
           <Input
             onChange={(e) => setEmail(e.target.value)}
             name="email"
             value={email}
           />
+          <br></br>
+          <br></br>
         </FormGroup>
         <FormGroup>
-          <Label htmlFor="password">Password</Label>
+          <Label htmlFor="password">Password:&nbsp;</Label>
           <Input
             onChange={(e) => setPassword(e.target.value)}
             name="password"
             value={password}
           />
+          <br></br>
+          <br></br>
+          <Button className="signupbutton" type="submit">
+            Submit
+          </Button>
         </FormGroup>
-        <Button type="submit">Sign up</Button>
       </Form>
     </div>
   );
