@@ -3,6 +3,8 @@ import Login from "./auth/Login";
 import Signup from "./auth/Signup";
 import Auth from "./auth/Auth";
 import "./App.css";
+import FireloggerNavbar from './home/Navbar';
+
 
 function App() {
   const [sessionToken, setSessionToken] = useState("");
@@ -34,6 +36,7 @@ function App() {
       <Auth updateToken={updateToken} />;{/* <Signup /> */}
       <Login updateToken={updateToken} />
       {/* {protectedViews()} */}
+      <FireloggerNavbar />
     </div>
   );
 }
