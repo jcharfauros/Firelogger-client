@@ -7,15 +7,15 @@ const InventoryEdit = (props) => {
     const [ editName, setEditName ] = useState(props.inventoryToEdit.name);
     const [ editYear, setEditYear ] = useState(props.inventoryToEdit.year);
     const [ editModel, setEditModel ] = useState(props.inventoryToEdit.model);
-    const [ editSerialNum, setEditSerialNum ] = useState(props.inventoryToEdit.serialNum);
-    const [ editPicUrl, setEditPicUrl] = useState(props.inventoryToEdit.picUrl);
+    const [ editSerialNum, setEditSerialNum ] = useState(props.inventoryToEdit.serial_number);
+    const [ editPicUrl, setEditPicUrl] = useState(props.inventoryToEdit.pic_url);
     const [ editValue, setEditValue ] = useState(props.inventoryToEdit.value);
 
     const inventoryUpdate = (e, inventory) => {
         e.preventDefault();
         fetch(`http://localhost:3000/inventory/update/${props.inventoryToEdit.id}`, {
             method: 'PUT',
-            body: JSON.stringify({item: {
+            body: JSON.stringify({inventory: {
                 category: editCategory,
                 name: editName,
                 year: editYear,
@@ -28,7 +28,7 @@ const InventoryEdit = (props) => {
                 'Content-Type': 'application/json',
                 'Authorization': props.token
             })
-        })  .then((res) => {
+        }).then((res) => {
                 props.fetchInventory();
                 props.editOff();
         })
@@ -37,7 +37,7 @@ const InventoryEdit = (props) => {
     return (
         <Modal isOpen={true} centered={true}>
             <ModalHeader>Inventory Items Edit</ModalHeader>
-            <ModalBody scrollable={true}>
+            <ModalBody>
                 <Form onSubmit={inventoryUpdate}>
                     <FormGroup>
                         <Label htmlFor='category'>Edit Category:</Label>
