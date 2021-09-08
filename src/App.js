@@ -34,7 +34,7 @@ function App() {
  
   return (
     <div>
-      <Auth updateToken={updateToken} />
+      {/* <Auth updateToken={updateToken} /> */}
       <FireloggerNavbar clickLogout={clearToken} />
       {protectedViews()}
     </div>

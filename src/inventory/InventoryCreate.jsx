@@ -12,7 +12,8 @@ const InventoryCreate = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch(`http://localhost:3000/create`, {
+   
+    fetch("http://localhost:3000/inventory/create", {
       method: "POST",
       body: JSON.stringify({
         inventory: {

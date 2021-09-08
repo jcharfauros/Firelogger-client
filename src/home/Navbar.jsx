@@ -34,7 +34,7 @@ const FireloggerNavbar = (props) => {
             <Collapse isOpen={isOpen} navbar>
                 <Nav className='ml-auto' navbar>
                     <NavItem>
-                        <Button onClick={props.clicklogout}>
+                        <Button onClick={props.clickLogout}>
                             Logout
                         </Button>
                     </NavItem>

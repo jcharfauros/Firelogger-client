@@ -1,19 +1,19 @@
 import React, { useState } from "react";
-import { Form, FormGroup, Input, Label } from "reactstrap";
+import { Form, FormGroup, Input, Label, Modal, Button, ModalHeader, ModalBody } from "reactstrap";
 
 const InventoryEdit = (props) => {
 
-    const [ editCategory, setEditCategory ] = useState(props.InventoryToEdit.category);
-    const [ editName, setEditName ] = useState(props.InventoryToEdit.name);
-    const [ editYear, setEditYear ] = useState(props.InventoryToEdit.year);
-    const [ editModel, setEditModel ] = useState(props,InventoryToEdit.model);
-    const [ editSerialNum, setEditSerialNum ] = useState(props.InventoryToEdit.serialNum);
-    const [ editPicUrl, setEditPicUrl] = useState(props.InventoryToEdit.picUrl);
-    const [ editValue, setEditValue ] = useState(props.InventoryToEdit.value);
+    const [ editCategory, setEditCategory ] = useState(props.inventoryToEdit.category);
+    const [ editName, setEditName ] = useState(props.inventoryToEdit.name);
+    const [ editYear, setEditYear ] = useState(props.inventoryToEdit.year);
+    const [ editModel, setEditModel ] = useState(props.inventoryToEdit.model);
+    const [ editSerialNum, setEditSerialNum ] = useState(props.inventoryToEdit.serialNum);
+    const [ editPicUrl, setEditPicUrl] = useState(props.inventoryToEdit.picUrl);
+    const [ editValue, setEditValue ] = useState(props.inventoryToEdit.value);
 
-    const inventoryEdit = (e, inventory) => {
+    const inventoryUpdate = (e, inventory) => {
         e.preventDefault();
-        fetch(`http://localhost:3000/inventory/update/${props.InventoryToEdit.id}`, { 
+        fetch(`http://localhost:3000/inventory/update/${props.inventoryToEdit.id}`, {
             method: 'PUT',
             body: JSON.stringify({item: {
                 category: editCategory,
@@ -30,7 +30,7 @@ const InventoryEdit = (props) => {
             })
         })  .then((res) => {
                 props.fetchInventory();
-                props.updateOff();
+                props.editOff();
         })
     }
 
@@ -38,7 +38,7 @@ const InventoryEdit = (props) => {
         <Modal isOpen={true} centered={true}>
             <ModalHeader>Inventory Items Edit</ModalHeader>
             <ModalBody scrollable={true}>
-                <Form onSubmit={inventoryEdit}>
+                <Form onSubmit={inventoryUpdate}>
                     <FormGroup>
                         <Label htmlFor='category'>Edit Category:</Label>
                         <Input type='select' name='category' value={editCategory} onChange={(e) => setEditCategory(e.target.value)} >
