@@ -60,7 +60,7 @@ const InventoryIndex = (props) => {
             token={props.token}
           /> */}
         </Col>
-        {editActive ? (
+        {/* {editActive ? (
           <InventoryEdit
             inventoryToEdit={inventoryToEdit}
             editOff={editOff}
@@ -69,7 +69,7 @@ const InventoryIndex = (props) => {
           />
         ) : (
           <></>
-        )}
+        )} */}
       </Row>
     </Container>
   );
