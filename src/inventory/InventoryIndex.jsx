@@ -52,13 +52,13 @@ const InventoryIndex = (props) => {
           />
         </Col>
         <Col md="9">
-          <InventoryTable
+          {/* <InventoryTable
             inventory={inventory}
             editInventory={editInventory}
             editOn={editOn}
             fetchInventory={fetchInventory}
             token={props.token}
-          />
+          /> */}
         </Col>
         {editActive ? (
           <InventoryEdit

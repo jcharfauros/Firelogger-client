@@ -2,6 +2,17 @@ import React, { useState } from "react";
 import { Form, FormGroup, Input, Label, Modal, Button, ModalHeader, ModalBody } from "reactstrap";
 
 const InventoryEdit = (props) => {
+  const [editCategory, setEditCategory] = useState(
+    props.InventoryToEdit.category
+  );
+  const [editName, setEditName] = useState(props.InventoryToEdit.name);
+  const [editYear, setEditYear] = useState(props.InventoryToEdit.year);
+  const [editModel, setEditModel] = useState(props.InventoryToEdit.model);
+  const [editSerialNum, setEditSerialNum] = useState(
+    props.InventoryToEdit.serialNum
+  );
+  const [editPicUrl, setEditPicUrl] = useState(props.InventoryToEdit.picUrl);
+  const [editValue, setEditValue] = useState(props.InventoryToEdit.value);
 
     const [ editCategory, setEditCategory ] = useState(props.inventoryToEdit.category);
     const [ editName, setEditName ] = useState(props.inventoryToEdit.name);
