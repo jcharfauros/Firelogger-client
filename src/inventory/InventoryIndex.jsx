@@ -10,18 +10,19 @@ const InventoryIndex = (props) => {
   const [inventoryToEdit, setInventoryToEdit] = useState({});
 
   const fetchInventory = () => {
-    fetch("http://localhost:3000/inventory/", {
-      method: "GET",
-      headers: new Headers({
-        "Content-Type": "application/json",
-        Authorizaiton: "props.token",
-      }),
-    })
-      .then((res) => res.json())
-      .then((inventoryData) => {
-        setInventory(inventoryData);
-        console.log(inventoryData);
-      });
+      fetch("http://localhost:3000/inventory/", {
+          method: "GET",
+          headers: new Headers({
+              "Content-Type": "application/json",
+              Authorization: props.token,
+          }),
+      })
+          .then((res) => res.json())
+          .then((inventoryData) => {
+              setInventory(inventoryData);
+              console.log(inventoryData)
+          });
+
   };
 
   const editInventory = (inventory) => {
@@ -35,10 +36,10 @@ const InventoryIndex = (props) => {
 
   const editOff = () => {
     setEditActive(false);
-  };
+};
 
   useEffect(() => {
-    fetchInventory();
+      fetchInventory();
   }, []);
 
   return (
@@ -73,5 +74,4 @@ const InventoryIndex = (props) => {
     </Container>
   );
 };
-
 export default InventoryIndex;

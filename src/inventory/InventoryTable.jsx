@@ -11,10 +11,11 @@ const InventoryTable = (props) => {
       }),
     }).then(() => props.fetchInventory());
   };
-  console.log(props);
+ console.log(props.inventory);
 
   const inventoryMapper = () => {
-    return props.inventories.map((inventory, index) => {
+    return props.inventory.map((inventory, index) => {
+     
       return (
         <tr key={index}>
           <th scope="row">{inventory.id}</th>
@@ -29,8 +30,8 @@ const InventoryTable = (props) => {
             <Button
               color="warning"
               onClick={() => {
-                props.editUpdateInventory(inventory);
-                props.updateOn();
+                props.editInventory(inventory);
+                props.editOn();
               }}
             >
               Update
