@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import InventoryIndex from "./inventory/InventoryIndex";
 import Auth from "./auth/Auth";
-import FireloggerNavbar from './home/Navbar';
+import FireloggerNavbar from "./home/Navbar";
+import Login from "./auth/Login";
 
 function App() {
   const [sessionToken, setSessionToken] = useState("");
@@ -20,8 +21,8 @@ function App() {
 
   const clearToken = () => {
     localStorage.clear();
-    setSessionToken('');
-  }
+    setSessionToken("");
+  };
 
   const protectedViews = () => {
     return sessionToken === localStorage.getItem("token") ? (
@@ -31,11 +32,11 @@ function App() {
     );
   };
 
- 
   return (
     <div>
       {/* <Auth updateToken={updateToken} /> */}
       <FireloggerNavbar clickLogout={clearToken} />
+      <Login updateToken={updateToken} />
       {protectedViews()}
     </div>
   );
