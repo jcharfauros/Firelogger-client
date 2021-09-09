@@ -126,19 +126,7 @@ const InventoryCreate = (props) => {
           />
         </FormGroup>
         <FormGroup>
-<<<<<<< HEAD
-          <Label htmlFor="pic_url">Pic URL: </Label>
-          <Input
-            name="pic_url"
-            value={pic_url}
-            onChange={(e) => setPic_Url(e.target.value)}
-          />
-        </FormGroup>
-        <FormGroup>
-          <Label htmlFor="value">Item Value: </Label>
-=======
           <Label htmlFor="value" />
->>>>>>> e4f5220b5a715981ede1b44008781ec9443a407d
           <Input
             name="value"
             placeholder="Value of Item"
