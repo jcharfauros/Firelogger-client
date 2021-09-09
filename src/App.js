@@ -38,6 +38,7 @@ function App() {
       <FireloggerNavbar clickLogout={clearToken} />
       <Login updateToken={updateToken} />
       {protectedViews()}
+      {/* <h1>hello</h1> */}
     </div>
   );
 }
