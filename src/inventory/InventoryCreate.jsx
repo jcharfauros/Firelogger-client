@@ -67,7 +67,7 @@ const InventoryCreate = (props) => {
           </Input>
         </FormGroup>
         <FormGroup>
-          <Label htmlFor="name" />
+          <Label htmlFor="name">Create Name: </Label>
           <Input
             name="name"
             value={name}
@@ -75,7 +75,7 @@ const InventoryCreate = (props) => {
           />
         </FormGroup>
         <FormGroup>
-          <Label htmlFor="year" />
+          <Label htmlFor="year">Year: </Label>
           <Input
             name="year"
             value={year}
@@ -83,7 +83,7 @@ const InventoryCreate = (props) => {
           />
         </FormGroup>
         <FormGroup>
-          <Label htmlFor="model" />
+          <Label htmlFor="model">Model: </Label>
           <Input
             name="model"
             value={model}
@@ -91,7 +91,7 @@ const InventoryCreate = (props) => {
           />
         </FormGroup>
         <FormGroup>
-          <Label htmlFor="serial_number" />
+          <Label htmlFor="serial_number">Serial Number: </Label>
           <Input
             name="serial_number"
             value={serial_number}
@@ -99,7 +99,7 @@ const InventoryCreate = (props) => {
           />
         </FormGroup>
         <FormGroup>
-          <Label htmlFor="pic_url" />
+          <Label htmlFor="pic_url">Pic URL: </Label>
           <Input
             name="pic_url"
             value={pic_url}
@@ -107,7 +107,7 @@ const InventoryCreate = (props) => {
           />
         </FormGroup>
         <FormGroup>
-          <Label htmlFor="value" />
+          <Label htmlFor="value">Item Value: </Label>
           <Input
             name="value"
             value={value}
