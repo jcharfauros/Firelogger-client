@@ -40,6 +40,8 @@ const Login = (props) => {
         <FormGroup>
           <Label htmlFor="password"> Password: &nbsp;</Label>
           <Input
+            input
+            type="password"
             onChange={(e) => setPassword(e.target.value)}
             name="password"
             value={password}

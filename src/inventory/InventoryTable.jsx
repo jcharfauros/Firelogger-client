@@ -1,5 +1,7 @@
 import React from "react";
 import { Table, Button, Container } from "reactstrap";
+import { jsPDF } from "jspdf";
+import "jspdf-autotable";
 
 const InventoryTable = (props) => {
   const deleteInventory = (inventory) => {
@@ -11,11 +13,16 @@ const InventoryTable = (props) => {
       }),
     }).then(() => props.fetchInventory());
   };
- console.log(props.inventory);
+  console.log(props.inventory);
+
+  const handlePDF = (e) => {
+    const doc = new jsPDF("landscape");
+    doc.autoTable({ html: "#inventoryTable" });
+    doc.save("My Inventory.pdf");
+  };
 
   const inventoryMapper = () => {
     return props.inventory.map((inventory, index) => {
-     
       return (
         <tr key={index}>
           <th scope="row">{inventory.id}</th>
@@ -24,7 +31,13 @@ const InventoryTable = (props) => {
           <td>{inventory.year}</td>
           <td>{inventory.model}</td>
           <td>{inventory.serial_number}</td>
-          <td>{inventory.pic_url}</td>
+          <td>
+            <img
+              src={inventory.pic_url}
+              style={{ width: "300px" }}
+              alt="inventory item IMG"
+            />{" "}
+          </td>
           <td>{inventory.value}</td>
           <td>
             <Button
@@ -54,17 +67,20 @@ const InventoryTable = (props) => {
     <Container>
       <h3>Inventory Item List</h3>
       <hr />
-      <Table striped>
+      <Table id="inventoryTable" striped>
         <thead>
           <tr>
-            <th>item#</th>
-            <th>category</th>
-            <th>name</th>
-            <th>year</th>
-            <th>model</th>
+            <th>Item#</th>
+            <th>Category</th>
+            <th>Name</th>
+            <th>Year</th>
+            <th>Model</th>
             <th>SN#</th>
-            <th>picture</th>
-            <th>value</th>
+            <th>Picture</th>
+            <th>Value</th>
+            <Button size="sm" color="primary" active onClick={handlePDF}>
+              Export to PDF
+            </Button>
           </tr>
         </thead>
         <tbody>{inventoryMapper()}</tbody>
