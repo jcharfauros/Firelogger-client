@@ -15,9 +15,27 @@ const InventoryTable = (props) => {
   };
   console.log(props.inventory);
 
+  //Parses User's Table & Generates PDF Report of User's current Inventory
   const handlePDF = (e) => {
     const doc = new jsPDF("landscape");
-    doc.autoTable({ html: "#inventoryTable" });
+    doc.autoTable({
+      html: "#inventoryTable",
+      bodyStyles: { minCellHeight: 15 },
+      didDrawCell: function (data) {
+        if (data.column.index === 6 && data.cell.section === "body") {
+          var td = data.cell.raw;
+          var img = td.getElementsByTagName("img")[0];
+          doc.addImage(
+            img.src,
+            "JPEG",
+            data.cell.x + 2,
+            data.cell.y + 2,
+            10,
+            10
+          );
+        }
+      },
+    });
     doc.save("My Inventory.pdf");
   };
 
