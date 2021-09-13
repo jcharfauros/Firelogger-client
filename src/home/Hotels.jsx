@@ -12,7 +12,7 @@ const Hotels = (props) => {
       .then((response) => response.json())
       .then((data) => {
         setHotel(data.results);
-        console.log(data.results);
+        // console.log(data.results);
       });
   };
 

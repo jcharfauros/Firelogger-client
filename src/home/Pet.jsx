@@ -22,16 +22,18 @@ const Pets = (props) => {
 
   const petMapper = () => {
     return pet.map((pet) => {
+      console.log(pet.photos);
       return (
         <tr key={pet.id}>
           <td>{pet.name}</td>
           <td>{pet.formatted_address}</td>
-          {/* <td>{ReactHtmlParser(pet.photos[0].html_attributions)}</td> */}
-          {/* <td>
-            {pet.photos[0].html_attributions.length > 0
-              ? pet.photos[0].html_attributions
+          {/* <td>{ReactHtmlParser(pet.photos[0].html_attributions[0])}</td> */}
+
+          <td>
+            {pet.photos !== undefined
+              ? ReactHtmlParser(pet.photos[0].html_attributions[0])
               : "Link not available"}
-          </td> */}
+          </td>
         </tr>
       );
     });
