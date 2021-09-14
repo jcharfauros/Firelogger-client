@@ -11,9 +11,6 @@ import {
 } from "reactstrap";
 
 const InventoryEdit = (props) => {
-  const [editCategory, setEditCategory] = useState(
-    props.inventoryToEdit.category
-  );
   
     const [ editCategory, setEditCategory ] = useState(props.inventoryToEdit.category);
     const [ editName, setEditName ] = useState(props.inventoryToEdit.name);
@@ -45,6 +42,8 @@ const InventoryEdit = (props) => {
                 props.editOff();
         })
     }
+
+   
 
     return (
         <Modal isOpen={true} centered={true}>
@@ -88,6 +87,10 @@ const InventoryEdit = (props) => {
                         <Input name='value' value={editValue} onChange={(e) => setEditValue(e.target.value)} />
                     </FormGroup>
                     <Button type="submit">Edit Inventory Item!</Button>
+                    <br/>
+                    <br/>
+                    <Button close />
+                    <Button closebutton= "true">Cancel</Button>
                 </Form>
             </ModalBody>
         </Modal>

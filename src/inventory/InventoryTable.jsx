@@ -24,7 +24,7 @@ const InventoryTable = (props) => {
           <td>{inventory.year}</td>
           <td>{inventory.model}</td>
           <td>{inventory.serial_number}</td>
-          <td>{inventory.pic_url}</td>
+          <td><img src={inventory.pic_url} style={{ width: "300px" }} /></td>
           <td>{inventory.value}</td>
           <td>
             <Button
@@ -57,14 +57,14 @@ const InventoryTable = (props) => {
       <Table striped>
         <thead>
           <tr>
-            <th>item#</th>
-            <th>category</th>
-            <th>name</th>
-            <th>year</th>
-            <th>model</th>
-            <th>SN#</th>
-            <th>picture</th>
-            <th>value</th>
+            <th>Item #</th>
+            <th>Category</th>
+            <th>Name</th>
+            <th>Year</th>
+            <th>Model</th>
+            <th>Serial Number</th>
+            <th>Picture</th>
+            <th>Value</th>
           </tr>
         </thead>
         <tbody>{inventoryMapper()}</tbody>

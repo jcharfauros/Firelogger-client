@@ -4,6 +4,8 @@ import Auth from "./auth/Auth";
 import FireloggerNavbar from "./home/Navbar";
 import Login from "./auth/Login";
 
+
+
 function App() {
   const [sessionToken, setSessionToken] = useState("");
 
@@ -31,6 +33,7 @@ function App() {
       <Auth updateToken={updateToken} />
     );
   };
+
 
   return (
     <div>
