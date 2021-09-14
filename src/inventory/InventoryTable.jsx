@@ -11,11 +11,10 @@ const InventoryTable = (props) => {
       }),
     }).then(() => props.fetchInventory());
   };
- console.log(props.inventory);
+  // console.log(props.inventory);
 
   const inventoryMapper = () => {
     return props.inventory.map((inventory, index) => {
-     
       return (
         <tr key={index}>
           <th scope="row">{inventory.id}</th>
@@ -24,7 +23,10 @@ const InventoryTable = (props) => {
           <td>{inventory.year}</td>
           <td>{inventory.model}</td>
           <td>{inventory.serial_number}</td>
+
+
           <td><img src={inventory.pic_url} style={{ width: "300px" }} /></td>
+
           <td>{inventory.value}</td>
           <td>
             <Button
@@ -61,14 +63,14 @@ const InventoryTable = (props) => {
       <Table striped>
         <thead>
           <tr>
-            <th>item#</th>
-            <th>category</th>
-            <th>name</th>
-            <th>year</th>
-            <th>model</th>
-            <th>SN#</th>
-            <th>picture</th>
-            <th>value</th>
+            <th>Item #</th>
+            <th>Category</th>
+            <th>Name</th>
+            <th>Year</th>
+            <th>Model</th>
+            <th>Serial Number</th>
+            <th>Picture</th>
+            <th>Value</th>
           </tr>
         </thead>
         <tbody>{inventoryMapper()}</tbody>

@@ -1,11 +1,11 @@
-/* .signup {
-  border: 0.5px black solid;
-  text-align: left;
-  height: 115px;
-  padding-top: 15px;
-  width: 50vw;
-  padding-bottom: 15px;
+.hotelTable {
+  width: 75vw;
+  margin-left: auto;
+  margin-right: auto;
 }
+
+.petTable {
+  width: 75vw;
 
 .login {
   border: 0.5px black solid;
@@ -33,6 +33,15 @@ body {
   margin-right: auto;
 }
 
+
+.pet_title {
+  padding-left: 12%;
+}
+
+.hotel_title {
+  padding-left: 12%;
+}
+
 .navbar-jc {
   /* font-family: monospace; */
   /* background: whitesmoke; */
@@ -47,3 +56,4 @@ body {
   letter-spacing: .2em;
   color: #FF8469;
 }
+

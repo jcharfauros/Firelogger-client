@@ -1,8 +1,16 @@
 import React, { useState, useEffect } from "react";
+import "./App.css";
 import InventoryIndex from "./inventory/InventoryIndex";
 import Auth from "./auth/Auth";
 import FireloggerNavbar from "./home/Navbar";
+
+import Login from "./auth/Login";
+import Resources from "./home/Resources";
+import Hotels from "./home/Hotels";
+import Pets from "./home/Pet";
+
 import JumboTest from "./home/Header";
+
 
 function App() {
   const [sessionToken, setSessionToken] = useState("");
@@ -34,10 +42,11 @@ function App() {
 
   return (
     <div>
-      {/* <Auth updateToken={updateToken} /> */}
-      <FireloggerNavbar clickLogout={clearToken} />      
-      <JumboTest />      
+      <FireloggerNavbar clickLogout={clearToken} />
+          <JumboTest />      
       {protectedViews()}
+      <Hotels />
+      <Pets />
     </div>
   );
 }

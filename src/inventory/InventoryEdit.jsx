@@ -10,6 +10,7 @@ import {
   ModalBody,
 } from "reactstrap";
 
+
 const InventoryEdit = (props) => {    
     const [ editCategory, setEditCategory ] = useState(props.inventoryToEdit.category);
     const [ editName, setEditName ] = useState(props.inventoryToEdit.name);
@@ -19,28 +20,35 @@ const InventoryEdit = (props) => {
     const [ editPicUrl, setEditPicUrl] = useState(props.inventoryToEdit.pic_url);
     const [ editValue, setEditValue ] = useState(props.inventoryToEdit.value);
 
-    const inventoryUpdate = (e, inventory) => {
-        e.preventDefault();
-        fetch(`http://localhost:3000/inventory/update/${props.inventoryToEdit.id}`, {
-            method: 'PUT',
-            body: JSON.stringify({inventory: {
-                category: editCategory,
-                name: editName,
-                year: editYear,
-                model: editModel,
-                serial_number: editSerialNum,
-                pic_url: editPicUrl,
-                value: editValue
-            }}),
-            headers: new Headers({
-                'Content-Type': 'application/json',
-                'Authorization': props.token
-            })
-        }).then((res) => {
-                props.fetchInventory();
-                props.editOff();
-        })
-    }
+
+  const inventoryUpdate = (e, inventory) => {
+    e.preventDefault();
+    fetch(
+      `http://localhost:3000/inventory/update/${props.inventoryToEdit.id}`,
+      {
+        method: "PUT",
+        body: JSON.stringify({
+          inventory: {
+            category: editCategory,
+            name: editName,
+            year: editYear,
+            model: editModel,
+            serial_number: editSerialNum,
+            pic_url: editPicUrl,
+            value: editValue,
+          },
+        }),
+        headers: new Headers({
+          "Content-Type": "application/json",
+          Authorization: props.token,
+        }),
+      }
+    ).then((res) => {
+      props.fetchInventory();
+      props.editOff();
+    });
+  };
+
 
     return (
         <Modal isOpen={true} centered={true}>
@@ -91,5 +99,6 @@ const InventoryEdit = (props) => {
         </Modal>
     )
 }
+
 
 export default InventoryEdit;
