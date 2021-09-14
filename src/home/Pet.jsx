@@ -30,9 +30,20 @@ const Pets = (props) => {
           {/* <td>{ReactHtmlParser(pet.photos[0].html_attributions[0])}</td> */}
 
           <td>
-            {pet.photos !== undefined
+            {/* {pet.photos !== undefined
               ? ReactHtmlParser(pet.photos[0].html_attributions[0])
-              : "Link not available"}
+              : "Link not available"} */}
+
+            {pet.photos !== undefined ? (
+              <a
+                href={`https://maps.google.com/?q=${pet.formatted_address}`}
+                target="_blank"
+              >
+                <button>Google Map Link</button>
+              </a>
+            ) : (
+              "Link not available"
+            )}
           </td>
         </tr>
       );

@@ -27,7 +27,13 @@ const Hotels = (props) => {
           <td>{hotel.name}</td>
           <td>{hotel.formatted_address}</td>
           <td>
-            {ReactHtmlParser(hotel.photos[0].html_attributions)}
+            <a
+              href={`https://maps.google.com/?q=${hotel.formatted_address}`}
+              target="_blank"
+            >
+              <button>Google Map Link</button>
+            </a>
+            {/* {ReactHtmlParser(hotel.photos[0].html_attributions)} */}
             {/* <a
               href={ReactHtmlParser(hotel.photos[0].html_attributions)}
               target="_blank"
