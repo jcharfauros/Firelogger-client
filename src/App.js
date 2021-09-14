@@ -11,7 +11,6 @@ import Pets from "./home/Pet";
 
 import JumboTest from "./home/Header";
 
-
 function App() {
   const [sessionToken, setSessionToken] = useState("");
 
@@ -43,7 +42,7 @@ function App() {
   return (
     <div>
       <FireloggerNavbar clickLogout={clearToken} />
-          <JumboTest />      
+      <JumboTest />
       {protectedViews()}
       <Hotels />
       <Pets />
