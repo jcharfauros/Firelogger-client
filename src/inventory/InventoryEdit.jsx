@@ -10,11 +10,7 @@ import {
   ModalBody,
 } from "reactstrap";
 
-const InventoryEdit = (props) => {
-  const [editCategory, setEditCategory] = useState(
-    props.inventoryToEdit.category
-  );
-  
+const InventoryEdit = (props) => {    
     const [ editCategory, setEditCategory ] = useState(props.inventoryToEdit.category);
     const [ editName, setEditName ] = useState(props.inventoryToEdit.name);
     const [ editYear, setEditYear ] = useState(props.inventoryToEdit.year);
@@ -88,6 +84,8 @@ const InventoryEdit = (props) => {
                         <Input name='value' value={editValue} onChange={(e) => setEditValue(e.target.value)} />
                     </FormGroup>
                     <Button type="submit">Edit Inventory Item!</Button>
+                    {/* <Button close /> */}
+                    <Button closebutton= "true">Cancel</Button>
                 </Form>
             </ModalBody>
         </Modal>
