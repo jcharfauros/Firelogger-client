@@ -23,13 +23,16 @@ const InventoryTable = (props) => {
           <td>{inventory.year}</td>
           <td>{inventory.model}</td>
           <td>{inventory.serial_number}</td>
-          <td>
-            <img src={inventory.pic_url} style={{ width: "300px" }} />
-          </td>
+
+
+          <td><img src={inventory.pic_url} style={{ width: "300px" }} /></td>
+
           <td>{inventory.value}</td>
           <td>
             <Button
+              outline
               color="warning"
+              size='sm'
               onClick={() => {
                 props.editInventory(inventory);
                 props.editOn();
@@ -38,7 +41,9 @@ const InventoryTable = (props) => {
               Update
             </Button>
             <Button
+              outline
               color="danger"
+              size='sm'
               onClick={() => {
                 deleteInventory(inventory);
               }}

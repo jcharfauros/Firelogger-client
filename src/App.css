@@ -6,9 +6,33 @@
 
 .petTable {
   width: 75vw;
+
+.login {
+  border: 0.5px black solid;
+  text-align: left;
+  height: 115px;
+  padding-top: 15px;
+  width: 50vw;
+  padding-bottom: 15px;
+} */
+
+/* julia testing stying */
+
+body {
+  background: white;
+}
+
+.logo-img {
+  max-width: 75px;
+}
+
+.hr-1 {
+  color: #FF8469;
+  height: 10px;
   margin-left: auto;
   margin-right: auto;
 }
+
 
 .pet_title {
   padding-left: 12%;
@@ -17,3 +41,19 @@
 .hotel_title {
   padding-left: 12%;
 }
+
+.navbar-jc {
+  /* font-family: monospace; */
+  /* background: whitesmoke; */
+  /* position: fixed; */
+  width: 100%;
+  overflow: hidden;
+}
+
+.font-test {
+  font-family: Bubbleboddy Neue, sans-serif;
+  font-weight: 100;
+  letter-spacing: .2em;
+  color: #FF8469;
+}
+

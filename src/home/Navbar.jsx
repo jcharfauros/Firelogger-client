@@ -16,19 +16,21 @@ import {
     // DropdownMenu,
     // DropdownItem,
 } from 'reactstrap';
+import '../App.css';
+import fireloggerlogo from '../assets/firelogger_logo_orange.png';
 
 const FireloggerNavbar = (props) => {
     const [isOpen, setIsOpen] = useState(false);
-
+   
     const toggle = () => {
         let newIsOpen = !isOpen;
         setIsOpen(newIsOpen);
     }
 
     return (
-        <Navbar color='light' light expand='md'>
+        <Navbar className='navbar-jc' light expand='md'>
             <NavbarBrand href="/">
-                Firelogger App
+                <img src={fireloggerlogo} alt='firelogger_logo' className='logo-img' />
             </NavbarBrand>
             <NavbarToggler onClick={toggle} />
             <Collapse isOpen={isOpen} navbar>
@@ -36,13 +38,12 @@ const FireloggerNavbar = (props) => {
                     <NavItem>
                         <Button onClick={props.clickLogout}>
                             Logout
-                        </Button>
+                        </Button>                        
                     </NavItem>
                 </Nav>
             </Collapse>
         </Navbar>
     )
-
 }
 
 export default FireloggerNavbar;
