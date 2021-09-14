@@ -149,7 +149,7 @@ const InventoryCreate = (props) => {
           {loading ? (
             <h6>Loading...</h6>
           ) : (
-            <img src={image} style={{ width: "300px" }} />
+            <img src={image} style={{ width: "300px" }} alt="inventory item" />
           )}
         </FormGroup>{" "}
         <br />
