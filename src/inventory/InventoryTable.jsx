@@ -1,5 +1,7 @@
 import React from "react";
 import { Table, Button, Container } from "reactstrap";
+import { jsPDF } from "jspdf";
+import "jspdf-autotable";
 
 const InventoryTable = (props) => {
   const deleteInventory = (inventory) => {
@@ -11,7 +13,13 @@ const InventoryTable = (props) => {
       }),
     }).then(() => props.fetchInventory());
   };
-  // console.log(props.inventory);
+  console.log(props.inventory);
+
+  const handlePDF = (e) => {
+    const doc = new jsPDF("landscape");
+    doc.autoTable({ html: "#inventoryTable" });
+    doc.save("My Inventory.pdf");
+  };
 
   const inventoryMapper = () => {
     return props.inventory.map((inventory, index) => {
@@ -23,16 +31,19 @@ const InventoryTable = (props) => {
           <td>{inventory.year}</td>
           <td>{inventory.model}</td>
           <td>{inventory.serial_number}</td>
-
-
-          <td><img src={inventory.pic_url} style={{ width: "300px" }} /></td>
-
+          <td>
+            <img
+              src={inventory.pic_url}
+              style={{ width: "300px" }}
+              alt="inventory item IMG"
+            />{" "}
+          </td>
           <td>{inventory.value}</td>
           <td>
             <Button
               outline
               color="warning"
-              size='sm'
+              size="sm"
               onClick={() => {
                 props.editInventory(inventory);
                 props.editOn();
@@ -43,7 +54,7 @@ const InventoryTable = (props) => {
             <Button
               outline
               color="danger"
-              size='sm'
+              size="sm"
               onClick={() => {
                 deleteInventory(inventory);
               }}
@@ -60,17 +71,20 @@ const InventoryTable = (props) => {
     <Container>
       <h3>Inventory Item List</h3>
       <hr />
-      <Table striped>
+      <Table id="inventoryTable" striped>
         <thead>
           <tr>
-            <th>Item #</th>
+            <th>Item#</th>
             <th>Category</th>
             <th>Name</th>
             <th>Year</th>
             <th>Model</th>
-            <th>Serial Number</th>
+            <th>SN#</th>
             <th>Picture</th>
             <th>Value</th>
+            <Button size="sm" color="primary" active onClick={handlePDF}>
+              Export to PDF
+            </Button>
           </tr>
         </thead>
         <tbody>{inventoryMapper()}</tbody>
