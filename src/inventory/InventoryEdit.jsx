@@ -64,7 +64,6 @@ const InventoryEdit = (props) => {
               value={editCategory}
               onChange={(e) => setEditCategory(e.target.value)}
             >
-              <option></option>
               <option value="Electronics">Electronics</option>
               <option value="Jewelry">Jewelry</option>
               <option value="Furs">Furs</option>
@@ -124,6 +123,9 @@ const InventoryEdit = (props) => {
           <Button type="submit">Edit Inventory Item!</Button>
           {/* <Button close /> */}
           <Button closebutton="true">Cancel</Button>
+          <Button size="lg" type="submit" color="primary">
+            Save
+          </Button>
         </Form>
       </ModalBody>
     </Modal>
