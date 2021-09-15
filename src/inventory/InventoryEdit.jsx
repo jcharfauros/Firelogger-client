@@ -11,6 +11,7 @@ import {
 } from "reactstrap";
 
 const InventoryEdit = (props) => {
+<<<<<<< HEAD
   
     const [ editCategory, setEditCategory ] = useState(props.inventoryToEdit.category);
     const [ editName, setEditName ] = useState(props.inventoryToEdit.name);
@@ -19,30 +20,49 @@ const InventoryEdit = (props) => {
     const [ editSerialNum, setEditSerialNum ] = useState(props.inventoryToEdit.serial_number);
     const [ editPicUrl, setEditPicUrl] = useState(props.inventoryToEdit.pic_url);
     const [ editValue, setEditValue ] = useState(props.inventoryToEdit.value);
+=======
+  const [editCategory, setEditCategory] = useState(
+    props.inventoryToEdit.category
+  );
+  const [editName, setEditName] = useState(props.inventoryToEdit.name);
+  const [editYear, setEditYear] = useState(props.inventoryToEdit.year);
+  const [editModel, setEditModel] = useState(props.inventoryToEdit.model);
+  const [editSerialNum, setEditSerialNum] = useState(
+    props.inventoryToEdit.serial_number
+  );
+  const [editPicUrl, setEditPicUrl] = useState(props.inventoryToEdit.pic_url);
+  const [editValue, setEditValue] = useState(props.inventoryToEdit.value);
+>>>>>>> e41f42b5ddb40ad71e35d95b9f74a75f8c16d337
 
-    const inventoryUpdate = (e, inventory) => {
-        e.preventDefault();
-        fetch(`http://localhost:3000/inventory/update/${props.inventoryToEdit.id}`, {
-            method: 'PUT',
-            body: JSON.stringify({inventory: {
-                category: editCategory,
-                name: editName,
-                year: editYear,
-                model: editModel,
-                serial_number: editSerialNum,
-                pic_url: editPicUrl,
-                value: editValue
-            }}),
-            headers: new Headers({
-                'Content-Type': 'application/json',
-                'Authorization': props.token
-            })
-        }).then((res) => {
-                props.fetchInventory();
-                props.editOff();
-        })
-    }
+  const inventoryUpdate = (e, inventory) => {
+    e.preventDefault();
+    fetch(
+      `http://localhost:3000/inventory/update/${props.inventoryToEdit.id}`,
+      {
+        method: "PUT",
+        body: JSON.stringify({
+          inventory: {
+            category: editCategory,
+            name: editName,
+            year: editYear,
+            model: editModel,
+            serial_number: editSerialNum,
+            pic_url: editPicUrl,
+            value: editValue,
+          },
+        }),
+        headers: new Headers({
+          "Content-Type": "application/json",
+          Authorization: props.token,
+        }),
+      }
+    ).then((res) => {
+      props.fetchInventory();
+      props.editOff();
+    });
+  };
 
+<<<<<<< HEAD
    
 
     return (
@@ -96,5 +116,87 @@ const InventoryEdit = (props) => {
         </Modal>
     )
 }
+=======
+  return (
+    <Modal isOpen={true} centered={true}>
+      <ModalHeader>Inventory Items Edit</ModalHeader>
+      <ModalBody>
+        <Form onSubmit={inventoryUpdate}>
+          <FormGroup>
+            <Label htmlFor="category">Edit Category:</Label>
+            <Input
+              type="select"
+              name="category"
+              value={editCategory}
+              onChange={(e) => setEditCategory(e.target.value)}
+            >
+              <option value="Electronics">Electronics</option>
+              <option value="Jewelry">Jewelry</option>
+              <option value="Furs">Furs</option>
+              <option value="Art">Art</option>
+              <option value="Antiques">Antiques</option>
+              <option value="Other/Misc">Other/Misc</option>
+            </Input>
+          </FormGroup>
+          <FormGroup>
+            <Label htmlFor="name">Edit Name:</Label>
+            <Input
+              name="name"
+              value={editName}
+              onChange={(e) => setEditName(e.target.value)}
+            />
+          </FormGroup>
+          <FormGroup>
+            <Label htmlFor="year">Edit Year:</Label>
+            <Input
+              name="year"
+              value={editYear}
+              onChange={(e) => setEditYear(e.target.value)}
+            />
+          </FormGroup>
+          <FormGroup>
+            <Label htmlFor="model">Edit Model:</Label>
+            <Input
+              name="model"
+              value={editModel}
+              onChange={(e) => setEditModel(e.target.value)}
+            />
+          </FormGroup>
+          <FormGroup>
+            <Label htmlFor="serial_number">Edit Serial Number:</Label>
+            <Input
+              name="serial_number"
+              value={editSerialNum}
+              onChange={(e) => setEditSerialNum(e.target.value)}
+            />
+          </FormGroup>
+          <FormGroup>
+            <Label htmlFor="pic_url">Edit Picture URL:</Label>
+            <Input
+              name="pic_url"
+              value={editPicUrl}
+              onChange={(e) => setEditPicUrl(e.target.value)}
+            />
+          </FormGroup>
+          <FormGroup>
+            <Label htmlFor="value">Edit Item Value:</Label>
+            <Input
+              name="value"
+              value={editValue}
+              onChange={(e) => setEditValue(e.target.value)}
+            />
+          </FormGroup>
+          <Button type="submit">Edit Inventory Item!</Button>
+          {/* <Button close /> */}
+          <Button closebutton="true">Cancel</Button>
+          <Button size="lg" type="submit" color="primary">
+            Save
+          </Button>
+        </Form>
+      </ModalBody>
+    </Modal>
+  );
+};
+>>>>>>> e41f42b5ddb40ad71e35d95b9f74a75f8c16d337
 
 export default InventoryEdit;

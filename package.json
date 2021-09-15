@@ -8,10 +8,18 @@
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
     "bootstrap": "^5.1.0",
+<<<<<<< HEAD
     "google-map-react": "^2.1.10",
     "google-maps-react": "^2.0.6",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+=======
+    "jspdf": "^2.3.1",
+    "jspdf-autotable": "^3.5.20",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-html-parser": "^2.0.2",
+>>>>>>> e41f42b5ddb40ad71e35d95b9f74a75f8c16d337
     "react-router-dom": "^5.3.0",
     "react-scripts": "^4.0.3",
     "reactstrap": "^8.10.0",

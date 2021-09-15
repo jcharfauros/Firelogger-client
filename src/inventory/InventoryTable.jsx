@@ -1,5 +1,7 @@
 import React from "react";
 import { Table, Button, Container } from "reactstrap";
+import { jsPDF } from "jspdf";
+import "jspdf-autotable";
 
 const InventoryTable = (props) => {
   const deleteInventory = (inventory) => {
@@ -11,11 +13,34 @@ const InventoryTable = (props) => {
       }),
     }).then(() => props.fetchInventory());
   };
- console.log(props.inventory);
+  console.log(props.inventory);
+
+  //Parses User's Table & Generates PDF Report of User's current Inventory
+  const handlePDF = (e) => {
+    const doc = new jsPDF("landscape");
+    doc.autoTable({
+      html: "#inventoryTable",
+      bodyStyles: { minCellHeight: 15 },
+      didDrawCell: function (data) {
+        if (data.column.index === 6 && data.cell.section === "body") {
+          var td = data.cell.raw;
+          var img = td.getElementsByTagName("img")[0];
+          doc.addImage(
+            img.src,
+            "JPEG",
+            data.cell.x + 2,
+            data.cell.y + 2,
+            10,
+            10
+          );
+        }
+      },
+    });
+    doc.save("My Inventory.pdf");
+  };
 
   const inventoryMapper = () => {
     return props.inventory.map((inventory, index) => {
-     
       return (
         <tr key={index}>
           <th scope="row">{inventory.id}</th>
@@ -24,11 +49,23 @@ const InventoryTable = (props) => {
           <td>{inventory.year}</td>
           <td>{inventory.model}</td>
           <td>{inventory.serial_number}</td>
+<<<<<<< HEAD
           <td><img src={inventory.pic_url} style={{ width: "300px" }} /></td>
+=======
+          <td>
+            <img
+              src={inventory.pic_url}
+              style={{ width: "300px" }}
+              alt="inventory item IMG"
+            />{" "}
+          </td>
+>>>>>>> e41f42b5ddb40ad71e35d95b9f74a75f8c16d337
           <td>{inventory.value}</td>
           <td>
             <Button
+              outline
               color="warning"
+              size="sm"
               onClick={() => {
                 props.editInventory(inventory);
                 props.editOn();
@@ -37,7 +74,9 @@ const InventoryTable = (props) => {
               Update
             </Button>
             <Button
+              outline
               color="danger"
+              size="sm"
               onClick={() => {
                 deleteInventory(inventory);
               }}
@@ -54,17 +93,30 @@ const InventoryTable = (props) => {
     <Container>
       <h3>Inventory Item List</h3>
       <hr />
-      <Table striped>
+      <Table id="inventoryTable" striped>
         <thead>
           <tr>
+<<<<<<< HEAD
             <th>Item #</th>
+=======
+            <th>Item#</th>
+>>>>>>> e41f42b5ddb40ad71e35d95b9f74a75f8c16d337
             <th>Category</th>
             <th>Name</th>
             <th>Year</th>
             <th>Model</th>
+<<<<<<< HEAD
             <th>Serial Number</th>
             <th>Picture</th>
             <th>Value</th>
+=======
+            <th>SN#</th>
+            <th>Picture</th>
+            <th>Value</th>
+            <Button size="sm" color="primary" active onClick={handlePDF}>
+              Export to PDF
+            </Button>
+>>>>>>> e41f42b5ddb40ad71e35d95b9f74a75f8c16d337
           </tr>
         </thead>
         <tbody>{inventoryMapper()}</tbody>

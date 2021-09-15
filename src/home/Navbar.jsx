@@ -20,7 +20,7 @@ import {
 
 const FireLoggerNavbar = (props) => {
     const [isOpen, setIsOpen] = useState(false);
-
+   
     const toggle = () => {
       let newIsOpen = !isOpen;
       setIsOpen(newIsOpen);

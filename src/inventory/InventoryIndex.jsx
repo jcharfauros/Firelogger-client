@@ -14,7 +14,7 @@ const InventoryIndex = (props) => {
           method: "GET",
           headers: new Headers({
               "Content-Type": "application/json",
-              Authorization: props.token,
+              "Authorization": props.token,
           }),
       })
           .then((res) => res.json())
@@ -60,16 +60,12 @@ const InventoryIndex = (props) => {
             token={props.token}
           />
         </Col>
-        {editActive ? (
+        {editActive ? 
           <InventoryEdit
             inventoryToEdit={inventoryToEdit}
             editOff={editOff}
             token={props.token}
-            fetchInventory={fetchInventory}
-          />
-        ) : (
-          <></>
-        )}
+            fetchInventory={fetchInventory}/> : <></>}
       </Row>
     </Container>
   );
