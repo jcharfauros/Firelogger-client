@@ -6,6 +6,7 @@
 
 .petTable {
   width: 75vw;
+}
 
 .login {
   border: 0.5px black solid;
@@ -28,7 +29,7 @@ body {
 
 .hr-1 {
   color: #FF8469;
-  height: 10px;
+  height: 10px !important;
   margin-left: auto;
   margin-right: auto;
 }
@@ -55,5 +56,16 @@ body {
   font-weight: 100;
   letter-spacing: .2em;
   color: #FF8469;
+  text-shadow: 2px 2px #3F44A4;
 }
 
+.button-pdf {
+  background-color: #3F44A4;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}

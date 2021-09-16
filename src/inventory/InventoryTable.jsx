@@ -58,9 +58,8 @@ const InventoryTable = (props) => {
           </td>
           <td>{inventory.value}</td>
           <td>
-            <Button
-              outline
-              color="warning"
+            <Button              
+              color="light"
               size="sm"
               onClick={() => {
                 props.editInventory(inventory);
@@ -69,9 +68,8 @@ const InventoryTable = (props) => {
             >
               Update
             </Button>
-            <Button
-              outline
-              color="danger"
+            <Button              
+              color="dark"
               size="sm"
               onClick={() => {
                 deleteInventory(inventory);

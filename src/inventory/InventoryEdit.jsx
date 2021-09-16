@@ -53,7 +53,11 @@ const InventoryEdit = (props) => {
 
   return (
     <Modal isOpen={true} centered={true}>
-      <ModalHeader>Inventory Items Edit</ModalHeader>
+      <ModalHeader>Inventory Items Edit      
+      <button closebutton='true' class="btn-close" aria-label="Close">
+        {/* <span aria-hidden="true">&times;</span> */}
+      </button>
+      </ModalHeader>
       <ModalBody>
         <Form onSubmit={inventoryUpdate}>
           <FormGroup>
@@ -119,11 +123,11 @@ const InventoryEdit = (props) => {
               value={editValue}
               onChange={(e) => setEditValue(e.target.value)}
             />
-          </FormGroup>
-          <Button type="submit">Edit Inventory Item!</Button>
-          {/* <Button close /> */}
-          <Button closebutton="true">Cancel</Button>
-          <Button size="lg" type="submit" color="primary">
+          </FormGroup><br />          
+          <Button closebutton="true" color='light'>
+            Cancel
+          </Button>&nbsp;
+          <Button size="md" type="submit" color="dark">
             Save
           </Button>
         </Form>

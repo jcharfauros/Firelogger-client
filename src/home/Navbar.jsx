@@ -17,7 +17,7 @@ import {
     // DropdownItem,
 } from 'reactstrap';
 import '../App.css';
-import fireloggerlogo from '../assets/firelogger_logo_orange.png';
+import fireloggerlogo from '../assets/FIRELOG_W_OUTLINE.png';
 
 const FireloggerNavbar = (props) => {
     const [isOpen, setIsOpen] = useState(false);
