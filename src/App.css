@@ -58,14 +58,3 @@ body {
   color: #FF8469;
   text-shadow: 2px 2px #3F44A4;
 }
-
-.button-pdf {
-  background-color: #3F44A4;
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-}
