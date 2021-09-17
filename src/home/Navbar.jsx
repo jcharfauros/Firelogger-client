@@ -28,6 +28,14 @@ const FireloggerNavbar = (props) => {
     setIsOpen(newIsOpen);
   };
 
+  const loginSignupHide = () => {
+    return props.sessionToken === localStorage.getItem("token") ? (
+      <Button onClick={props.clickLogout}>Logout</Button>
+    ) : (
+      <Auth updateToken={props.updateToken} />
+    );
+  };
+
   return (
     <Navbar className="navbar-jc" light expand="md">
       <NavbarBrand href="/">
@@ -36,9 +44,7 @@ const FireloggerNavbar = (props) => {
       <NavbarToggler onClick={toggle} />
       <Collapse isOpen={isOpen} navbar>
         <Nav className="ml-auto" navbar>
-          <NavItem>
-            <Button onClick={props.clickLogout}>Logout</Button>
-          </NavItem>
+          <NavItem>{loginSignupHide()}</NavItem>
         </Nav>
       </Collapse>
     </Navbar>

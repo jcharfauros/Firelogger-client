@@ -35,17 +35,21 @@ function App() {
     return sessionToken === localStorage.getItem("token") ? (
       <InventoryIndex token={sessionToken} />
     ) : (
-      <Auth updateToken={updateToken} />
+      <JumboTest />
+      // <Auth updateToken={updateToken} />
     );
   };
 
   return (
     <div>
-      <FireloggerNavbar clickLogout={clearToken} />
-      <JumboTest />
+      <FireloggerNavbar
+        clickLogout={clearToken}
+        updateToken={updateToken}
+        sessionToken={sessionToken}
+      />
       {protectedViews()}
-      <Hotels />
-      <Pets />
+      {/* <Hotels />
+      <Pets /> */}
     </div>
   );
 }
