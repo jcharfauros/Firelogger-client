@@ -1,23 +1,21 @@
 import React from "react";
-import {
-    Jumbotron,
-    Container
-} from 'reactstrap';
-import home from '../assets/pexelhome.jpg';
-import '../App.css';
+import { Navbar, NavbarBrand, Nav, NavItem, NavLink } from "reactstrap";
 
-const JumboTest = (props) => {
+const Header = () => {
     return (
-        <div>
-            <Jumbotron fluid>
-                <Container className='text-center' fluid>
-                    <hr className='hr-1' />
-                    <h1 className='display-2 font-test'>Firelogger</h1>
-                    <img src={home} alt='home_image' style={{width: 800}} />
-                </Container>
-            </Jumbotron>
-        </div>
+        <header>
+            <Navbar className="header">
+                <NavbarBrand className="font-test" style={{ marginRight: 15, marginLeft: 15 }} href="/">Put logo here</NavbarBrand>
+                <Nav className="ml-auto"> 
+                    <NavItem>
+                        <NavLink className="font-test" style={{ marginRight: 15, marginLeft: 15 }} href="/"> 
+                            Brought to you by the FireLogger Team (link to about here)
+                        </NavLink>
+                    </NavItem>
+                </Nav>
+            </Navbar>
+        </header>
     );
 };
 
-export default JumboTest;
+export default Header;

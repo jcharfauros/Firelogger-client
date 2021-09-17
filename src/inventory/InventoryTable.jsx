@@ -49,9 +49,6 @@ const InventoryTable = (props) => {
           <td>{inventory.year}</td>
           <td>{inventory.model}</td>
           <td>{inventory.serial_number}</td>
-<<<<<<< HEAD
-          <td><img src={inventory.pic_url} style={{ width: "300px" }} /></td>
-=======
           <td>
             <img
               src={inventory.pic_url}
@@ -59,7 +56,6 @@ const InventoryTable = (props) => {
               alt="inventory item IMG"
             />{" "}
           </td>
->>>>>>> e41f42b5ddb40ad71e35d95b9f74a75f8c16d337
           <td>{inventory.value}</td>
           <td>
             <Button
@@ -96,27 +92,17 @@ const InventoryTable = (props) => {
       <Table id="inventoryTable" striped>
         <thead>
           <tr>
-<<<<<<< HEAD
-            <th>Item #</th>
-=======
             <th>Item#</th>
->>>>>>> e41f42b5ddb40ad71e35d95b9f74a75f8c16d337
             <th>Category</th>
             <th>Name</th>
             <th>Year</th>
             <th>Model</th>
-<<<<<<< HEAD
-            <th>Serial Number</th>
-            <th>Picture</th>
-            <th>Value</th>
-=======
             <th>SN#</th>
             <th>Picture</th>
             <th>Value</th>
             <Button size="sm" color="primary" active onClick={handlePDF}>
               Export to PDF
             </Button>
->>>>>>> e41f42b5ddb40ad71e35d95b9f74a75f8c16d337
           </tr>
         </thead>
         <tbody>{inventoryMapper()}</tbody>
