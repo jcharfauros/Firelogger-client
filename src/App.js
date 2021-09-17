@@ -3,8 +3,8 @@ import "./App.css";
 import InventoryIndex from "./inventory/InventoryIndex";
 import Auth from "./auth/Auth";
 import FireloggerNavbar from "./home/Navbar";
-
-import Login from "./auth/Login";
+// import Login from "./auth/Login";
+import LoginModal from "./auth/LoginModal";
 import Resources from "./home/Resources";
 import Hotels from "./home/Hotels";
 import Pets from "./home/Pet";
@@ -35,17 +35,21 @@ function App() {
     return sessionToken === localStorage.getItem("token") ? (
       <InventoryIndex token={sessionToken} />
     ) : (
-      <Auth updateToken={updateToken} />
+      <JumboTest />
+      // <Auth updateToken={updateToken} />
     );
   };
 
   return (
     <div>
-      <FireloggerNavbar clickLogout={clearToken} />
-      <JumboTest />
+      <FireloggerNavbar
+        clickLogout={clearToken}
+        updateToken={updateToken}
+        sessionToken={sessionToken}
+      />
       {protectedViews()}
-      <Hotels />
-      <Pets />
+      {/* <Hotels />
+      <Pets /> */}
     </div>
   );
 }
