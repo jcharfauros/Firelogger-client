@@ -7,8 +7,7 @@
 .petTable {
   width: 75vw;
 }
-
-.login {
+/* .login {
   border: 0.5px black solid;
   text-align: left;
   height: 115px;
@@ -16,6 +15,7 @@
   width: 50vw;
   padding-bottom: 15px;
 } */
+*/
 
 /* julia testing stying */
 
@@ -28,14 +28,11 @@ body {
 }
 
 .hr-1 {
-  color: #FF8469;
-  height: 10px !important;
+  color: #ff8469;
+  height: 10px;
   margin-left: auto;
   margin-right: auto;
 }
-
-
-
 
 .pet_title {
   padding-left: 12%;
@@ -56,9 +53,6 @@ body {
 .font-test {
   font-family: Bubbleboddy Neue, sans-serif;
   font-weight: 100;
-  letter-spacing: .2em;
-  /* color: #FF8469; */
-  color: #AB449F;
-  /* color: #3F44A4; */
+  letter-spacing: 0.2em;
+  color: #ff8469;
 }
-

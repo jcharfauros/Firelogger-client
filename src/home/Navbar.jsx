@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { BrowserRouter as Router, Link } from 'react-router-dom';
 import {
   Collapse,
   Navbar,
@@ -17,54 +16,39 @@ import {
   // DropdownMenu,
   // DropdownItem,
 } from "reactstrap";
-import Signup from "../auth/Signup";
+import "../App.css";
+import fireloggerlogo from "../assets/firelogger_logo_orange.png";
+import Auth from "../auth/Auth";
 
+const FireloggerNavbar = (props) => {
+  const [isOpen, setIsOpen] = useState(false);
 
-const FireLoggerNavbar = (props) => {
-    const [isOpen, setIsOpen] = useState(false);
-   
-    const toggle = () => {
-      let newIsOpen = !isOpen;
-      setIsOpen(newIsOpen);
-    };
+  const toggle = () => {
+    let newIsOpen = !isOpen;
+    setIsOpen(newIsOpen);
+  };
 
+  const loginSignupHide = () => {
+    return props.sessionToken === localStorage.getItem("token") ? (
+      <Button onClick={props.clickLogout}>Logout</Button>
+    ) : (
+      <Auth updateToken={props.updateToken} />
+    );
+  };
 
   return (
-    <Navbar sticky="top">
-        <Router>
-        
-        <Link to="/signup"
-        style={{ marginRight: 0, marginLeft: 25 }}
-        className="font-test"
-        >Signup</Link>
-        
-        <Link to="/login"
-        style={{ marginRight: 25}}
-        className="font-test"
-        >Login</Link>
-
-        {/* <Link to="/about"
-        className="font-test"
-        >About</Link> */}
-        </Router>
+    <Navbar className="navbar-jc" light expand="md">
+      <NavbarBrand href="/">
+        <img src={fireloggerlogo} alt="firelogger_logo" className="logo-img" />
+      </NavbarBrand>
+      <NavbarToggler onClick={toggle} />
+      <Collapse isOpen={isOpen} navbar>
+        <Nav className="ml-auto" navbar>
+          <NavItem>{loginSignupHide()}</NavItem>
+        </Nav>
+      </Collapse>
     </Navbar>
-
-    // <div>
-    //   <Navbar color="light" light expand="md">
-    //     <NavbarBrand href="/">Put Logo Here</NavbarBrand>
-    //     <NavbarToggler onClick={toggle} />
-    //     <Collapse isOpen={isOpen} navbar>
-    //       <Nav className="ml-auto" navbar>
-    //         <NavItem>
-    //           <Button onClick={props.clickLogout}>Logout</Button>
-    //         </NavItem>
-    //             <NavLink to="/Signup">SignUp</NavLink>
-    //       </Nav>
-    //     </Collapse>
-    //     <NavLink to="/Resources">Resources</NavLink>
-    //   </Navbar>
-    // </div>
   );
 };
 
-export default FireLoggerNavbar;
+export default FireloggerNavbar;
