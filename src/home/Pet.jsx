@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Row, Container, Table, Button } from "reactstrap";
-import ReactHtmlParser from "react-html-parser";
+// import ReactHtmlParser from "react-html-parser";
 
 const Pets = (props) => {
   const [pet, setPet] = useState({});

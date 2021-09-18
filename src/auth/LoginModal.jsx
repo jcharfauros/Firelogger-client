@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Auth from "./Auth";
+
 import {
   Form,
   Label,
@@ -14,7 +14,7 @@ import {
 const LoginModal = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  const [errorMsg, seterrorMSG] = useState("");
   let handleSubmit = (event) => {
     event.preventDefault();
     fetch("http://localhost:3000/user/login", {
@@ -28,14 +28,23 @@ const LoginModal = (props) => {
     })
       .then((response) => response.json())
       .then((data) => {
-        props.updateToken(data.sessionToken);
+        console.log(data.error);
+        if (
+          data.error ===
+          "Login failed - Please check email and password and try again"
+        ) {
+          console.log("Hey email or password is wrong so token is Undefined");
+        } else {
+          props.updateToken(data.sessionToken);
+          console.log("Email & Password combo checkout!");
+        }
       })
       .catch((error) => console.log(error));
   };
 
   return (
     <Modal isOpen={true} centered={true}>
-      <ModalHeader class="d-flex justify-content-center">Login</ModalHeader>
+      <ModalHeader className="d-flex justify-content-center">Login</ModalHeader>
       <ModalBody>
         <Form className="login" onSubmit={handleSubmit}>
           <FormGroup>

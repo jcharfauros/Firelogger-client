@@ -86,7 +86,7 @@ const InventoryCreate = (props) => {
           <h3>Add item to Inventory</h3>
         </ModalHeader>
         <ModalBody>
-          <form onSubmit={handleSubmit}>
+          <Form onSubmit={handleSubmit}>
             <FormGroup>
               <Label htmlFor="category" />
               <Input
@@ -172,7 +172,7 @@ const InventoryCreate = (props) => {
             {/* <Button color="secondary" onClick={toggle}>
               Cancel
             </Button> */}
-          </form>
+          </Form>
         </ModalBody>
       </Modal>
     </div>
