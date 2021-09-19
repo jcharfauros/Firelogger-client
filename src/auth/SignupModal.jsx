@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import {
+  Alert,
   Form,
   Label,
   Input,
@@ -11,9 +12,12 @@ import {
 } from "reactstrap";
 
 const SignupModal = (props) => {
+  const [suerrorMSG, suSeterrorMSG] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
+
+  let [visible, setVisible] = useState(true);
 
   let handleSubmit = (event) => {
     event.preventDefault();
@@ -28,7 +32,15 @@ const SignupModal = (props) => {
     })
       .then((response) => response.json())
       .then((data) => {
-        props.updateToken(data.sessionToken);
+        console.log(data);
+        if (data.message === "User successfully created") {
+          props.updateToken(data.sessionToken);
+          console.log("User successfully created");
+        } else {
+          suSeterrorMSG(
+            "user account already exists please try another email or try signing in under login..."
+          );
+        }
       })
       .catch((error) => console.log(error));
   };
@@ -42,6 +54,8 @@ const SignupModal = (props) => {
           <FormGroup>
             <Label htmlFor="name">Name:&nbsp;</Label>
             <Input
+              type="text"
+              required
               onChange={(e) => setName(e.target.value)}
               name="name"
               value={name}
@@ -53,6 +67,7 @@ const SignupModal = (props) => {
             <Label htmlFor="email">Email: &nbsp;</Label>
             <Input
               type="email"
+              required
               onChange={(e) => setEmail(e.target.value)}
               name="email"
               value={email}
@@ -65,6 +80,7 @@ const SignupModal = (props) => {
             <Input
               input
               type="password"
+              required
               onChange={(e) => setPassword(e.target.value)}
               name="password"
               value={password}
@@ -79,6 +95,11 @@ const SignupModal = (props) => {
                 Exit
               </Button>
             </div>
+            <br />
+            <Alert color="danger" isOpen={visible}>
+              {suerrorMSG}
+              {/* {(errorMsg = "" ? setVisible(false) : setVisible(true))} */}
+            </Alert>
           </FormGroup>
         </Form>
       </ModalBody>

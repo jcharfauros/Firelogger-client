@@ -21,6 +21,7 @@ import fireloggerlogo from "../assets/firelogger_logo_orange.png";
 import Auth from "../auth/Auth";
 
 const FireloggerNavbar = (props) => {
+  const [userdisplayName, setUserDisplayName] = useState(""); //prep for stretch goal - display username Greeting
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => {

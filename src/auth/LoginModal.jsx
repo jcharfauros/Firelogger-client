@@ -9,12 +9,17 @@ import {
   Modal,
   ModalHeader,
   ModalBody,
+  Alert,
 } from "reactstrap";
 
 const LoginModal = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMsg, seterrorMSG] = useState("");
+
+  //for Error Message Alert Element
+  let [visible, setVisible] = useState(true);
+
   let handleSubmit = (event) => {
     event.preventDefault();
     fetch("http://localhost:3000/user/login", {
@@ -28,12 +33,16 @@ const LoginModal = (props) => {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data.error);
+        // console.log(data.error);
         if (
           data.error ===
           "Login failed - Please check email and password and try again"
         ) {
-          console.log("Hey email or password is wrong so token is Undefined");
+          seterrorMSG(data.error);
+          // console.log("Email or password is wrong so token is Undefined");
+        } else if (data.error === "User does not exist.") {
+          seterrorMSG(data.error);
+          // console.log("Account not found, please try again!");
         } else {
           props.updateToken(data.sessionToken);
           console.log("Email & Password combo checkout!");
@@ -51,6 +60,7 @@ const LoginModal = (props) => {
             <Label htmlFor="email">Email: &nbsp;</Label>
             <Input
               type="email"
+              required
               onChange={(e) => setEmail(e.target.value)}
               name="email"
               value={email}
@@ -61,6 +71,7 @@ const LoginModal = (props) => {
             <Input
               input
               type="password"
+              required
               onChange={(e) => setPassword(e.target.value)}
               name="password"
               value={password}
@@ -75,6 +86,11 @@ const LoginModal = (props) => {
               Cancel
             </Button>
           </div>
+          <br />
+          <Alert color="danger" isOpen={visible}>
+            {errorMsg}
+            {/* {(errorMsg = "" ? setVisible(false) : setVisible(true))} */}
+          </Alert>
         </Form>
       </ModalBody>
     </Modal>
