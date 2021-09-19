@@ -13,6 +13,7 @@ import {
 } from "reactstrap";
 
 const LoginModal = (props) => {
+  const [userdisplayName, setUserDisplayName] = useState(""); //prep for stretch goal - display username Greeting
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMsg, seterrorMSG] = useState("");
@@ -44,7 +45,9 @@ const LoginModal = (props) => {
           seterrorMSG(data.error);
           // console.log("Account not found, please try again!");
         } else {
+          // console.log(data.user.name);
           props.updateToken(data.sessionToken);
+          setUserDisplayName(data.user.name);
           console.log("Email & Password combo checkout!");
         }
       })
@@ -89,6 +92,7 @@ const LoginModal = (props) => {
           <br />
           <Alert color="danger" isOpen={visible}>
             {errorMsg}
+            {/* {userdisplayName} */}
             {/* {(errorMsg = "" ? setVisible(false) : setVisible(true))} */}
           </Alert>
         </Form>

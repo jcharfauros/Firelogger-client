@@ -21,7 +21,6 @@ import fireloggerlogo from "../assets/firelogger_logo_orange.png";
 import Auth from "../auth/Auth";
 
 const FireloggerNavbar = (props) => {
-  const [userdisplayName, setUserDisplayName] = useState(""); //prep for stretch goal - display username Greeting
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => {
@@ -37,6 +36,15 @@ const FireloggerNavbar = (props) => {
     );
   };
 
+  //Function for displaying username v1 -Marcus
+  const displayUserName = () => {
+    return props.sessionToken === localStorage.getItem("token") ? (
+      <p>Hello,{props.userdisplayName}</p>
+    ) : (
+      ((<Auth updateToken={props.updateToken} />), (<p></p>))
+    );
+  };
+
   return (
     <Navbar className="navbar-jc" light expand="md">
       <NavbarBrand href="/">
@@ -46,6 +54,7 @@ const FireloggerNavbar = (props) => {
       <Collapse isOpen={isOpen} navbar>
         <Nav className="ml-auto" navbar>
           <NavItem>{loginSignupHide()}</NavItem>
+          <NavItem>{displayUserName()}</NavItem>
         </Nav>
       </Collapse>
     </Navbar>
