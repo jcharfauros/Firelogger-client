@@ -19,8 +19,9 @@ import {
 import "../App.css";
 import fireloggerlogo from "../assets/firelogger_logo_orange.png";
 import Auth from "../auth/Auth";
+import { Link } from 'react-router-dom';
 
-const FireloggerNavbar = (props) => {
+const FireLoggerNavbar = (props) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => {
@@ -45,10 +46,11 @@ const FireloggerNavbar = (props) => {
       <Collapse isOpen={isOpen} navbar>
         <Nav className="ml-auto" navbar>
           <NavItem>{loginSignupHide()}</NavItem>
+          <Link to="/signup">here</Link>
         </Nav>
       </Collapse>
     </Navbar>
   );
 };
 
-export default FireloggerNavbar;
+export default FireLoggerNavbar;
