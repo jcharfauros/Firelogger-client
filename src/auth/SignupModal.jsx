@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import {
   Alert,
   Form,
@@ -17,7 +17,7 @@ const SignupModal = (props) => {
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
 
-  let [visible, setVisible] = useState(true);
+  const [visible, setVisible] = useState(false);
 
   let handleSubmit = (event) => {
     event.preventDefault();
@@ -32,7 +32,6 @@ const SignupModal = (props) => {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         if (data.message === "User successfully created") {
           props.updateToken(data.sessionToken);
           console.log("User successfully created");
@@ -43,6 +42,9 @@ const SignupModal = (props) => {
         }
       })
       .catch((error) => console.log(error));
+
+    //Make Alert for Errors Appear Dynamically
+    suerrorMSG != "" ? setVisible(true) : setVisible(true);
   };
   return (
     <Modal isOpen={true} centered={true}>
@@ -98,7 +100,6 @@ const SignupModal = (props) => {
             <br />
             <Alert color="danger" isOpen={visible}>
               {suerrorMSG}
-              {/* {(errorMsg = "" ? setVisible(false) : setVisible(true))} */}
             </Alert>
           </FormGroup>
         </Form>

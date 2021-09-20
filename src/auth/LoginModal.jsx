@@ -13,13 +13,13 @@ import {
 } from "reactstrap";
 
 const LoginModal = (props) => {
-  const [userdisplayName, setUserDisplayName] = useState(""); //prep for stretch goal - display username Greeting
+  let [userdisplayName, setUserDisplayName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMsg, seterrorMSG] = useState("");
 
   //for Error Message Alert Element
-  let [visible, setVisible] = useState(true);
+  const [visible, setVisible] = useState(false);
 
   let handleSubmit = (event) => {
     event.preventDefault();
@@ -34,24 +34,22 @@ const LoginModal = (props) => {
     })
       .then((response) => response.json())
       .then((data) => {
-        // console.log(data.error);
         if (
           data.error ===
           "Login failed - Please check email and password and try again"
         ) {
           seterrorMSG(data.error);
-          // console.log("Email or password is wrong so token is Undefined");
         } else if (data.error === "User does not exist.") {
           seterrorMSG(data.error);
-          // console.log("Account not found, please try again!");
         } else {
-          // console.log(data.user.name);
           props.updateToken(data.sessionToken);
-          setUserDisplayName(data.user.name);
-          console.log("Email & Password combo checkout!");
+          console.log(`Login Successful! Welcome ${userdisplayName}`);
         }
       })
       .catch((error) => console.log(error));
+
+    //make Alert for Errors Appear mor dynamic
+    errorMsg != "" ? setVisible(true) : setVisible(true);
   };
 
   return (
@@ -92,8 +90,6 @@ const LoginModal = (props) => {
           <br />
           <Alert color="danger" isOpen={visible}>
             {errorMsg}
-            {/* {userdisplayName} */}
-            {/* {(errorMsg = "" ? setVisible(false) : setVisible(true))} */}
           </Alert>
         </Form>
       </ModalBody>

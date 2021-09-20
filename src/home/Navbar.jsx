@@ -36,12 +36,12 @@ const FireloggerNavbar = (props) => {
     );
   };
 
-  //Function for displaying username v1 -Marcus
+  //Function for displaying username v1
   const displayUserName = () => {
     return props.sessionToken === localStorage.getItem("token") ? (
       <p>Hello,{props.userdisplayName}</p>
     ) : (
-      ((<Auth updateToken={props.updateToken} />), (<p></p>))
+      <p></p>
     );
   };
 
