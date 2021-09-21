@@ -12,7 +12,8 @@ const Hotels = (props) => {
       .then((data) => {
         setHotel(data.results);
         // console.log(data.results);
-      });
+      })
+      .catch((error) => console.log(error)); //added basic catch! -Marcus
   };
 
   useEffect(() => {

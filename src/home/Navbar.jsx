@@ -24,8 +24,17 @@ import InventoryIndex from "../inventory/InventoryIndex";
 
 const FireloggerNavbar = (props) => {
   const [isOpen, setIsOpen] = useState(false);
+
+  // const [userDisplayName, setUserDisplayName] = useState("");
+
+  const toggle = () => {
+    let newIsOpen = !isOpen;
+    setIsOpen(newIsOpen);
+  };
+
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const toggle = () => setDropdownOpen((prevState) => !prevState);
+
 
   const loginSignupHide = () => {
     return props.sessionToken === localStorage.getItem("token") ? (
@@ -34,6 +43,16 @@ const FireloggerNavbar = (props) => {
       <Auth updateToken={props.updateToken} />
     );
   };
+
+
+  //Function for displaying username v1
+  // const displayUserName = () => {
+  //   return props.sessionToken === localStorage.getItem("token") ? (
+  //     <p>Hello,{props.userDisplayName}</p>
+  //   ) : (
+  //     <p></p>
+  //   );
+  // };
 
   const resourceViews = () => {
     return props.sessionToken === localStorage.getItem("token") ? (
@@ -63,6 +82,7 @@ const FireloggerNavbar = (props) => {
     );
   };
 
+
   return (
     <Navbar className="navbar-jc" light expand="md">
       <NavbarBrand href="/">
@@ -72,6 +92,9 @@ const FireloggerNavbar = (props) => {
       <Collapse isOpen={isOpen} navbar>
         <Nav className="ml-auto" navbar>
           <NavItem>{loginSignupHide()}</NavItem>
+
+          {/* <NavItem>{displayUserName()}</NavItem> */}
+
           <NavItem>{resourceViews()}</NavItem>
           <NavItem>{home()}</NavItem>
         </Nav>
