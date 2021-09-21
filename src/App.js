@@ -6,10 +6,8 @@ import FireloggerNavbar from "./home/Navbar";
 // import Login from "./auth/Login";
 import LoginModal from "./auth/LoginModal";
 import Resources from "./home/Resources";
-import Hotels from "./home/Hotels";
-import Pets from "./home/Pet";
-
-import JumboTest from "./home/Header";
+import Footer from "../src/home/Footer";
+import Header from "./home/Header";
 
 function App() {
   const [sessionToken, setSessionToken] = useState("");
@@ -35,7 +33,7 @@ function App() {
     return sessionToken === localStorage.getItem("token") ? (
       <InventoryIndex token={sessionToken} />
     ) : (
-      <JumboTest />
+      <Header />
       // <Auth updateToken={updateToken} />
     );
   };
@@ -47,9 +45,8 @@ function App() {
         updateToken={updateToken}
         sessionToken={sessionToken}
       />
-      {protectedViews()}
-      {/* <Hotels />
-      <Pets /> */}
+      {protectedViews()} 
+      <Footer />
     </div>
   );
 }
