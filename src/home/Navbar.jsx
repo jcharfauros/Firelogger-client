@@ -10,14 +10,11 @@ import {
   NavItem,
   Button,
   Col,
-  /* Do we want to make dropdowns? - julia */
-  // UncontrolledDropdown,
-  // DropdownToggle,
-  // DropdownMenu,
-  // DropdownItem,
+  Row,
+  Container
 } from "reactstrap";
 import "../App.css";
-import fireloggerlogo from "../assets/firelogger_logo_orange.png";
+import fireloggerlogo from "../assets/FIRELOG_LOGO.png";
 import Auth from "../auth/Auth";
 
 const FireloggerNavbar = (props) => {
@@ -30,7 +27,7 @@ const FireloggerNavbar = (props) => {
 
   const loginSignupHide = () => {
     return props.sessionToken === localStorage.getItem("token") ? (
-      <Button onClick={props.clickLogout}>Logout</Button>
+      <Button className='btn-delete' color='black' onClick={props.clickLogout}>Logout</Button>
     ) : (
       <Auth updateToken={props.updateToken} />
     );
@@ -38,15 +35,23 @@ const FireloggerNavbar = (props) => {
 
   return (
     <Navbar className="navbar-jc" light expand="md">
-      <NavbarBrand href="/">
-        <img src={fireloggerlogo} alt="firelogger_logo" className="logo-img" />
-      </NavbarBrand>
-      <NavbarToggler onClick={toggle} />
-      <Collapse isOpen={isOpen} navbar>
-        <Nav className="ml-auto" navbar>
-          <NavItem>{loginSignupHide()}</NavItem>
-        </Nav>
-      </Collapse>
+      <Container fluid={true}>
+        <Row>
+          <Col>
+            <NavbarBrand href="/">
+              <img src={fireloggerlogo} alt="firelogger_logo" className="logo-img" />
+            </NavbarBrand>
+          </Col>
+          <Col>
+            <NavbarToggler onClick={toggle} />
+            <Collapse isOpen={isOpen} navbar>
+              <Nav className="ml-auto" navbar>
+                <NavItem>{loginSignupHide()}</NavItem>
+              </Nav>
+            </Collapse>
+          </Col>
+        </Row>
+      </Container>
     </Navbar>
   );
 };

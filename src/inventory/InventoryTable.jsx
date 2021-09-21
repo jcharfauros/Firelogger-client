@@ -2,6 +2,7 @@ import React from "react";
 import { Table, Button, Container } from "reactstrap";
 import { jsPDF } from "jspdf";
 import "jspdf-autotable";
+import "../App.css";
 
 const InventoryTable = (props) => {
   const deleteInventory = (inventory) => {
@@ -59,24 +60,20 @@ const InventoryTable = (props) => {
           <td>{inventory.value}</td>
           <td>
             <Button
-              outline
-              color="warning"
-              size="sm"
+              className='btn-update'
+              color='black'              
               onClick={() => {
                 props.editInventory(inventory);
                 props.editOn();
-              }}
-            >
+              }}>
               Update
             </Button>
             <Button
-              outline
-              color="danger"
-              size="sm"
+              className='btn-delete'
+              color='black'              
               onClick={() => {
                 deleteInventory(inventory);
-              }}
-            >
+              }}>
               Delete
             </Button>
           </td>
@@ -87,11 +84,14 @@ const InventoryTable = (props) => {
 
   return (
     <Container>
-      <h3>Inventory Item List</h3>
+      <h1 className='font-titles'>Inventory Item List</h1>
+      <Button className='btn-pdf' active onClick={handlePDF}>
+        Export Inventory List to PDF
+      </Button>
       <hr />
-      <Table id="inventoryTable" striped>
+      <Table striped hover>
         <thead>
-          <tr>
+          <tr className='font-table'>
             <th>Item#</th>
             <th>Category</th>
             <th>Name</th>
@@ -100,9 +100,7 @@ const InventoryTable = (props) => {
             <th>SN#</th>
             <th>Picture</th>
             <th>Value</th>
-            <Button size="sm" color="primary" active onClick={handlePDF}>
-              Export to PDF
-            </Button>
+            <th></th>
           </tr>
         </thead>
         <tbody>{inventoryMapper()}</tbody>

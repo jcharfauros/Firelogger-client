@@ -1,0 +1,121 @@
+/* UPDATE BUTTON */
+
+.btn-update {
+    text-align: center;
+    background: none !important;
+    color: #00A5A8;
+    border: none;
+    display: inline-block;
+    padding: 5px;
+    cursor: pointer;
+    position:relative;
+    overflow:hidden;  
+}
+  
+.btn-update:before {
+    content: "";
+    position: absolute;
+    width: 0;
+    background: #00A5A8;
+    left: 45%;
+    height: 3px;
+    bottom: 0;
+    transition: 0.3s;
+}
+  
+.btn-update:hover:before {
+    background: #FFBE59;
+    width: 100%;
+    left:0;
+}
+
+/* DELETE BUTTON */
+
+.btn-delete {
+    text-align: center;
+    background: none !important;
+    color: #ED5686;
+    border: none;
+    display: inline-block;
+    padding: 5px;
+    cursor: pointer;
+    position:relative;
+    overflow:hidden;  
+}
+  
+.btn-delete:before {
+    content: "";
+    position: absolute;
+    width: 0;
+    background: #00A5A8;
+    left: 45%;
+    height: 3px;
+    bottom: 0;
+    transition: 0.3s;
+}
+  
+.btn-delete:hover:before {
+    background: #FFBE59;
+    width: 100%;
+    left:0;
+}
+
+/* PDF & ADD/CREATE BUTTON */
+
+.btn-pdf {
+    text-align: center;
+    background: #3F44A4 !important;
+    border: none;
+    display: inline-block;
+    padding: 5px;
+    cursor: pointer;
+    position:relative;
+    overflow:hidden;  
+}
+  
+.btn-pdf:before {
+    content: "";
+    position: absolute;
+    width: 0;
+    background: #00A5A8;
+    left: 45%;
+    height: 3px;
+    bottom: 0;
+    transition: 0.3s;
+}
+  
+.btn-pdf:hover:before {
+    background: #FFBE59;
+    width: 100%;
+    left:0;
+}
+
+/* CLOSE/EXIT/CANCEL BUTTON */
+
+.btn-cancel {
+    text-align: center;
+    background: #ED5686 !important;
+    border: none;
+    display: inline-block;
+    padding: 5px;
+    cursor: pointer;
+    position:relative;
+    overflow:hidden;  
+}
+  
+.btn-cancel:before {
+    content: "";
+    position: absolute;
+    width: 0;
+    background: #00A5A8;
+    left: 45%;
+    height: 3px;
+    bottom: 0;
+    transition: 0.3s;
+}
+  
+.btn-cancel:hover:before {
+    background: #FFBE59;
+    width: 100%;
+    left:0;
+}

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import '../App.css';
 import {
   Form,
   FormGroup,
@@ -10,7 +11,12 @@ import {
   ModalBody,
 } from "reactstrap";
 
+
 const InventoryEdit = (props) => {
+  const [modal, setModal] = useState(false);
+  const toggle = () => setModal(!modal);
+  const handleClose = () => setModal(!modal);
+
   const [editCategory, setEditCategory] = useState(
     props.inventoryToEdit.category
   );
@@ -51,9 +57,9 @@ const InventoryEdit = (props) => {
     });
   };
 
-  return (
-    <Modal isOpen={true} centered={true}>
-      <ModalHeader>Inventory Items Edit</ModalHeader>
+  return ( 
+    <Modal isOpen={!modal} centered={true} toggle={toggle}>
+      <ModalHeader className='font-titles'><h2>Inventory Items Edit</h2></ModalHeader>
       <ModalBody>
         <Form onSubmit={inventoryUpdate}>
           <FormGroup>
@@ -105,14 +111,6 @@ const InventoryEdit = (props) => {
             />
           </FormGroup>
           <FormGroup>
-            <Label htmlFor="pic_url">Edit Picture URL:</Label>
-            <Input
-              name="pic_url"
-              value={editPicUrl}
-              onChange={(e) => setEditPicUrl(e.target.value)}
-            />
-          </FormGroup>
-          <FormGroup>
             <Label htmlFor="value">Edit Item Value:</Label>
             <Input
               name="value"
@@ -120,12 +118,19 @@ const InventoryEdit = (props) => {
               onChange={(e) => setEditValue(e.target.value)}
             />
           </FormGroup>
-          <Button type="submit">Edit Inventory Item!</Button>
+          <FormGroup>
+            <Label htmlFor="pic_url">Edit Picture URL:</Label>
+            <Input
+              name="pic_url"
+              value={editPicUrl}
+              onChange={(e) => setEditPicUrl(e.target.value)}
+            />
+          </FormGroup>
+          <Button className='btn-pdf' type="submit" onClick={handleClose}>
+              Click to Submit Changes
+            </Button>{" "}
           {/* <Button close /> */}
-          <Button closebutton="true">Cancel</Button>
-          <Button size="lg" type="submit" color="primary">
-            Save
-          </Button>
+          <Button className='btn-cancel' closebutton="true">Cancel</Button>          
         </Form>
       </ModalBody>
     </Modal>
