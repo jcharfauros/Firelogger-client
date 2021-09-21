@@ -15,14 +15,14 @@ import {
   DropdownItem,
 } from "reactstrap";
 import "../App.css";
-import fireloggerlogo from "../assets/firelogger_logo_orange.png";
+import fireloggerlogo from "../assets/FIRELOGGER W TEXT small.png";
 import Auth from "../auth/Auth";
 import Hotels from "./Hotels";
 import Pets from "./Pet";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import InventoryIndex from "../inventory/InventoryIndex";
 
-const FireloggerNavbar = (props) => {
+const FireLoggerNavbar = (props) => {
   const [isOpen, setIsOpen] = useState(false);
 
   // const [userDisplayName, setUserDisplayName] = useState("");
@@ -38,7 +38,8 @@ const FireloggerNavbar = (props) => {
 
   const loginSignupHide = () => {
     return props.sessionToken === localStorage.getItem("token") ? (
-      <Button onClick={props.clickLogout}>Logout</Button>
+      <Button onClick={props.clickLogout} outline color="link" className='font-test' style={{ marginRight: 600}}>Logout</Button>
+      
     ) : (
       <Auth updateToken={props.updateToken} />
     );
@@ -103,4 +104,4 @@ const FireloggerNavbar = (props) => {
   );
 };
 
-export default FireloggerNavbar;
+export default FireLoggerNavbar;
