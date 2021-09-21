@@ -23,7 +23,7 @@ const InventoryTable = (props) => {
       html: "#inventoryTable",
       bodyStyles: { minCellHeight: 15 },
       didDrawCell: function (data) {
-        if (data.column.index === 6 && data.cell.section === "body") {
+        if (data.column.index === 7 && data.cell.section === "body") {
           var td = data.cell.raw;
           var img = td.getElementsByTagName("img")[0];
           doc.addImage(
@@ -50,6 +50,7 @@ const InventoryTable = (props) => {
           <td>{inventory.year}</td>
           <td>{inventory.model}</td>
           <td>{inventory.serial_number}</td>
+          <td>{inventory.value}</td>
           <td>
             <img
               src={inventory.pic_url}
@@ -57,7 +58,6 @@ const InventoryTable = (props) => {
               alt="inventory item IMG"
             />{" "}
           </td>
-          <td>{inventory.value}</td>
           <td>
             <Button
               className='btn-update'
@@ -88,6 +88,7 @@ const InventoryTable = (props) => {
       <Button className='btn-pdf' active onClick={handlePDF}>
         Export Inventory List to PDF
       </Button>
+      <h3 className="inventory-table-header">Inventory Item List </h3>
       <hr />
       <Table striped hover>
         <thead>
@@ -98,9 +99,12 @@ const InventoryTable = (props) => {
             <th>Year</th>
             <th>Model</th>
             <th>SN#</th>
-            <th>Picture</th>
             <th>Value</th>
             <th></th>
+            <th>Picture</th>
+            <Button size="sm" color="primary" active onClick={handlePDF}>
+              Export to PDF
+            </Button>
           </tr>
         </thead>
         <tbody>{inventoryMapper()}</tbody>
