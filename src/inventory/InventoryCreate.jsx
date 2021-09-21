@@ -50,8 +50,8 @@ const InventoryCreate = (props) => {
           year: year,
           model: model,
           serial_number: serial_number,
-          pic_url: image,
           value: value,
+          pic_url: image,
         },
       }),
       headers: new Headers({
@@ -67,8 +67,8 @@ const InventoryCreate = (props) => {
         setYear("");
         setModel("");
         setSerial_Number("");
-        setPic_Url("");
         setValue("");
+        setPic_Url("");
         props.fetchInventory();
       });
   };
