@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { useFormik } from "formik"; //import Formik
+import * as Yup from "yup";
 
 import {
   Form,
@@ -14,19 +16,34 @@ import {
 
 const LoginModal = (props) => {
   let [userdisplayName, setUserDisplayName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  // const [email, setEmail] = useState("");
+  // const [password, setPassword] = useState("");
   const [errorMsg, seterrorMSG] = useState("");
+
+  const formik = useFormik({
+    initialValues: {
+      email: "",
+      password: "",
+    },
+    validationSchema: Yup.object({
+      email: Yup.string().email("Invalid email address").required("Required"),
+      password: Yup.string().required("Please Enter your password"),
+    }),
+
+    onSubmit: (values) => {
+      handleLogin();
+    },
+  });
 
   //for Error Message Alert Element
   const [visible, setVisible] = useState(false);
 
-  let handleSubmit = (event) => {
-    event.preventDefault();
+  let handleLogin = (event) => {
+    // event.preventDefault();
     fetch("http://localhost:3000/user/login", {
       method: "POST",
       body: JSON.stringify({
-        user: { email: email, password: password },
+        user: { email: formik.values.email, password: formik.values.password },
       }),
       headers: new Headers({
         "Content-Type": "application/json",
@@ -56,27 +73,39 @@ const LoginModal = (props) => {
     <Modal isOpen={true} centered={true}>
       <ModalHeader className="d-flex justify-content-center">Login</ModalHeader>
       <ModalBody>
-        <Form className="login" onSubmit={handleSubmit}>
+        <Form className="login" onSubmit={formik.handleSubmit}>
           <FormGroup>
             <Label htmlFor="email">Email: &nbsp;</Label>
             <Input
               type="email"
-              required
-              onChange={(e) => setEmail(e.target.value)}
+              // onChange={(e) => setEmail(e.target.value)}
+              onChange={formik.handleChange}
               name="email"
-              value={email}
+              onBlur={formik.handleBlur}
+              value={formik.values.email}
             />
+            <p style={{ color: "red" }}>
+              {formik.touched.email && formik.errors.email ? (
+                <div>{formik.errors.email}</div>
+              ) : null}
+            </p>
           </FormGroup>
           <FormGroup>
             <Label htmlFor="password"> Password: &nbsp;</Label>
             <Input
               input
               type="password"
-              required
-              onChange={(e) => setPassword(e.target.value)}
+              onChange={formik.handleChange}
+              // onChange={(e) => setPassword(e.target.value)}
               name="password"
-              value={password}
+              onBlur={formik.handleBlur}
+              value={formik.values.password}
             />
+            <p style={{ color: "red" }}>
+              {formik.touched.password && formik.errors.password ? (
+                <div>{formik.errors.password}</div>
+              ) : null}
+            </p>
           </FormGroup>
           <br />
           <div className="d-flex justify-content-between">
