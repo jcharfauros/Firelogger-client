@@ -17,7 +17,7 @@ import {
   DropdownItem,
 } from "reactstrap";
 import "../App.css";
-import fireloggerlogo from "../assets/FIRELOG_LOGO.png";
+// import fireloggerlogo from "../assets/FIRELOG_LOGO.png";
 import fireloggerlogo from "../assets/FIRELOGGER W TEXT small.png";
 import Auth from "../auth/Auth";
 import Hotels from "./Hotels";
@@ -43,7 +43,7 @@ const FireLoggerNavbar = (props) => {
 
       <Button className='btn-delete' color='black' onClick={props.clickLogout}>Logout</Button>
 
-      <Button onClick={props.clickLogout} outline color="link" className='font-test' style={{ marginRight: 600}}>Logout</Button>
+      // <Button onClick={props.clickLogout} outline color="link" className='font-test' style={{ marginRight: 600}}>Logout</Button>
       
     ) : (
       <Auth updateToken={props.updateToken} />
