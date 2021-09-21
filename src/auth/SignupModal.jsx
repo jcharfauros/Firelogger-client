@@ -26,6 +26,7 @@ const SignupModal = (props) => {
       name: "",
       email: "",
       password: "",
+      passwordConfirmation: "",
     },
     validationSchema: Yup.object({
       name: Yup.string()
@@ -39,6 +40,13 @@ const SignupModal = (props) => {
           /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/,
           "Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and one special case Character"
         ),
+      passwordConfirmation: Yup.string().test(
+        "passwords-match",
+        "Passwords must match",
+        function (value) {
+          return this.parent.password === value;
+        }
+      ),
     }),
 
     onSubmit: (values) => {
@@ -46,24 +54,6 @@ const SignupModal = (props) => {
       handleSignUp();
     },
   });
-
-  // const validate = (values) => {
-  //   const errors = {};
-  //   if (!values.name) {
-  //     errors.name = "Required";
-  //   } else if (values.name.length > 3) {
-  //     errors.name = "Must be 4 characters or more";
-  //   }
-
-  //   if (!values.email) {
-  //     errors.email = "Required";
-  //   } else if (
-  //     !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)
-  //   ) {
-  //     errors.email = "Invalid email address";
-  //   }
-  //   return errors;
-  // };
 
   //useState for Alert element
   const [visible, setVisible] = useState(false);
@@ -119,8 +109,6 @@ const SignupModal = (props) => {
                 <div>{formik.errors.name}</div>
               ) : null}
             </p>
-            <br></br>
-            <br></br>
           </FormGroup>
           <FormGroup>
             <Label htmlFor="email">Email:</Label>
@@ -136,8 +124,6 @@ const SignupModal = (props) => {
                 <div>{formik.errors.email}</div>
               ) : null}
             </p>
-            <br></br>
-            <br></br>
           </FormGroup>
           <FormGroup>
             <Label htmlFor="password">Password:</Label>
@@ -155,6 +141,23 @@ const SignupModal = (props) => {
                 <div>{formik.errors.password}</div>
               ) : null}
             </p>
+            <FormGroup>
+              <Label htmlFor="passwordConfirmation">Confirm Password:</Label>
+              <Input
+                input
+                type="password"
+                name="passwordConfirmation"
+                onBlur={formik.handleBlur}
+                onChange={formik.handleChange}
+                value={formik.values.passwordConfirmation}
+              ></Input>
+              <p style={{ color: "red" }}>
+                {formik.touched.passwordConfirmation &&
+                formik.errors.passwordConfirmation ? (
+                  <div>{formik.errors.passwordConfirmation}</div>
+                ) : null}
+              </p>
+            </FormGroup>
             <br></br>
             <br></br>
             <div className="d-flex justify-content-between">

@@ -22,6 +22,7 @@ import Auth from "../auth/Auth";
 
 const FireloggerNavbar = (props) => {
   const [isOpen, setIsOpen] = useState(false);
+  // const [userDisplayName, setUserDisplayName] = useState("");
 
   const toggle = () => {
     let newIsOpen = !isOpen;
@@ -37,13 +38,13 @@ const FireloggerNavbar = (props) => {
   };
 
   //Function for displaying username v1
-  const displayUserName = () => {
-    return props.sessionToken === localStorage.getItem("token") ? (
-      <p>Hello,{props.userdisplayName}</p>
-    ) : (
-      <p></p>
-    );
-  };
+  // const displayUserName = () => {
+  //   return props.sessionToken === localStorage.getItem("token") ? (
+  //     <p>Hello,{props.userDisplayName}</p>
+  //   ) : (
+  //     <p></p>
+  //   );
+  // };
 
   return (
     <Navbar className="navbar-jc" light expand="md">
@@ -54,7 +55,7 @@ const FireloggerNavbar = (props) => {
       <Collapse isOpen={isOpen} navbar>
         <Nav className="ml-auto" navbar>
           <NavItem>{loginSignupHide()}</NavItem>
-          <NavItem>{displayUserName()}</NavItem>
+          {/* <NavItem>{displayUserName()}</NavItem> */}
         </Nav>
       </Collapse>
     </Navbar>

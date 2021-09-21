@@ -15,7 +15,6 @@ import {
 } from "reactstrap";
 
 const LoginModal = (props) => {
-  let [userdisplayName, setUserDisplayName] = useState("");
   // const [email, setEmail] = useState("");
   // const [password, setPassword] = useState("");
   const [errorMsg, seterrorMSG] = useState("");
@@ -60,11 +59,10 @@ const LoginModal = (props) => {
           seterrorMSG(data.error);
         } else {
           props.updateToken(data.sessionToken);
-          console.log(`Login Successful! Welcome ${userdisplayName}`);
+          // props.setUserDisplayName(data.user.name);
         }
       })
       .catch((error) => console.log(error));
-
     //make Alert for Errors Appear mor dynamic
     errorMsg != "" ? setVisible(true) : setVisible(true);
   };
