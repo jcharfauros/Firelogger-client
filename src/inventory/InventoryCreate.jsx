@@ -50,8 +50,8 @@ const InventoryCreate = (props) => {
           year: year,
           model: model,
           serial_number: serial_number,
-          pic_url: image,
           value: value,
+          pic_url: image,
         },
       }),
       headers: new Headers({
@@ -67,8 +67,8 @@ const InventoryCreate = (props) => {
         setYear("");
         setModel("");
         setSerial_Number("");
-        setPic_Url("");
         setValue("");
+        setPic_Url("");
         props.fetchInventory();
       });
   };
@@ -86,7 +86,7 @@ const InventoryCreate = (props) => {
           <h3>Add item to Inventory</h3>
         </ModalHeader>
         <ModalBody>
-          <form onSubmit={handleSubmit}>
+          <Form onSubmit={handleSubmit}>
             <FormGroup>
               <Label htmlFor="category" />
               <Input
@@ -172,7 +172,7 @@ const InventoryCreate = (props) => {
             {/* <Button color="secondary" onClick={toggle}>
               Cancel
             </Button> */}
-          </form>
+          </Form>
         </ModalBody>
       </Modal>
     </div>

@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, Spinner } from "react";
 import { Row, Container, Table, Button } from "reactstrap";
-import ReactHtmlParser from "react-html-parser";
 
 const Hotels = (props) => {
   const [hotel, setHotel] = useState({});
@@ -13,7 +12,8 @@ const Hotels = (props) => {
       .then((data) => {
         setHotel(data.results);
         // console.log(data.results);
-      });
+      })
+      .catch((error) => console.log(error)); //added basic catch! -Marcus
   };
 
   useEffect(() => {
@@ -21,9 +21,9 @@ const Hotels = (props) => {
   }, []);
 
   const hotelMapper = () => {
-    return hotel.map((hotel) => {
+    return hotel.slice(0, 10).map((hotel) => {
       return (
-        <tr key={hotel.id}>
+        <tr key={hotel.id} className="hotel-header">
           <td>{hotel.name}</td>
           <td>{hotel.formatted_address}</td>
           <td>
@@ -31,22 +31,8 @@ const Hotels = (props) => {
               href={`https://maps.google.com/?q=${hotel.formatted_address}`}
               target="_blank"
             >
-              <button>Google Map Link</button>
+              <button className="resources-button">Google Map Link</button>
             </a>
-            {/* {ReactHtmlParser(hotel.photos[0].html_attributions)} */}
-            {/* <a
-              href={ReactHtmlParser(hotel.photos[0].html_attributions)}
-              target="_blank"
-            >
-              <button>Google Map Link</button>
-            </a> */}
-            {/* <a
-              id="googleLink"
-              href={ReactHtmlParser(hotel.photos[0].html_attributions)}
-              target="_blank"
-            >
-              Google Map Link
-            </a> */}
           </td>
         </tr>
       );
@@ -56,15 +42,22 @@ const Hotels = (props) => {
   return (
     <div>
       <div>
-        <h2 className="hotel_title">Hotels Nearby</h2>
+        <h2 className="hotel_title">
+          Hotels Nearby{" "}
+          <img
+            src={`https://cdn4.iconfinder.com/data/icons/hotel-service-5/300/hotel-512.png`}
+            className="temp-icon"
+            alt="temp icon"
+          />{" "}
+        </h2>
         <hr />
         <div className="hotelTable">
-          <Table striped>
+          <Table striped responsive>
             <thead>
               <tr>
-                <th>Name:</th>
-                <th>Address:</th>
-                <th>Link to Google Map Location:</th>
+                <th scope="row">Name:</th>
+                <th scope="row">Address:</th>
+                <th scope="row">Link to Google Map Location:</th>
               </tr>
             </thead>
             <tbody>{hotel.length > 0 ? hotelMapper() : "Loading"}</tbody>

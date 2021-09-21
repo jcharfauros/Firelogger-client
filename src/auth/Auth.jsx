@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState } from "react"; //removed unused useEffect
 // import Login from "./Login"
 import SignupModal from "./SignupModal";
 import LoginModal from "./LoginModal";

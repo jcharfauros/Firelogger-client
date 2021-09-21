@@ -1,3 +1,4 @@
+
 @import "Header.css";
 
 .hotelTable {
@@ -20,6 +21,7 @@
 */
 
 /* julia testing stying */
+
 
 body {
   background: white;
@@ -46,21 +48,71 @@ body {
 }
 
 .navbar-jc {
-  /* font-family: monospace; */
-  /* background: whitesmoke; */
-  /* position: fixed; */
   width: 100%;
   overflow: hidden;
+  height: 255px;
 }
 
 .font-test {
   font-family: Bubbleboddy Neue, sans-serif;
   font-weight: 100;
-  letter-spacing: 0.2em;
   color: #ff8469;
 }
 
+
 .footer-font {
   font-family: Bubbleboddy Light;
+}
+
+
+.hotel_title {
+  font-family: Bubbleboddy Neue, sans-serif;
+  font-weight: bolder;
+  font-size: 45px;
+}
+
+.hotelTable {
+  width: 75vw;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: Montserrat;
+}
+
+.petTable {
+  width: 75vw;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: Montserrat;
+}
+
+.pet_title {
+  font-family: Bubbleboddy Neue, sans-serif;
+  font-weight: bolder;
+  font-size: 45px;
+}
+
+.temp-icon {
+  height: 65px;
+}
+
+.resources-button {
+  background-color: #ccdbdc;
+  font-size: 13.5px;
+  margin-left: 25%;
+  border: none;
+  color: black;
+  border-radius: 3%;
+  border: 0.1px solid black;
+}
+
+.inventory-table-header {
+  font-family: Bubbleboddy Neue, sans-serif !important;
+  font-weight: bolder !important;
+  font-size: 45px !important;
+}
+
+#inventoryTable {
+  font-family: Montserrat !important;
+  font-weight: 300;
 }
 
