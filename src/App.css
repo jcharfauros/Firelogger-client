@@ -1,4 +1,4 @@
-
+@import 'buttons.css';
 @import "Header.css";
 
 .hotelTable {
@@ -19,9 +19,6 @@
   padding-bottom: 15px;
 } */
 */
-
-/* julia testing stying */
-
 
 body {
   background: white;
@@ -57,13 +54,25 @@ body {
   font-family: Bubbleboddy Neue, sans-serif;
   font-weight: 100;
   color: #ff8469;
+  text-shadow: 2px 2px #3F44A4;
 }
 
+.font-titles {
+  font-family: Bubbleboddy Neue, sans-serif;
+  /* font-weight: 100; */
+  color: #ff8469;
+  text-shadow: 1px 1px #3F44A4;
+}
+
+.font-table {  
+  font-family: Montesrrat, sans-serif;
+  font-weight: 100;
+  color: #3F44A4;
+}
 
 .footer-font {
   font-family: Bubbleboddy Light;
 }
-
 
 .hotel_title {
   font-family: Bubbleboddy Neue, sans-serif;
@@ -115,4 +124,3 @@ body {
   font-family: Montserrat !important;
   font-weight: 300;
 }
-

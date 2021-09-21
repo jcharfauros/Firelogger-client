@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "../App.css";
 import {
   Button,
   Form,
@@ -9,7 +10,8 @@ import {
   ModalBody,
   ModalHeader,
 } from "reactstrap";
-const InventoryCreate = (props) => {
+
+  const InventoryCreate = (props) => {
   const [category, setCategory] = useState("");
   const [name, setName] = useState("");
   const [year, setYear] = useState("");
@@ -77,7 +79,8 @@ const InventoryCreate = (props) => {
       <Button
         variant="primary"
         onClick={toggle}
-        className="add-inventory-button"
+        // className="add-inventory-button"
+        className='btn-pdf'
       >
         Add item to Inventory
       </Button>

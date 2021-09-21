@@ -42,15 +42,17 @@ const InventoryIndex = (props) => {
   }, []);
 
   return (
-    <Container>
-      <Row>
-        <Col md="3">
+    <Container fluid={true}>
+      <Row>       
+        <Col sm={{ size: 'auto', offset: 9 }}>
           <InventoryCreate
             fetchInventory={fetchInventory}
             token={props.token}
           />
         </Col>
-        <Col md="9">
+      </Row>
+      <Row>
+        <Col>
           <InventoryTable
             inventory={inventory}
             editInventory={editInventory}

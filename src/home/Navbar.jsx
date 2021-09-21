@@ -10,11 +10,14 @@ import {
   Button,
   Dropdown,
   Col,
+  Row,
+  Container,
   DropdownToggle,
   DropdownMenu,
   DropdownItem,
 } from "reactstrap";
 import "../App.css";
+import fireloggerlogo from "../assets/FIRELOG_LOGO.png";
 import fireloggerlogo from "../assets/FIRELOGGER W TEXT small.png";
 import Auth from "../auth/Auth";
 import Hotels from "./Hotels";
@@ -35,25 +38,17 @@ const FireLoggerNavbar = (props) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const toggle = () => setDropdownOpen((prevState) => !prevState);
 
-
   const loginSignupHide = () => {
     return props.sessionToken === localStorage.getItem("token") ? (
+
+      <Button className='btn-delete' color='black' onClick={props.clickLogout}>Logout</Button>
+
       <Button onClick={props.clickLogout} outline color="link" className='font-test' style={{ marginRight: 600}}>Logout</Button>
       
     ) : (
       <Auth updateToken={props.updateToken} />
     );
   };
-
-
-  //Function for displaying username v1
-  // const displayUserName = () => {
-  //   return props.sessionToken === localStorage.getItem("token") ? (
-  //     <p>Hello,{props.userDisplayName}</p>
-  //   ) : (
-  //     <p></p>
-  //   );
-  // };
 
   const resourceViews = () => {
     return props.sessionToken === localStorage.getItem("token") ? (
@@ -83,9 +78,26 @@ const FireLoggerNavbar = (props) => {
     );
   };
 
-
   return (
     <Navbar className="navbar-jc" light expand="md">
+      <Container fluid={true}>
+        <Row>
+          <Col>
+            <NavbarBrand href="/">
+              <img src={fireloggerlogo} alt="firelogger_logo" className="logo-img" />
+            </NavbarBrand>
+          </Col>
+          <Col>
+            <NavbarToggler onClick={toggle} />
+            <Collapse isOpen={isOpen} navbar>
+              <Nav className="ml-auto" navbar>
+                <NavItem>{loginSignupHide()}</NavItem>
+              </Nav>
+            </Collapse>
+          </Col>
+        </Row>
+      </Container>
+
       <NavbarBrand href="/">
         <img src={fireloggerlogo} alt="firelogger_logo" className="logo-img" />
       </NavbarBrand>
@@ -104,4 +116,4 @@ const FireLoggerNavbar = (props) => {
   );
 };
 
-export default FireLoggerNavbar;
+export default FireloggerNavbar;
