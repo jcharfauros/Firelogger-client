@@ -21,7 +21,7 @@ const Pets = (props) => {
   }, []);
 
   const petMapper = () => {
-    return pet.map((pet) => {
+    return pet.slice(0, 10).map((pet) => {
       console.log(pet.photos);
       return (
         <tr key={pet.id}>
@@ -39,7 +39,7 @@ const Pets = (props) => {
                 href={`https://maps.google.com/?q=${pet.formatted_address}`}
                 target="_blank"
               >
-                <button>Google Map Link</button>
+                <button className="resources-button"> Google Map Link</button>
               </a>
             ) : (
               "Link not available"
@@ -53,15 +53,22 @@ const Pets = (props) => {
   return (
     <div>
       <div>
-        <h2 className="pet_title">Pet Lodging Nearby</h2>
+        <h2 className="pet_title">
+          Pet Lodging Nearby{" "}
+          <img
+            src={`https://static-00.iconduck.com/assets.00/paw-prints-emoji-443x512-6ata4j5m.png`}
+            className="temp-icon"
+            alt="temp icon"
+          />{" "}
+        </h2>
         <hr />
         <div className="petTable">
-          <Table striped>
+          <Table responsive striped>
             <thead>
               <tr>
-                <th>Name:</th>
-                <th>Address:</th>
-                <th>Link to Google Map Location:</th>
+                <th scope="row">Name:</th>
+                <th scope="row">Address:</th>
+                <th scope="row">Link to Google Map Location:</th>
               </tr>
             </thead>
             <tbody>{pet.length > 0 ? petMapper() : "Loading"}</tbody>

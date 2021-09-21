@@ -8,6 +8,12 @@ import FireloggerNavbar from "./home/Navbar";
 // import Resources from "./home/Resources";
 // import Hotels from "./home/Hotels";
 // import Pets from "./home/Pet";
+import LoginModal from "./auth/LoginModal";
+import Resources from "./home/Resources";
+import Hotels from "./home/Hotels";
+import Pets from "./home/Pet";
+import Switch from "./home/Switch";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import JumboTest from "./home/Header";
 
@@ -33,23 +39,22 @@ function App() {
 
   const protectedViews = () => {
     return sessionToken === localStorage.getItem("token") ? (
-      <InventoryIndex token={sessionToken} />
+      <Switch token={sessionToken} />
     ) : (
       <JumboTest />
-      // <Auth updateToken={updateToken} />
     );
   };
 
   return (
     <div>
-      <FireloggerNavbar
-        clickLogout={clearToken}
-        updateToken={updateToken}
-        sessionToken={sessionToken}
-      />
-      {protectedViews()}
-      {/* <Hotels />
-      <Pets /> */}
+      <Router>
+        <FireloggerNavbar
+          clickLogout={clearToken}
+          updateToken={updateToken}
+          sessionToken={sessionToken}
+        />
+        {protectedViews()}
+      </Router>
     </div>
   );
 }
