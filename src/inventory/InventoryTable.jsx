@@ -22,7 +22,7 @@ const InventoryTable = (props) => {
       html: "#inventoryTable",
       bodyStyles: { minCellHeight: 15 },
       didDrawCell: function (data) {
-        if (data.column.index === 6 && data.cell.section === "body") {
+        if (data.column.index === 7 && data.cell.section === "body") {
           var td = data.cell.raw;
           var img = td.getElementsByTagName("img")[0];
           doc.addImage(
@@ -49,6 +49,7 @@ const InventoryTable = (props) => {
           <td>{inventory.year}</td>
           <td>{inventory.model}</td>
           <td>{inventory.serial_number}</td>
+          <td>{inventory.value}</td>
           <td>
             <img
               src={inventory.pic_url}
@@ -56,7 +57,6 @@ const InventoryTable = (props) => {
               alt="inventory item IMG"
             />{" "}
           </td>
-          <td>{inventory.value}</td>
           <td>
             <Button
               outline
@@ -87,7 +87,7 @@ const InventoryTable = (props) => {
 
   return (
     <Container>
-      <h3>Inventory Item List</h3>
+      <h3 className="inventory-table-header">Inventory Item List </h3>
       <hr />
       <Table id="inventoryTable" striped>
         <thead>
@@ -98,8 +98,8 @@ const InventoryTable = (props) => {
             <th>Year</th>
             <th>Model</th>
             <th>SN#</th>
-            <th>Picture</th>
             <th>Value</th>
+            <th>Picture</th>
             <Button size="sm" color="primary" active onClick={handlePDF}>
               Export to PDF
             </Button>
