@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./App.css";
 import InventoryIndex from "./inventory/InventoryIndex";
 // import Auth from "./auth/Auth";
-import FireloggerNavbar from "./home/Navbar";
+import FireLoggerNavbar from "./home/Navbar";
 // import Login from "./auth/Login";
 // import LoginModal from "./auth/LoginModal";
 // import Resources from "./home/Resources";
@@ -51,14 +51,15 @@ function App() {
 
   return (
     <div>
-
-      <FireloggerNavbar
+      <Router> 
+      <FireLoggerNavbar
         clickLogout={clearToken}
         updateToken={updateToken}
         sessionToken={sessionToken}
       />
       {protectedViews()} 
       <Footer />
+      </Router>
     </div>
   );
 }

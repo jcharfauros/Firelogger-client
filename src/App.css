@@ -47,7 +47,7 @@ body {
 .navbar-jc {
   width: 100%;
   overflow: hidden;
-  height: 255px;
+  /* height: 255px; */
 }
 
 .font-test {

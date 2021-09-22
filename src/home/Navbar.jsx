@@ -17,7 +17,7 @@ import {
   DropdownItem,
 } from "reactstrap";
 import "../App.css";
-import fireloggerlogo from "../assets/FIRELOG_LOGO.png";
+// import fireloggerlogo from "../assets/FIRELOG_LOGO.png";
 import fireloggerlogo from "../assets/FIRELOGGER W TEXT small.png";
 import Auth from "../auth/Auth";
 import Hotels from "./Hotels";
@@ -30,7 +30,7 @@ const FireLoggerNavbar = (props) => {
 
   // const [userDisplayName, setUserDisplayName] = useState("");
 
-  const toggle = () => {
+  const toggle2 = () => {
     let newIsOpen = !isOpen;
     setIsOpen(newIsOpen);
   };
@@ -43,7 +43,7 @@ const FireLoggerNavbar = (props) => {
 
       <Button className='btn-delete' color='black' onClick={props.clickLogout}>Logout</Button>
 
-      <Button onClick={props.clickLogout} outline color="link" className='font-test' style={{ marginRight: 600}}>Logout</Button>
+      // <Button onClick={props.clickLogout} outline color="link" className='font-test' style={{ marginRight: 600}}>Logout</Button>
       
     ) : (
       <Auth updateToken={props.updateToken} />
@@ -52,7 +52,7 @@ const FireLoggerNavbar = (props) => {
 
   const resourceViews = () => {
     return props.sessionToken === localStorage.getItem("token") ? (
-      <Dropdown isOpen={dropdownOpen} toggle={toggle}>
+      <Dropdown isOpen={dropdownOpen} toggle={toggle2}>
         <DropdownToggle caret>Resources</DropdownToggle>
         <DropdownMenu>
           <DropdownItem>
@@ -80,7 +80,7 @@ const FireLoggerNavbar = (props) => {
 
   return (
     <Navbar className="navbar-jc" light expand="md">
-      <Container fluid={true}>
+      {/* <Container fluid={true}>
         <Row>
           <Col>
             <NavbarBrand href="/">
@@ -96,18 +96,15 @@ const FireLoggerNavbar = (props) => {
             </Collapse>
           </Col>
         </Row>
-      </Container>
+      </Container> */}
 
       <NavbarBrand href="/">
         <img src={fireloggerlogo} alt="firelogger_logo" className="logo-img" />
       </NavbarBrand>
-      <NavbarToggler onClick={toggle} />
+      <NavbarToggler onClick={toggle} /> 
       <Collapse isOpen={isOpen} navbar>
         <Nav className="ml-auto" navbar>
           <NavItem>{loginSignupHide()}</NavItem>
-
-          {/* <NavItem>{displayUserName()}</NavItem> */}
-
           <NavItem>{resourceViews()}</NavItem>
           <NavItem>{home()}</NavItem>
         </Nav>
@@ -116,4 +113,4 @@ const FireLoggerNavbar = (props) => {
   );
 };
 
-export default FireloggerNavbar;
+export default FireLoggerNavbar;
