@@ -23,7 +23,7 @@ import {
   const [loading, setLoading] = useState(false);
   const [modal, setModal] = useState(false);
   const toggle = () => setModal(!modal);
-  const handleClose = () => setModal(false);
+  const handleClose = () => setModal(!modal);
   let UploadImage = async (e) => {
     let files = e.target.files;
     let data = new FormData();
@@ -83,8 +83,8 @@ import {
       >
         Add item to Inventory
       </Button>
-      <Modal isOpen={modal} toggle={toggle}>
-        <ModalHeader toggle={toggle}>
+      <Modal isOpen={!modal} centered={true} toggle={toggle}>
+        <ModalHeader className='font-titles'>
           <h3>Add item to Inventory</h3>
         </ModalHeader>
         <ModalBody>
@@ -168,12 +168,10 @@ import {
               )}
             </FormGroup>{" "}
             <br />
-            <Button type="submit" onClick={handleClose}>
+            <Button className='btn-pdf' type="submit" onClick={handleClose}>
               Click to Add Item
             </Button>{" "}
-            {/* <Button color="secondary" onClick={toggle}>
-              Cancel
-            </Button> */}
+            <Button className='btn-cancel' onClick={toggle}>Cancel</Button>
           </Form>
         </ModalBody>
       </Modal>
