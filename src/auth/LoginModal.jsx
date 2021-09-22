@@ -13,6 +13,7 @@ import {
   ModalBody,
   Alert,
 } from "reactstrap";
+import "../App.css";
 
 const LoginModal = (props) => {
   // const [email, setEmail] = useState("");
@@ -107,7 +108,7 @@ const LoginModal = (props) => {
           </FormGroup>
           <br />
           <div className="d-flex justify-content-between">
-            <Button color="primary" type="submit">
+            <Button className="btn-pdf" type="submit">
               Login
             </Button>
             <Button color="danger" onClick={props.loginModalOFF}>
