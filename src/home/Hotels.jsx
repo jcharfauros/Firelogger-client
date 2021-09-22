@@ -1,5 +1,5 @@
 import React, { useEffect, useState, Spinner } from "react";
-import { Row, Container, Table, Button } from "reactstrap";
+import { Row, Container, Table, Button, Col } from "reactstrap";
 
 const Hotels = (props) => {
   const [hotel, setHotel] = useState({});
@@ -40,25 +40,48 @@ const Hotels = (props) => {
   };
 
   return (
-    <div>
-      <div>
-        <h1 className="hotel_title">Hotels Nearby </h1>
+    <Container>
+      <Row>
+        <Col>
+        <h1 className="font-titles">Hotels Nearby </h1>
         <hr />
-        <div className="hotelTable">
-          <Table responsive borderless hover>
-            <thead>
-              <tr>
-                <th scope="row">Name:</th>
-                <th scope="row">Address:</th>
-                <th scope="row">Link to Google Map Location:</th>
-              </tr>
-            </thead>
-            <tbody>{hotel.length > 0 ? hotelMapper() : "Loading"}</tbody>
-          </Table>
-        </div>
-      </div>
-    </div>
+        </Col>
+      </Row>
+      <Row >
+        <Table responsive borderless hover>
+          <thead>
+            <tr className="font-table">
+              <th scope="row">Name:</th>
+              <th scope="row">Address:</th>
+              <th scope="row">Link to Google Map Location:</th>
+            </tr>
+          </thead>
+          <tbody>{hotel.length > 0 ? hotelMapper() : "Loading"}</tbody>
+        </Table>
+      </Row>
+    </Container>
   );
+
+  // return (
+  //   <div>
+  //     <div>
+  //       <h1 className="font-titles">Hotels Nearby </h1>
+  //       <hr />
+  //       <div className="font-table">
+  //         <Table responsive borderless hover>
+  //           <thead>
+  //             <tr>
+  //               <th scope="row">Name:</th>
+  //               <th scope="row">Address:</th>
+  //               <th scope="row">Link to Google Map Location:</th>
+  //             </tr>
+  //           </thead>
+  //           <tbody>{hotel.length > 0 ? hotelMapper() : "Loading"}</tbody>
+  //         </Table>
+  //       </div>
+  //     </div>
+  //   </div>
+  // );
 };
 
 export default Hotels;

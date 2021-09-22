@@ -79,7 +79,7 @@ import {
       <Button
         variant="primary"
         onClick={toggle}        
-        className='btn-pdf'
+        className='btn-create'
       >
         Add item to Inventory
       </Button>
@@ -180,4 +180,5 @@ import {
     </div>
   );
 };
+
 export default InventoryCreate;

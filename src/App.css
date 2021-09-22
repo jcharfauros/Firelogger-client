@@ -1,17 +1,17 @@
 @import "buttons.css";
 @import "Header.css";
 
-.hotelTable {
+/* .hotelTable {
   width: 75vw;
-  /* margin-left: auto;
-  margin-right: auto; */
-}
+  margin-left: auto;
+  margin-right: auto;
+} */
 
-.petTable {
+/* .petTable {
   width: 75vw;
-  /* margin-left: auto;
-  margin-right: auto; */
-}
+  margin-left: auto;
+  margin-right: auto;
+} */
 
 body {
   background: white;
@@ -29,13 +29,13 @@ body {
   margin-right: auto;
 }
 
-.pet_title {
+/* .pet_title {
   padding-left: 12%;
 }
 
 .hotel_title {
   padding-left: 12%;
-}
+} */
 
 .navbar-jc {
   width: 100%;
@@ -54,9 +54,11 @@ body {
 
 .font-titles {
   font-family: Bubbleboddy Neue, sans-serif;
-  /* font-weight: 100; */
-  color: #ff8469;
-  text-shadow: 1px 1px #3f44a4;
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: #3f44a4;
+  text-shadow: 1px 1px #ED5686;
+  /* padding-left: 12%; */
 }
 
 .font-table {
@@ -72,16 +74,15 @@ body {
 .footer-font {
   font-family: Bubbleboddy Light;
 }
-
+/* 
 .hotel_title {
   font-family: Bubbleboddy Neue, sans-serif;
-  font-weight: bolder;
-  /* font-size: 45px; */
-  color: #8A4D94;
+  font-weight: bold;
+  color: #ED5686;
   text-shadow: 1px 1px #3f44a4;
-}
+} */
 
-.hotelTable {
+/* .hotelTable {
   width: 75vw;
   margin-left: auto;
   margin-right: auto;
@@ -93,13 +94,14 @@ body {
   margin-left: auto;
   margin-right: auto;
   font-family: Montserrat;
-}
+} */
 
-.pet_title {
+/* .pet_title {
   font-family: Bubbleboddy Neue, sans-serif;
-  font-weight: bolder;
-  font-size: 45px;
-}
+  font-weight: bold;
+  color: #ED5686;
+  text-shadow: 1px 1px #3f44a4;
+} */
 
 .temp-icon {
   height: 65px;
@@ -122,8 +124,8 @@ body {
 }
 
 #inventoryTable {
-  font-family: Montserrat !important;
-  font-weight: 300;
+  /* font-family: Montserrat !important; */
+  font-weight: 400;
 }
 
 .resource-dropdown {

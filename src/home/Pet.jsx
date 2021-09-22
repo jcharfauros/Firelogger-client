@@ -51,32 +51,59 @@ const Pets = (props) => {
   };
 
   return (
-    <div>
-      <div>
-        <h2 className="pet_title">
-          Pet Lodging Nearby{" "}
-          {/* <img
-            src={`https://static-00.iconduck.com/assets.00/paw-prints-emoji-443x512-6ata4j5m.png`}
-            className="temp-icon"
-            alt="temp icon"
-          />{" "} */}
-        </h2>
-        <hr />
-        <div className="petTable">
-          <Table responsive borderless hover>
-            <thead>
-              <tr>
-                <th scope="row">Name:</th>
-                <th scope="row">Address:</th>
-                <th scope="row">Link to Google Map Location:</th>
-              </tr>
-            </thead>
-            <tbody>{pet.length > 0 ? petMapper() : "Loading"}</tbody>
-          </Table>
+    <div className='container'>
+      <div className='row'>
+        <div className='col'>
+          <h1 className="font-titles">
+            Pet Lodging Nearby{" "}
+          </h1>
+          <hr />
         </div>
       </div>
+        <div className='row'>
+          <div className='col'>
+            <Table responsive borderless hover>
+              <thead>
+                <tr className='font-table'>
+                  <th scope="row">Name:</th>
+                  <th scope="row">Address:</th>
+                  <th scope="row">Link to Google Map Location:</th>
+                </tr>
+              </thead>
+              <tbody>{pet.length > 0 ? petMapper() : "Loading"}</tbody>
+            </Table>
+          </div>
+        </div>
     </div>
   );
+
+  // return (
+  //   <div>
+  //     <div>
+  //       <h1 className="font-titles">
+  //         Pet Lodging Nearby{" "}
+  //         {/* <img
+  //           src={`https://static-00.iconduck.com/assets.00/paw-prints-emoji-443x512-6ata4j5m.png`}
+  //           className="temp-icon"
+  //           alt="temp icon"
+  //         />{" "} */}
+  //       </h1>
+  //       <hr />
+  //       <div className='font-table'>
+  //         <Table responsive borderless hover>
+  //           <thead>
+  //             <tr>
+  //               <th scope="row">Name:</th>
+  //               <th scope="row">Address:</th>
+  //               <th scope="row">Link to Google Map Location:</th>
+  //             </tr>
+  //           </thead>
+  //           <tbody>{pet.length > 0 ? petMapper() : "Loading"}</tbody>
+  //         </Table>
+  //       </div>
+  //     </div>
+  //   </div>
+  // );
 };
 
 export default Pets;

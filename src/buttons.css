@@ -3,7 +3,7 @@
 .btn-update {
     text-align: center;
     background: none !important;
-    color: #00A5A8;
+    color: #007DC2;
     border: none;
     display: inline-block;
     padding: 5px;
@@ -16,7 +16,7 @@
     content: "";
     position: absolute;
     width: 0;
-    background: #00A5A8;
+    background: #007DC2;
     left: 45%;
     height: 3px;
     bottom: 0;
@@ -91,6 +91,8 @@
     left:0;
 }
 
+
+
 /* CLOSE/EXIT/CANCEL BUTTON */
 
 .btn-cancel {
@@ -117,6 +119,36 @@
   
 .btn-cancel:hover:before {
     background: #FFBE59;
+    width: 100%;
+    left:0;
+}
+
+
+.btn-create {
+    text-align: center;
+    background: #00A5A8 !important;
+    border: none;
+    display: inline-block;
+    padding: 5px;
+    margin: 2px;
+    cursor: pointer;
+    position:relative;
+    overflow:hidden;  
+}
+  
+.btn-create:before {
+    content: "";
+    position: absolute;
+    width: 0;
+    background: #AB449F;
+    left: 45%;
+    height: 3px;
+    bottom: 0;
+    transition: 0.3s;
+}
+  
+.btn-create:hover:before {
+    background: #ED5686;
     width: 100%;
     left:0;
 }
