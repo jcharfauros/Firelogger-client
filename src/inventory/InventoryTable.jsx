@@ -54,26 +54,28 @@ const InventoryTable = (props) => {
           <td>
             <img
               src={inventory.pic_url}
-              style={{ width: "300px" }}
+              style={{ width: "200px" }}
               alt="inventory item IMG"
             />{" "}
           </td>
           <td>
             <Button
-              className='btn-update'
-              color='black'              
+              className="btn-update"
+              color="black"
               onClick={() => {
                 props.editInventory(inventory);
                 props.editOn();
-              }}>
+              }}
+            >
               Update
             </Button>
             <Button
-              className='btn-delete'
-              color='black'              
+              className="btn-delete"
+              color="black"
               onClick={() => {
                 deleteInventory(inventory);
-              }}>
+              }}
+            >
               Delete
             </Button>
           </td>
@@ -83,16 +85,16 @@ const InventoryTable = (props) => {
   };
 
   return (
-    <Container>
-      <h1 className='font-titles'>Inventory Item List</h1>
-      <Button className='btn-pdf' active onClick={handlePDF}>
+    <Container className="inventory-table-container">
+      <h1 className="font-titles">Inventory Item List</h1>
+      <Button className="btn-pdf" active onClick={handlePDF}>
         Export Inventory List to PDF
       </Button>
-      <h3 className="inventory-table-header">Inventory Item List </h3>
+
       <hr />
-      <Table striped hover>
+      <Table id="inventoryTable" borderless hover>
         <thead>
-          <tr className='font-table'>
+          <tr className="font-table">
             <th>Item#</th>
             <th>Category</th>
             <th>Name</th>
@@ -100,11 +102,8 @@ const InventoryTable = (props) => {
             <th>Model</th>
             <th>SN#</th>
             <th>Value</th>
-            <th></th>
             <th>Picture</th>
-            <Button size="sm" color="primary" active onClick={handlePDF}>
-              Export to PDF
-            </Button>
+            {/* <th></th> */}
           </tr>
         </thead>
         <tbody>{inventoryMapper()}</tbody>

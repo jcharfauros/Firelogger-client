@@ -42,17 +42,10 @@ const Hotels = (props) => {
   return (
     <div>
       <div>
-        <h2 className="hotel_title">
-          Hotels Nearby{" "}
-          <img
-            src={`https://cdn4.iconfinder.com/data/icons/hotel-service-5/300/hotel-512.png`}
-            className="temp-icon"
-            alt="temp icon"
-          />{" "}
-        </h2>
+        <h2 className="hotel_title">Hotels Nearby </h2>
         <hr />
         <div className="hotelTable">
-          <Table striped responsive>
+          <Table responsive borderless hover>
             <thead>
               <tr>
                 <th scope="row">Name:</th>
