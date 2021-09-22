@@ -1,5 +1,5 @@
 import React from "react";
-import { Table, Button, Container } from "reactstrap";
+import { Table, Button, Container, Row, Col } from "reactstrap";
 import { jsPDF } from "jspdf";
 import "jspdf-autotable";
 import "../App.css";
@@ -85,12 +85,16 @@ const InventoryTable = (props) => {
   };
 
   return (
-    <Container className="inventory-table-container">
+    // <Container className="inventory-table-container"> //is this className being used -Julia
+    <Container>
+      <Row>
+        <Col sm="12" md={{ size: 6, offset: 9 }}>
+          <Button className="btn-pdf" active onClick={handlePDF}>
+            Export Inventory List to PDF
+          </Button>
+        </Col>
+      </Row>
       <h1 className="font-titles">Inventory Item List</h1>
-      <Button className="btn-pdf" active onClick={handlePDF}>
-        Export Inventory List to PDF
-      </Button>
-
       <hr />
       <Table id="inventoryTable" borderless hover>
         <thead>

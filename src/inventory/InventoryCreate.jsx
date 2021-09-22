@@ -78,8 +78,7 @@ import {
     <div>
       <Button
         variant="primary"
-        onClick={toggle}
-        // className="add-inventory-button"
+        onClick={toggle}        
         className='btn-pdf'
       >
         Add item to Inventory

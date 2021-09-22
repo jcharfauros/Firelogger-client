@@ -43,7 +43,6 @@ body {
   padding-bottom: 75px;
   padding-top: 35px;
   padding-left: 15px;
-  /* height: 255px; */
 }
 
 .font-test {
@@ -61,7 +60,10 @@ body {
 }
 
 .font-table {
-  font-family: Montserrat !important;
+  /* font-family: Montserrat !important; */
+  font-family: Bubbleboddy Neue, sans-serif;
+  font-size: larger;
+  letter-spacing: 2px;
   font-weight: 100;
   color: #3f44a4;
   text-align: center;
@@ -74,7 +76,9 @@ body {
 .hotel_title {
   font-family: Bubbleboddy Neue, sans-serif;
   font-weight: bolder;
-  font-size: 45px;
+  /* font-size: 45px; */
+  color: #8A4D94;
+  text-shadow: 1px 1px #3f44a4;
 }
 
 .hotelTable {
@@ -126,6 +130,6 @@ body {
   margin-left: 500px;
 }
 
-/* td {
-  text-align: center;
-} */
+.nav-link {
+  margin: 5px;
+}

@@ -42,7 +42,7 @@ const Hotels = (props) => {
   return (
     <div>
       <div>
-        <h2 className="hotel_title">Hotels Nearby </h2>
+        <h1 className="hotel_title">Hotels Nearby </h1>
         <hr />
         <div className="hotelTable">
           <Table responsive borderless hover>
