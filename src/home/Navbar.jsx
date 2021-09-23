@@ -49,6 +49,7 @@ const FireLoggerNavbar = (props) => {
   const resourceViews = () => {
     return props.sessionToken === localStorage.getItem("token") ? (
       <Dropdown
+        direction='left'
         className="resource-dropdown"
         isOpen={dropdownOpen}
         toggle={toggle}
