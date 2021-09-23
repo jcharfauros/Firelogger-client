@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Row, Container, Table, Button } from "reactstrap";
+import { Row, Container, Table, Button, Col } from "reactstrap";
+import '../App.css';
 // import ReactHtmlParser from "react-html-parser";
 
 const Pets = (props) => {
@@ -39,10 +40,10 @@ const Pets = (props) => {
                 href={`https://maps.google.com/?q=${pet.formatted_address}`}
                 target="_blank"
               >
-                <button className="resources-button"> Google Map Link</button>
+                <button className="btn-resource">Click for Location</button>
               </a>
             ) : (
-              "Link not available"
+              <p className='font-err'>Link unavailable</p>
             )}
           </td>
         </tr>
@@ -51,31 +52,28 @@ const Pets = (props) => {
   };
 
   return (
-    <div>
-      <div>
-        <h2 className="pet_title">
-          Pet Lodging Nearby{" "}
-          {/* <img
-            src={`https://static-00.iconduck.com/assets.00/paw-prints-emoji-443x512-6ata4j5m.png`}
-            className="temp-icon"
-            alt="temp icon"
-          />{" "} */}
-        </h2>
-        <hr />
-        <div className="petTable">
+    <Container>
+      <Row>
+        <Col>
+          <h1 className="font-titles">
+            Pet Lodging Nearby{" "}
+          </h1>
+          <hr />
+        </Col>
+      </Row>
+      <Row>        
           <Table responsive borderless hover>
-            <thead>
-              <tr>
+             <thead>
+              <tr className='font-table'>
                 <th scope="row">Name:</th>
                 <th scope="row">Address:</th>
-                <th scope="row">Link to Google Map Location:</th>
+                <th scope="row">Google Map Link:</th>
               </tr>
-            </thead>
-            <tbody>{pet.length > 0 ? petMapper() : "Loading"}</tbody>
-          </Table>
-        </div>
-      </div>
-    </div>
+             </thead>
+             <tbody>{pet.length > 0 ? petMapper() : "Loading"}</tbody>
+           </Table>
+       </Row>
+    </Container>
   );
 };
 

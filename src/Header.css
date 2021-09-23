@@ -39,11 +39,16 @@
 .font-nospace {
   font-family: Bubbleboddy Neue, sans-serif;
   color: #222552;
+  padding: 1em 0 0 4em;
 }
+
+/* 
+style={{fontSize: 20, marginLeft: 30}}  */
 
 .font-body {
   font-family: Bubbleboddy Neue, sans-serif;
   font-weight: 100;
   letter-spacing: 0.2em;
   color: #222552;
+  margin-bottom: 5px;
 }

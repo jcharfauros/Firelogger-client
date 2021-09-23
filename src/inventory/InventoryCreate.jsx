@@ -9,6 +9,9 @@ import {
   Modal,
   ModalBody,
   ModalHeader,
+  Row,
+  Container,
+  Col
 } from "reactstrap";
 
   const InventoryCreate = (props) => {
@@ -23,7 +26,7 @@ import {
   const [loading, setLoading] = useState(false);
   const [modal, setModal] = useState(false);
   const toggle = () => setModal(!modal);
-  const handleClose = () => setModal(false);
+  const handleClose = () => setModal(!modal);
   let UploadImage = async (e) => {
     let files = e.target.files;
     let data = new FormData();
@@ -75,17 +78,20 @@ import {
       });
   };
   return (
-    <div>
+    <Container fluid={true}>
+      <Row>
+      <Col sm={{ size: 'auto', offset: 9 }}>
       <Button
         variant="primary"
-        onClick={toggle}
-        // className="add-inventory-button"
-        className='btn-pdf'
-      >
+        onClick={toggle}        
+        className='btn-create'
+        >
         Add item to Inventory
       </Button>
+      </Col>
+      </Row>
       <Modal isOpen={modal} toggle={toggle}>
-        <ModalHeader toggle={toggle}>
+        <ModalHeader className='font-titles'>
           <h3>Add item to Inventory</h3>
         </ModalHeader>
         <ModalBody>
@@ -97,7 +103,7 @@ import {
                 name="category"
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
-              >
+                >
                 <option>Category of Item</option>
                 <option value="electronics">Electronics</option>
                 <option value="jewelry">Jewelry</option>
@@ -114,7 +120,7 @@ import {
                 placeholder="Name of Item"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-              />
+                />
             </FormGroup>
             <FormGroup>
               <Label htmlFor="year" />
@@ -123,7 +129,7 @@ import {
                 placeholder="Year Purchased"
                 value={year}
                 onChange={(e) => setYear(e.target.value)}
-              />
+                />
             </FormGroup>
             <FormGroup>
               <Label htmlFor="model" />
@@ -132,7 +138,7 @@ import {
                 placeholder="Model of Item"
                 value={model}
                 onChange={(e) => setModel(e.target.value)}
-              />
+                />
             </FormGroup>
             <FormGroup>
               <Label htmlFor="serial_number" />
@@ -141,7 +147,7 @@ import {
                 placeholder="Serial Number"
                 value={serial_number}
                 onChange={(e) => setSerial_Number(e.target.value)}
-              />
+                />
             </FormGroup>
             <FormGroup>
               <Label htmlFor="value" />
@@ -150,7 +156,7 @@ import {
                 placeholder="Value of Item"
                 value={value}
                 onChange={(e) => setValue(e.target.value)}
-              />
+                />
             </FormGroup>
             <FormGroup>
               <Label htmlFor="pic_url" />
@@ -160,25 +166,24 @@ import {
                 name="file"
                 placeholder="Upload Image here"
                 onChange={UploadImage}
-              />
+                />
               <br />
               {loading ? (
                 <h6>Loading...</h6>
-              ) : (
+                ) : (
                 <img src={image} style={{ width: "95px" }} />
-              )}
+                )}
             </FormGroup>{" "}
             <br />
-            <Button type="submit" onClick={handleClose}>
+            <Button className='btn-pdf' type="submit" onClick={handleClose}>
               Click to Add Item
             </Button>{" "}
-            {/* <Button color="secondary" onClick={toggle}>
-              Cancel
-            </Button> */}
+            <Button className='btn-cancel' onClick={toggle}>Cancel</Button>
           </Form>
         </ModalBody>
       </Modal>
-    </div>
+    </Container>
   );
 };
+
 export default InventoryCreate;
