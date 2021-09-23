@@ -1,11 +1,12 @@
 import React from "react";
 import { Row } from "reactstrap";
+import '../App.css'
 
 const Footer = () => {
     return (
         <footer>
             <Row>
-                <p className= "font-nospace" style={{fontSize: 20, marginLeft: 30}} >&copy; FIRELOGGER <span /></p>
+                <h4 className= "font-nospace" >&copy; FIRELOGGER <span className='footer-font-year'>2021</span></h4>
             </Row>
         </footer>
     );

@@ -26,9 +26,9 @@ const Auth = (props) => {
   };
 
   return (
-    <Container className="auth-container">
+    <Container fluid>
       <Row>
-        <Col xs="2">
+        <Col>
           {signupModalActive ? (
             <SignupModal
               signupModalOFF={signupModalOFF}
@@ -38,7 +38,7 @@ const Auth = (props) => {
             <></>
           )}
         </Col>
-        <Col xs="2">
+        <Col>
           {loginModalActive ? (
             <LoginModal
               loginModalOFF={loginModalOFF}
@@ -48,12 +48,11 @@ const Auth = (props) => {
             <></>
           )}
         </Col>
-        <Col xs="2">
-          <Button outline color="link" className="font-body" onClick={loginModalON} style={{marginRight: 10}}>
+        <Col xs='9'>         
+          <Button className="btn-nav-login" color='black' onClick={loginModalON} >
             Login
-          </Button>
-          <br />
-          <Button outline color="link" className="font-body" onClick={signupModalON} style={{marginRight: 10}}>
+          </Button>          
+          <Button className="btn-nav-logout" color='black' onClick={signupModalON} >
             Signup
           </Button>
         </Col>
@@ -64,6 +63,3 @@ const Auth = (props) => {
 };
 
 export default Auth;
-
-{/* <Link to="/loginmodal" onClick={loginModalON} className="font-test" style={{marginLeft: 399}}>Login</Link> */}
-{/* <Link to="/signupmodal" onClick={signupModalON} className="font-test" style={{marginRight: '5px'}}>Signup</Link> */}
