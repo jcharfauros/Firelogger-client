@@ -35,7 +35,7 @@ function App() {
   };
 
   return (
-    <div>
+    <div style={{ backgroundImage: "url()"}}>
       <Router>
         <FireloggerNavbar
           clickLogout={clearToken}

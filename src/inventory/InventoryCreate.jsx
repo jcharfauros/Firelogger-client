@@ -9,6 +9,9 @@ import {
   Modal,
   ModalBody,
   ModalHeader,
+  Row,
+  Container,
+  Col
 } from "reactstrap";
 
   const InventoryCreate = (props) => {
@@ -75,15 +78,19 @@ import {
       });
   };
   return (
-    <div>
+    <Container fluid={true}>
+      <Row>
+      <Col sm={{ size: 'auto', offset: 9 }}>
       <Button
         variant="primary"
         onClick={toggle}        
         className='btn-create'
-      >
+        >
         Add item to Inventory
       </Button>
-      <Modal isOpen={!modal} centered={true} toggle={toggle}>
+      </Col>
+      </Row>
+      <Modal isOpen={modal} toggle={toggle}>
         <ModalHeader className='font-titles'>
           <h3>Add item to Inventory</h3>
         </ModalHeader>
@@ -96,7 +103,7 @@ import {
                 name="category"
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
-              >
+                >
                 <option>Category of Item</option>
                 <option value="electronics">Electronics</option>
                 <option value="jewelry">Jewelry</option>
@@ -113,7 +120,7 @@ import {
                 placeholder="Name of Item"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-              />
+                />
             </FormGroup>
             <FormGroup>
               <Label htmlFor="year" />
@@ -122,7 +129,7 @@ import {
                 placeholder="Year Purchased"
                 value={year}
                 onChange={(e) => setYear(e.target.value)}
-              />
+                />
             </FormGroup>
             <FormGroup>
               <Label htmlFor="model" />
@@ -131,7 +138,7 @@ import {
                 placeholder="Model of Item"
                 value={model}
                 onChange={(e) => setModel(e.target.value)}
-              />
+                />
             </FormGroup>
             <FormGroup>
               <Label htmlFor="serial_number" />
@@ -140,7 +147,7 @@ import {
                 placeholder="Serial Number"
                 value={serial_number}
                 onChange={(e) => setSerial_Number(e.target.value)}
-              />
+                />
             </FormGroup>
             <FormGroup>
               <Label htmlFor="value" />
@@ -149,7 +156,7 @@ import {
                 placeholder="Value of Item"
                 value={value}
                 onChange={(e) => setValue(e.target.value)}
-              />
+                />
             </FormGroup>
             <FormGroup>
               <Label htmlFor="pic_url" />
@@ -159,13 +166,13 @@ import {
                 name="file"
                 placeholder="Upload Image here"
                 onChange={UploadImage}
-              />
+                />
               <br />
               {loading ? (
                 <h6>Loading...</h6>
-              ) : (
+                ) : (
                 <img src={image} style={{ width: "95px" }} />
-              )}
+                )}
             </FormGroup>{" "}
             <br />
             <Button className='btn-pdf' type="submit" onClick={handleClose}>
@@ -175,7 +182,7 @@ import {
           </Form>
         </ModalBody>
       </Modal>
-    </div>
+    </Container>
   );
 };
 

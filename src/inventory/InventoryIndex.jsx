@@ -3,6 +3,7 @@ import { Container, Row, Col } from "reactstrap";
 import InventoryCreate from "./InventoryCreate";
 import InventoryTable from "./InventoryTable";
 import InventoryEdit from "./InventoryEdit";
+import InventoryPDF from "./InventoryPDF";
 
 const InventoryIndex = (props) => {
   const [inventory, setInventory] = useState([]);
@@ -44,11 +45,14 @@ const InventoryIndex = (props) => {
   return (
     <Container fluid={true}>
       <Row>       
-        <Col sm={{ size: 'auto', offset: 9 }}>
+        <Col xs='4'>
           <InventoryCreate
             fetchInventory={fetchInventory}
             token={props.token}
           />
+        </Col>
+        <Col xs='4'>
+            <InventoryPDF />
         </Col>
       </Row>
       <Row>

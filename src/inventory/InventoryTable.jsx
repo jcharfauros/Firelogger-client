@@ -1,7 +1,5 @@
 import React from "react";
 import { Table, Button, Container, Row, Col } from "reactstrap";
-import { jsPDF } from "jspdf";
-import "jspdf-autotable";
 import "../App.css";
 
 const InventoryTable = (props) => {
@@ -15,30 +13,6 @@ const InventoryTable = (props) => {
     }).then(() => props.fetchInventory());
   };
   console.log(props.inventory);
-
-  //Parses User's Table & Generates PDF Report of User's current Inventory
-  const handlePDF = (e) => {
-    const doc = new jsPDF("landscape");
-    doc.autoTable({
-      html: "#inventoryTable",
-      bodyStyles: { minCellHeight: 15 },
-      didDrawCell: function (data) {
-        if (data.column.index === 7 && data.cell.section === "body") {
-          var td = data.cell.raw;
-          var img = td.getElementsByTagName("img")[0];
-          doc.addImage(
-            img.src,
-            "JPEG",
-            data.cell.x + 2,
-            data.cell.y + 2,
-            10,
-            10
-          );
-        }
-      },
-    });
-    doc.save("My Inventory.pdf");
-  };
 
   const inventoryMapper = () => {
     return props.inventory.map((inventory, index) => {
@@ -85,17 +59,13 @@ const InventoryTable = (props) => {
   };
 
   return (
-    // <Container className="inventory-table-container"> //is this className being used -Julia
     <Container>
-      <Row>
-        <Col sm="12" md={{ size: 6, offset: 9 }}>
-          <Button className="btn-pdf" active onClick={handlePDF}>
-            Export Inventory List to PDF
-          </Button>
+      <Row className='inventory-padding'>
+        <Col>
+          <h1 className="font-titles">Inventory Item List</h1>
+          <hr />        
         </Col>
       </Row>
-      <h1 className="font-titles">Inventory Item List</h1>
-      <hr />
       <Table id="inventoryTable" borderless hover>
         <thead>
           <tr className="font-table">
@@ -106,8 +76,7 @@ const InventoryTable = (props) => {
             <th>Model</th>
             <th>SN#</th>
             <th>Value</th>
-            <th>Picture</th>
-            {/* <th></th> */}
+            <th>Picture</th>            
           </tr>
         </thead>
         <tbody>{inventoryMapper()}</tbody>

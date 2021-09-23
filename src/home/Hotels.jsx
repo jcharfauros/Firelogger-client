@@ -31,7 +31,7 @@ const Hotels = (props) => {
               href={`https://maps.google.com/?q=${hotel.formatted_address}`}
               target="_blank"
             >
-              <button className="resources-button">Google Map Link</button>
+              <button className="btn-resource" color='black'>Click for Location</button>
             </a>
           </td>
         </tr>
@@ -53,7 +53,7 @@ const Hotels = (props) => {
             <tr className="font-table">
               <th scope="row">Name:</th>
               <th scope="row">Address:</th>
-              <th scope="row">Link to Google Map Location:</th>
+              <th scope="row">Google Map Link:</th>
             </tr>
           </thead>
           <tbody>{hotel.length > 0 ? hotelMapper() : "Loading"}</tbody>
@@ -61,27 +61,6 @@ const Hotels = (props) => {
       </Row>
     </Container>
   );
-
-  // return (
-  //   <div>
-  //     <div>
-  //       <h1 className="font-titles">Hotels Nearby </h1>
-  //       <hr />
-  //       <div className="font-table">
-  //         <Table responsive borderless hover>
-  //           <thead>
-  //             <tr>
-  //               <th scope="row">Name:</th>
-  //               <th scope="row">Address:</th>
-  //               <th scope="row">Link to Google Map Location:</th>
-  //             </tr>
-  //           </thead>
-  //           <tbody>{hotel.length > 0 ? hotelMapper() : "Loading"}</tbody>
-  //         </Table>
-  //       </div>
-  //     </div>
-  //   </div>
-  // );
 };
 
 export default Hotels;
