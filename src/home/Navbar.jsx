@@ -58,10 +58,10 @@ const FireLoggerNavbar = (props) => {
         </DropdownToggle>
         <DropdownMenu>
           <DropdownItem>
-            <Link to="/hotels"> Hotels in your area </Link>
+            <Link className='btn-dropdown' to="/hotels"> Hotels in your area </Link>
           </DropdownItem>
           <DropdownItem>
-            <Link to="/petcare">Pet Boarding in your area </Link>
+            <Link className='btn-dropdown' to="/petcare">Pet Boarding in your area </Link>
           </DropdownItem>
         </DropdownMenu>
       </Dropdown>
