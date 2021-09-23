@@ -9,6 +9,12 @@
     border: 0.1px solid black;
   }   */
 
+.btn-dropdown {
+    color: black;
+    text-decoration: none;
+}
+
+
 .btn-resource {
     text-align: center;
     /* background: #AB449F !important; */
@@ -40,12 +46,45 @@
     left:0;
 }
 
+/* NAVBAR BUTTON */
+
+
+.btn-navbar {
+    text-align: center;
+    background: none !important;
+    color: black;
+    border: none;
+    display: inline-block;
+    padding: 5px;
+    cursor: pointer;
+    position:relative;
+    overflow:hidden;  
+}
+  
+.btn-navbar:before {
+    content: "";
+    position: absolute;
+    width: 0;
+    background: #00A5A8;
+    left: 45%;
+    height: 3px;
+    bottom: 0;
+    transition: 0.3s;
+}
+  
+.btn-navbar:hover:before {
+    background: #FFBE59;
+    width: 100%;
+    left:0;
+}
+
+
 /* UPDATE BUTTON */
 
 .btn-update {
     text-align: center;
     background: none !important;
-    color: #007DC2;
+    color: #3F44A4;
     border: none;
     display: inline-block;
     padding: 5px;

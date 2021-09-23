@@ -38,7 +38,7 @@ const FireLoggerNavbar = (props) => {
 
   const loginSignupHide = () => {
     return props.sessionToken === localStorage.getItem("token") ? (
-      <Button className="btn-nav-logout" color="black" onClick={props.clickLogout}>
+      <Button className="btn-navbar" color="black" onClick={props.clickLogout}>
         Logout
       </Button>
     ) : (
@@ -48,20 +48,22 @@ const FireLoggerNavbar = (props) => {
 
   const resourceViews = () => {
     return props.sessionToken === localStorage.getItem("token") ? (
-      <UncontrolledDropdown nav inNavbar
-    
+      <Dropdown
+        direction='left'
+        className="resource-dropdown"
         isOpen={dropdownOpen}
         toggle={toggle}
       >
-        <DropdownToggle nav caret  color="black">
+        <DropdownToggle caret className="btn-navbar" color="black">
           Resources
         </DropdownToggle>
         <DropdownMenu>
           <DropdownItem>
-            <Link to="/hotels">Hotels in your area </Link>
+
+            <Link className='btn-dropdown' to="/hotels"> Hotels in your area </Link>
           </DropdownItem>
           <DropdownItem>
-            <Link to="/petcare">Pet Boarding in your area </Link>
+            <Link className='btn-dropdown' to="/petcare">Pet Boarding in your area </Link>
           </DropdownItem>
         </DropdownMenu>
       </UncontrolledDropdown>
@@ -73,7 +75,7 @@ const FireLoggerNavbar = (props) => {
   const home = () => {
     return props.sessionToken === localStorage.getItem("token") ? (
       <a href="/">
-        <Button className="btn-nav-home" color="black">
+        <Button className="btn-navbar" color="black">
           Home
         </Button>
       </a>
