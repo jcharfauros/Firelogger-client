@@ -38,7 +38,7 @@ const FireLoggerNavbar = (props) => {
 
   const loginSignupHide = () => {
     return props.sessionToken === localStorage.getItem("token") ? (
-      <Button className="btn-delete" color="black" onClick={props.clickLogout}>
+      <Button className="btn-navbar" color="black" onClick={props.clickLogout}>
         Logout
       </Button>
     ) : (
@@ -53,7 +53,7 @@ const FireLoggerNavbar = (props) => {
         isOpen={dropdownOpen}
         toggle={toggle}
       >
-        <DropdownToggle caret className="btn-delete" color="black">
+        <DropdownToggle caret className="btn-navbar" color="black">
           Resources
         </DropdownToggle>
         <DropdownMenu>
@@ -73,7 +73,7 @@ const FireLoggerNavbar = (props) => {
   const home = () => {
     return props.sessionToken === localStorage.getItem("token") ? (
       <a href="/">
-        <Button className="btn-delete" color="black">
+        <Button className="btn-navbar" color="black">
           Home
         </Button>
       </a>
