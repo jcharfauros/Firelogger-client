@@ -20,10 +20,11 @@ body {
 .navbar-jc {
   width: 100%;
   overflow: hidden;
-  padding-bottom: 50px;
-  margin-bottom: 75px;
-  /* padding-top: 35px; */
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+  padding-top: 35px;
   padding-left: 15px;
+  background-color: white;
 }
 
 /* for the "link not available" in Pet.jsx*/
@@ -89,12 +90,7 @@ body {
   margin-top: 35px;
 }
 
-.resource-dropdown {
-  /* position: fixed;
-  z-index: 999999999; */
-  margin-left: 500px;
-}
 
-.nav-link {
+/* .nav-link {
   margin: 5px;
-}
+} */

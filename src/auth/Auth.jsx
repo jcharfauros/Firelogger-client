@@ -49,10 +49,10 @@ const Auth = (props) => {
           )}
         </Col>
         <Col xs='9'>         
-          <Button className="btn-delete" color='black' onClick={loginModalON} >
+          <Button className="btn-nav-login" color='black' onClick={loginModalON} >
             Login
           </Button>          
-          <Button className="btn-delete" color='black' onClick={signupModalON} >
+          <Button className="btn-nav-logout" color='black' onClick={signupModalON} >
             Signup
           </Button>
         </Col>

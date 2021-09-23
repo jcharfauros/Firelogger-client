@@ -8,13 +8,14 @@ import {
   Nav,
   NavItem,
   Button,
-  Dropdown,
+  UncontrolledDropdown,
   Col,
   Row,
   Container,
   DropdownToggle,
   DropdownMenu,
   DropdownItem,
+
 } from "reactstrap";
 import "../App.css";
 import fireloggerlogo from "../assets/FIre Logger Logo.png";
@@ -37,7 +38,7 @@ const FireLoggerNavbar = (props) => {
 
   const loginSignupHide = () => {
     return props.sessionToken === localStorage.getItem("token") ? (
-      <Button className="btn-delete" color="black" onClick={props.clickLogout}>
+      <Button className="btn-nav-logout" color="black" onClick={props.clickLogout}>
         Logout
       </Button>
     ) : (
@@ -47,23 +48,23 @@ const FireLoggerNavbar = (props) => {
 
   const resourceViews = () => {
     return props.sessionToken === localStorage.getItem("token") ? (
-      <Dropdown
-        className="resource-dropdown"
+      <UncontrolledDropdown nav inNavbar
+    
         isOpen={dropdownOpen}
         toggle={toggle}
       >
-        <DropdownToggle caret className="btn-delete" color="black">
+        <DropdownToggle nav caret  color="black">
           Resources
         </DropdownToggle>
         <DropdownMenu>
           <DropdownItem>
-            <Link to="/hotels"> Hotels in your area </Link>
+            <Link to="/hotels">Hotels in your area </Link>
           </DropdownItem>
           <DropdownItem>
             <Link to="/petcare">Pet Boarding in your area </Link>
           </DropdownItem>
         </DropdownMenu>
-      </Dropdown>
+      </UncontrolledDropdown>
     ) : (
       ""
     );
@@ -72,7 +73,7 @@ const FireLoggerNavbar = (props) => {
   const home = () => {
     return props.sessionToken === localStorage.getItem("token") ? (
       <a href="/">
-        <Button className="btn-delete" color="black">
+        <Button className="btn-nav-home" color="black">
           Home
         </Button>
       </a>
@@ -98,8 +99,8 @@ const FireLoggerNavbar = (props) => {
             <NavbarToggler onClick={toggle} />
             <Collapse isOpen={isOpen} navbar>
               <Nav className="ml-auto" navbar>
-                <NavItem className='nav-link'>{resourceViews()}</NavItem>
                 <NavItem className='nav-link'>{home()}</NavItem>
+                <NavItem className='nav-link'>{resourceViews()}</NavItem>
                 <NavItem className='nav-link'>{loginSignupHide()}</NavItem>
               </Nav>
             </Collapse>

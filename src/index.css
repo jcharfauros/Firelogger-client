@@ -17,8 +17,3 @@ code {
   font-family: 'Bubbleboddy Neue';
   src: local('Bubbleboddy Neue'), url(./assets/Bubbleboddy-ExtraLightTrial.ttf) format('truetype');
 }
-
-@font-face {
-  font-family: 'Bubbleboddy Light';
-  src: local('Bubbleboddy Light'), url(./assets/Bubbleboddy-Neue-Thin-trial.ttf) format('truetype');
-}
