@@ -8,17 +8,17 @@ import {
   Nav,
   NavItem,
   Button,
-  Dropdown,
+  UncontrolledDropdown,
   Col,
   Row,
   Container,
   DropdownToggle,
   DropdownMenu,
   DropdownItem,
+
 } from "reactstrap";
 import "../App.css";
-
-import fireloggerlogo from "../assets/FIRELOGGER W TEXT small.png";
+import fireloggerlogo from "../assets/FIre Logger Logo.png";
 import Auth from "../auth/Auth";
 import Hotels from "./Hotels";
 import Pets from "./Pet";
@@ -59,13 +59,14 @@ const FireLoggerNavbar = (props) => {
         </DropdownToggle>
         <DropdownMenu>
           <DropdownItem>
+
             <Link className='btn-dropdown' to="/hotels"> Hotels in your area </Link>
           </DropdownItem>
           <DropdownItem>
             <Link className='btn-dropdown' to="/petcare">Pet Boarding in your area </Link>
           </DropdownItem>
         </DropdownMenu>
-      </Dropdown>
+      </UncontrolledDropdown>
     ) : (
       ""
     );
@@ -100,8 +101,8 @@ const FireLoggerNavbar = (props) => {
             <NavbarToggler onClick={toggle} />
             <Collapse isOpen={isOpen} navbar>
               <Nav className="ml-auto" navbar>
-                <NavItem className='nav-link'>{resourceViews()}</NavItem>
                 <NavItem className='nav-link'>{home()}</NavItem>
+                <NavItem className='nav-link'>{resourceViews()}</NavItem>
                 <NavItem className='nav-link'>{loginSignupHide()}</NavItem>
               </Nav>
             </Collapse>
