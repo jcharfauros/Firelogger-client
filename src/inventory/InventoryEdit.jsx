@@ -128,8 +128,7 @@ const InventoryEdit = (props) => {
           </FormGroup>
           <Button className='btn-pdf' type="submit" onClick={handleClose}>
               Click to Submit Changes
-            </Button>{" "}
-          {/* <Button close /> */}
+          </Button>{" "}
           <Button className='btn-cancel' closebutton="true">Cancel</Button>          
         </Form>
       </ModalBody>

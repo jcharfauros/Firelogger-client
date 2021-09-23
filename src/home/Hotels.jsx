@@ -1,5 +1,5 @@
 import React, { useEffect, useState, Spinner } from "react";
-import { Row, Container, Table, Button } from "reactstrap";
+import { Row, Container, Table, Button, Col } from "reactstrap";
 
 const Hotels = (props) => {
   const [hotel, setHotel] = useState({});
@@ -31,7 +31,7 @@ const Hotels = (props) => {
               href={`https://maps.google.com/?q=${hotel.formatted_address}`}
               target="_blank"
             >
-              <button className="resources-button">Google Map Link</button>
+              <button className="btn-resource" color='black'>Click for Location</button>
             </a>
           </td>
         </tr>
@@ -40,24 +40,26 @@ const Hotels = (props) => {
   };
 
   return (
-    <div>
-      <div>
-        <h2 className="hotel_title">Hotels Nearby </h2>
+    <Container>
+      <Row>
+        <Col>
+        <h1 className="font-titles">Hotels Nearby </h1>
         <hr />
-        <div className="hotelTable">
-          <Table responsive borderless hover>
-            <thead>
-              <tr>
-                <th scope="row">Name:</th>
-                <th scope="row">Address:</th>
-                <th scope="row">Link to Google Map Location:</th>
-              </tr>
-            </thead>
-            <tbody>{hotel.length > 0 ? hotelMapper() : "Loading"}</tbody>
-          </Table>
-        </div>
-      </div>
-    </div>
+        </Col>
+      </Row>
+      <Row >
+        <Table responsive borderless hover>
+          <thead>
+            <tr className="font-table">
+              <th scope="row">Name:</th>
+              <th scope="row">Address:</th>
+              <th scope="row">Google Map Link:</th>
+            </tr>
+          </thead>
+          <tbody>{hotel.length > 0 ? hotelMapper() : "Loading"}</tbody>
+        </Table>
+      </Row>
+    </Container>
   );
 };
 

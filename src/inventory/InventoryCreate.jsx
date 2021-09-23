@@ -11,6 +11,9 @@ import {
   Modal,
   ModalBody,
   ModalHeader,
+  Row,
+  Container,
+  Col
 } from "reactstrap";
 
 const InventoryCreate = (props) => {
@@ -25,6 +28,7 @@ const InventoryCreate = (props) => {
   const [loading, setLoading] = useState(false);
   const [modal, setModal] = useState(false);
   const toggle = () => setModal(!modal);
+
   const handleClose = () => setModal(false);
 
   const formik = useFormik({
@@ -52,6 +56,7 @@ const InventoryCreate = (props) => {
       postInventory();
     },
   });
+
 
   let UploadImage = async (e) => {
     let files = e.target.files;
@@ -99,12 +104,21 @@ const InventoryCreate = (props) => {
   };
 
   return (
-    <div>
-      <Button variant="primary" onClick={toggle} className="btn-pdf">
+    <Container fluid={true}>
+      <Row>
+      <Col sm={{ size: 'auto', offset: 9 }}>
+      <Button
+        variant="primary"
+        onClick={toggle}        
+        className='btn-create'
+        >
+
         Add item to Inventory
       </Button>
+      </Col>
+      </Row>
       <Modal isOpen={modal} toggle={toggle}>
-        <ModalHeader toggle={toggle}>
+        <ModalHeader className='font-titles'>
           <h3>Add item to Inventory</h3>
         </ModalHeader>
         <ModalBody>
@@ -115,10 +129,16 @@ const InventoryCreate = (props) => {
               <Input
                 type="select"
                 name="category"
+
                 value={formik.values.category}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
               >
+
+                value={category}
+                onChange={(e) => setCategory(e.target.value)}
+                >
+
                 <option>Category of Item</option>
                 <option value="electronics">Electronics</option>
                 <option value="jewelry">Jewelry</option>
@@ -138,6 +158,7 @@ const InventoryCreate = (props) => {
               <Input
                 name="name"
                 placeholder="Name of Item"
+
                 value={formik.values.name}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
@@ -147,12 +168,18 @@ const InventoryCreate = (props) => {
                   <div>{formik.errors.name}</div>
                 ) : null}
               </p>
+
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                />
+
             </FormGroup>
             <FormGroup>
               <Label htmlFor="year" />
               <Input
                 name="year"
                 placeholder="Year Purchased"
+
                 value={formik.values.year}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
@@ -162,12 +189,18 @@ const InventoryCreate = (props) => {
                   <div>{formik.errors.year}</div>
                 ) : null}
               </p>
+
+                value={year}
+                onChange={(e) => setYear(e.target.value)}
+                />
+
             </FormGroup>
             <FormGroup>
               <Label htmlFor="model" />
               <Input
                 name="model"
                 placeholder="Model of Item"
+
                 value={formik.values.model}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
@@ -177,12 +210,18 @@ const InventoryCreate = (props) => {
                   <div>{formik.errors.model}</div>
                 ) : null}
               </p>
+
+                value={model}
+                onChange={(e) => setModel(e.target.value)}
+                />
+
             </FormGroup>
             <FormGroup>
               <Label htmlFor="serial_number" />
               <Input
                 name="serial_number"
                 placeholder="Serial Number"
+
                 value={formik.values.serial_number}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
@@ -192,12 +231,18 @@ const InventoryCreate = (props) => {
                   <div>{formik.errors.serial_number}</div>
                 ) : null}
               </p>
+
+                value={serial_number}
+                onChange={(e) => setSerial_Number(e.target.value)}
+                />
+
             </FormGroup>
             <FormGroup>
               <Label htmlFor="value" />
               <Input
                 name="value"
                 placeholder="Value of Item"
+
                 value={formik.values.value}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
@@ -207,6 +252,11 @@ const InventoryCreate = (props) => {
                   <div>{formik.errors.value}</div>
                 ) : null}
               </p>
+
+                value={value}
+                onChange={(e) => setValue(e.target.value)}
+                />
+
             </FormGroup>
             <FormGroup>
               <Label htmlFor="pic_url" />
@@ -216,22 +266,34 @@ const InventoryCreate = (props) => {
                 name="file"
                 placeholder="Upload Image here"
                 onChange={UploadImage}
+
                 // onChange={handleChange}
                 // onBlur={formik.handleBlur}
               />
+
+                />
+
               <br />
               {loading ? (
                 <h6>Loading...</h6>
-              ) : (
+                ) : (
                 <img src={image} style={{ width: "95px" }} />
-              )}
+                )}
             </FormGroup>{" "}
             <br />
+
             <Button type="submit">Click to Add Item</Button>{" "}
+
+            <Button className='btn-pdf' type="submit" onClick={handleClose}>
+              Click to Add Item
+            </Button>{" "}
+            <Button className='btn-cancel' onClick={toggle}>Cancel</Button>
+
           </Form>
         </ModalBody>
       </Modal>
-    </div>
+    </Container>
   );
 };
+
 export default InventoryCreate;
