@@ -1,24 +1,17 @@
-@import 'buttons.css';
+@import "buttons.css";
 @import "Header.css";
 
 .hotelTable {
   width: 75vw;
-  margin-left: auto;
-  margin-right: auto;
+  /* margin-left: auto;
+  margin-right: auto; */
 }
 
 .petTable {
   width: 75vw;
+  /* margin-left: auto;
+  margin-right: auto; */
 }
-/* .login {
-  border: 0.5px black solid;
-  text-align: left;
-  height: 115px;
-  padding-top: 15px;
-  width: 50vw;
-  padding-bottom: 15px;
-} */
-*/
 
 body {
   background: white;
@@ -26,7 +19,7 @@ body {
 
 .logo-img {
   max-width: 100%;
-  width: 80%;
+  width: 65%;
 }
 
 .hr-1 {
@@ -47,6 +40,9 @@ body {
 .navbar-jc {
   width: 100%;
   overflow: hidden;
+  padding-bottom: 75px;
+  padding-top: 35px;
+  padding-left: 15px;
   /* height: 255px; */
 }
 
@@ -54,20 +50,21 @@ body {
   font-family: Bubbleboddy Neue, sans-serif;
   font-weight: 100;
   color: #ff8469;
-  text-shadow: 2px 2px #3F44A4;
+  text-shadow: 2px 2px #3f44a4;
 }
 
 .font-titles {
   font-family: Bubbleboddy Neue, sans-serif;
   /* font-weight: 100; */
   color: #ff8469;
-  text-shadow: 1px 1px #3F44A4;
+  text-shadow: 1px 1px #3f44a4;
 }
 
-.font-table {  
-  font-family: Montesrrat, sans-serif;
+.font-table {
+  font-family: Montserrat !important;
   font-weight: 100;
-  color: #3F44A4;
+  color: #3f44a4;
+  text-align: center;
 }
 
 .footer-font {
@@ -124,3 +121,11 @@ body {
   font-family: Montserrat !important;
   font-weight: 300;
 }
+
+.resource-dropdown {
+  margin-left: 500px;
+}
+
+/* td {
+  text-align: center;
+} */

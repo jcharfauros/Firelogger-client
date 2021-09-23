@@ -55,15 +55,15 @@ const Pets = (props) => {
       <div>
         <h2 className="pet_title">
           Pet Lodging Nearby{" "}
-          <img
+          {/* <img
             src={`https://static-00.iconduck.com/assets.00/paw-prints-emoji-443x512-6ata4j5m.png`}
             className="temp-icon"
             alt="temp icon"
-          />{" "}
+          />{" "} */}
         </h2>
         <hr />
         <div className="petTable">
-          <Table responsive striped>
+          <Table responsive borderless hover>
             <thead>
               <tr>
                 <th scope="row">Name:</th>

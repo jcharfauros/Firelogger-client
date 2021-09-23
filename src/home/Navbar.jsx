@@ -17,8 +17,7 @@ import {
   DropdownItem,
 } from "reactstrap";
 import "../App.css";
-// import fireloggerlogo from "../assets/FIRELOG_LOGO.png";
-import fireloggerlogo from "../assets/FIRELOGGER W TEXT small.png";
+import fireloggerlogo from "../assets/FIre Logger Logo.png";
 import Auth from "../auth/Auth";
 import Hotels from "./Hotels";
 import Pets from "./Pet";
@@ -27,8 +26,6 @@ import InventoryIndex from "../inventory/InventoryIndex";
 
 const FireLoggerNavbar = (props) => {
   const [isOpen, setIsOpen] = useState(false);
-
-  // const [userDisplayName, setUserDisplayName] = useState("");
 
   const toggle2 = () => {
     let newIsOpen = !isOpen;
@@ -40,11 +37,9 @@ const FireLoggerNavbar = (props) => {
 
   const loginSignupHide = () => {
     return props.sessionToken === localStorage.getItem("token") ? (
-
-      <Button className='btn-delete' color='black' onClick={props.clickLogout}>Logout</Button>
-
-      // <Button onClick={props.clickLogout} outline color="link" className='font-test' style={{ marginRight: 600}}>Logout</Button>
-      
+      <Button className="btn-delete" color="black" onClick={props.clickLogout}>
+        Logout
+      </Button>
     ) : (
       <Auth updateToken={props.updateToken} />
     );
@@ -52,8 +47,14 @@ const FireLoggerNavbar = (props) => {
 
   const resourceViews = () => {
     return props.sessionToken === localStorage.getItem("token") ? (
-      <Dropdown isOpen={dropdownOpen} toggle={toggle2}>
-        <DropdownToggle caret>Resources</DropdownToggle>
+      <Dropdown
+        className="resource-dropdown"
+        isOpen={dropdownOpen}
+        toggle={toggle}
+      >
+        <DropdownToggle caret className="btn-delete" color="black">
+          Resources
+        </DropdownToggle>
         <DropdownMenu>
           <DropdownItem>
             <Link to="/hotels"> Hotels in your area </Link>
@@ -71,7 +72,9 @@ const FireLoggerNavbar = (props) => {
   const home = () => {
     return props.sessionToken === localStorage.getItem("token") ? (
       <a href="/">
-        <Button>Home</Button>
+        <Button className="btn-delete" color="black">
+          Home
+        </Button>
       </a>
     ) : (
       ""
@@ -80,11 +83,15 @@ const FireLoggerNavbar = (props) => {
 
   return (
     <Navbar className="navbar-jc" light expand="md">
-      {/* <Container fluid={true}>
+      <Container fluid={true}>
         <Row>
           <Col>
             <NavbarBrand href="/">
-              <img src={fireloggerlogo} alt="firelogger_logo" className="logo-img" />
+              <img
+                src={fireloggerlogo}
+                alt="firelogger_logo"
+                className="logo-img"
+              />
             </NavbarBrand>
           </Col>
           <Col>
@@ -92,23 +99,13 @@ const FireLoggerNavbar = (props) => {
             <Collapse isOpen={isOpen} navbar>
               <Nav className="ml-auto" navbar>
                 <NavItem>{loginSignupHide()}</NavItem>
+                <NavItem>{resourceViews()}</NavItem>
+                <NavItem>{home()}</NavItem>
               </Nav>
             </Collapse>
           </Col>
         </Row>
-      </Container> */}
-
-      <NavbarBrand href="/">
-        <img src={fireloggerlogo} alt="firelogger_logo" className="logo-img" />
-      </NavbarBrand>
-      <NavbarToggler onClick={toggle} /> 
-      <Collapse isOpen={isOpen} navbar>
-        <Nav className="ml-auto" navbar>
-          <NavItem>{loginSignupHide()}</NavItem>
-          <NavItem>{resourceViews()}</NavItem>
-          <NavItem>{home()}</NavItem>
-        </Nav>
-      </Collapse>
+      </Container>
     </Navbar>
   );
 };
