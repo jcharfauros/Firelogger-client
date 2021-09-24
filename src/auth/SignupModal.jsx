@@ -60,7 +60,7 @@ const SignupModal = (props) => {
 
   let handleSignUp = (values) => {
     // event.preventDefault();
-    fetch("http://localhost:3000/user/signup", {
+    fetch(`${APIURL}/user/signup`, {
       method: "POST",
       body: JSON.stringify({
         user: {

@@ -106,7 +106,7 @@
 .btn-delete {
     text-align: center;
     background: none !important;
-    color: #ED5686;
+    color: #E5865A;
     border: none;
     display: inline-block;
     padding: 5px;
@@ -167,7 +167,7 @@
 
 .btn-cancel {
     text-align: center;
-    background: #ED5686 !important;
+    background: #E5865A !important;
     border: none;
     display: inline-block;
     padding: 5px;

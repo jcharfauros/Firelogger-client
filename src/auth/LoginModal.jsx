@@ -40,7 +40,7 @@ const LoginModal = (props) => {
 
   let handleLogin = (event) => {
     // event.preventDefault();
-    fetch("http://localhost:3000/user/login", {
+    fetch(`${APIURL}/user/login`, {
       method: "POST",
       body: JSON.stringify({
         user: { email: formik.values.email, password: formik.values.password },

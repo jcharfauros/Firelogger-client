@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import '../App.css';
+import "../App.css";
 import {
   Form,
   FormGroup,
@@ -10,7 +10,6 @@ import {
   ModalHeader,
   ModalBody,
 } from "reactstrap";
-
 
 const InventoryEdit = (props) => {
   const [modal, setModal] = useState(false);
@@ -31,35 +30,34 @@ const InventoryEdit = (props) => {
 
   const inventoryUpdate = (e, inventory) => {
     e.preventDefault();
-    fetch(
-      `http://localhost:3000/inventory/update/${props.inventoryToEdit.id}`,
-      {
-        method: "PUT",
-        body: JSON.stringify({
-          inventory: {
-            category: editCategory,
-            name: editName,
-            year: editYear,
-            model: editModel,
-            serial_number: editSerialNum,
-            pic_url: editPicUrl,
-            value: editValue,
-          },
-        }),
-        headers: new Headers({
-          "Content-Type": "application/json",
-          Authorization: props.token,
-        }),
-      }
-    ).then((res) => {
+    fetch(`${APIURL}/inventory/update/${props.inventoryToEdit.id}`, {
+      method: "PUT",
+      body: JSON.stringify({
+        inventory: {
+          category: editCategory,
+          name: editName,
+          year: editYear,
+          model: editModel,
+          serial_number: editSerialNum,
+          pic_url: editPicUrl,
+          value: editValue,
+        },
+      }),
+      headers: new Headers({
+        "Content-Type": "application/json",
+        Authorization: props.token,
+      }),
+    }).then((res) => {
       props.fetchInventory();
       props.editOff();
     });
   };
 
-  return ( 
+  return (
     <Modal isOpen={!modal} centered={true} toggle={toggle}>
-      <ModalHeader className='font-titles'><h2>Inventory Items Edit</h2></ModalHeader>
+      <ModalHeader className="font-titles">
+        <h2>Inventory Items Edit</h2>
+      </ModalHeader>
       <ModalBody>
         <Form onSubmit={inventoryUpdate}>
           <FormGroup>
@@ -126,10 +124,12 @@ const InventoryEdit = (props) => {
               onChange={(e) => setEditPicUrl(e.target.value)}
             />
           </FormGroup>
-          <Button className='btn-pdf' type="submit" onClick={handleClose}>
-              Click to Submit Changes
+          <Button className="btn-pdf" type="submit" onClick={handleClose}>
+            Click to Submit Changes
           </Button>{" "}
-          <Button className='btn-cancel' closebutton="true">Cancel</Button>          
+          <Button className="btn-cancel" closebutton="true">
+            Cancel
+          </Button>
         </Form>
       </ModalBody>
     </Modal>
