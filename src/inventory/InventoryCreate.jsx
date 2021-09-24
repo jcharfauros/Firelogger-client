@@ -54,7 +54,7 @@ const InventoryCreate = (props) => {
     }),
 
     onSubmit: (values) => {
-      console.log("hello");
+      // console.log("hello");
       postInventory();
     },
   });
@@ -240,7 +240,7 @@ const InventoryCreate = (props) => {
             <Button className="btn-pdf" type="submit">
               Click to Add Item
             </Button>{" "}
-            <Button className="btn-cancel" onClick={toggle}>
+            <Button className="btn-cancel" onClick={(toggle, formik.resetForm)}>
               Cancel
             </Button>
           </Form>
