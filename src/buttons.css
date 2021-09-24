@@ -1,19 +1,9 @@
 /* HOTEL/PET RESOURCE BUTTONS */
-/* .resources-button {
-    background-color: #ccdbdc;
-    font-size: 13.5px;
-    margin-left: 25%;
-    border: none;
-    color: black;
-    border-radius: 3%;
-    border: 0.1px solid black;
-  }   */
 
 .btn-dropdown {
     color: black;
     text-decoration: none;
 }
-
 
 .btn-resource {
     text-align: center;
@@ -52,6 +42,7 @@
 .btn-navbar {
     text-align: center;
     background: none !important;
+    margin-left: 10px;
     color: black;
     border: none;
     display: inline-block;
@@ -233,7 +224,6 @@
 
 .btn-nav-login-signup {
     text-align: center;
-    left: 28em;
     background: none !important;
     color: black;
     border: none;
@@ -242,8 +232,7 @@
     cursor: pointer;
     position:relative;
     overflow:hidden; 
-    justify-content: space-between;
-    /* margin: 0 5px; */
+    margin: 0 5px;
 }
   
 .btn-nav-login-signup:before {

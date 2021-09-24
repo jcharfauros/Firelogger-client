@@ -34,7 +34,8 @@ const handlePDF = (e) => {
       <Row>
         <Col sm={{ size: 'auto', offset: 9 }}>
           <Button className="btn-pdf" active onClick={handlePDF}>
-            Export Inventory List to PDF
+            {/* Export Inventory List to PDF */}
+            Export Inventory List
           </Button>
         </Col>
       </Row>      
