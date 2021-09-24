@@ -76,6 +76,12 @@ const InventoryCreate = (props) => {
     setImage(File.secure_url);
     setLoading(false);
   };
+
+  const cancelButton = () => {
+    formik.resetForm();
+    toggle();
+  };
+
   const postInventory = (e) => {
     // e.preventDefault();
     fetch(`${APIURL}/inventory/create`, {
@@ -237,12 +243,14 @@ const InventoryCreate = (props) => {
               )}
             </FormGroup>{" "}
             <br />
-            <Button className="btn-pdf" type="submit">
-              Click to Add Item
-            </Button>{" "}
-            <Button className="btn-cancel" onClick={(toggle, formik.resetForm)}>
-              Cancel
-            </Button>
+            <div className="d-flex justify-content-between">
+              <Button className="btn-pdf" type="submit">
+                Click to Add Item
+              </Button>{" "}
+              <Button className="btn-cancel" onClick={cancelButton}>
+                Cancel
+              </Button>
+            </div>
           </Form>
         </ModalBody>
       </Modal>
