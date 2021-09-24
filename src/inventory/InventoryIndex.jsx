@@ -11,7 +11,7 @@ const InventoryIndex = (props) => {
   const [inventoryToEdit, setInventoryToEdit] = useState({});
 
   const fetchInventory = () => {
-    fetch("http://localhost:3000/inventory/", {
+    fetch(`${APIURL}/inventory/`, {
       method: "GET",
       headers: new Headers({
         "Content-Type": "application/json",
@@ -44,15 +44,15 @@ const InventoryIndex = (props) => {
 
   return (
     <Container fluid={true}>
-      <Row>       
-        <Col xs='4'>
+      <Row>
+        <Col xs="4">
           <InventoryCreate
             fetchInventory={fetchInventory}
             token={props.token}
           />
         </Col>
-        <Col xs='4'>
-            <InventoryPDF />
+        <Col xs="4">
+          <InventoryPDF />
         </Col>
       </Row>
       <Row>
