@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useFormik } from "formik"; //import Formik
 import * as Yup from "yup";
 import "../App.css";
+import APIURL from "../helpers/environment";
+
 import {
   Button,
   Form,
@@ -15,7 +17,6 @@ import {
   Container,
   Col,
 } from "reactstrap";
-import APIURL from "../helpers/environment";
 
 const InventoryCreate = (props) => {
   // const [category, setCategory] = useState("");
@@ -53,7 +54,7 @@ const InventoryCreate = (props) => {
     }),
 
     onSubmit: (values) => {
-      console.log("hello");
+      // console.log("hello");
       postInventory();
     },
   });
@@ -75,6 +76,12 @@ const InventoryCreate = (props) => {
     setImage(File.secure_url);
     setLoading(false);
   };
+
+  const cancelButton = () => {
+    formik.resetForm();
+    toggle();
+  };
+
   const postInventory = (e) => {
     // e.preventDefault();
     fetch(`${APIURL}/inventory/create`, {
@@ -236,12 +243,14 @@ const InventoryCreate = (props) => {
               )}
             </FormGroup>{" "}
             <br />
-            <Button className="btn-pdf" type="submit" onClick={handleClose}>
-              Click to Add Item
-            </Button>{" "}
-            <Button className="btn-cancel" onClick={toggle}>
-              Cancel
-            </Button>
+            <div className="d-flex justify-content-between">
+              <Button className="btn-pdf" type="submit">
+                Click to Add Item
+              </Button>{" "}
+              <Button className="btn-cancel" onClick={cancelButton}>
+                Cancel
+              </Button>
+            </div>
           </Form>
         </ModalBody>
       </Modal>

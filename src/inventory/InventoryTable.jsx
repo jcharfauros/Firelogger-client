@@ -3,6 +3,7 @@ import { Table, Button, Container, Row, Col } from "reactstrap";
 import "../App.css";
 import ExportPDF from './InventoryPDF';
 import InventoryCreate from './InventoryCreate';
+import APIURL from "../helpers/environment";
 
 const InventoryTable = (props) => {
   const deleteInventory = (inventory) => {

@@ -5,7 +5,7 @@ switch (window.location.hostname) {
   case "127.0.0.1":
     APIURL = "http://localhost:3000";
     break;
-  case "firelogger.herokuapp.com":
+  case "lmsj-firelogger-client.herokuapp.com":
     APIURL = "https://firelogger.herokuapp.com";
 }
 
