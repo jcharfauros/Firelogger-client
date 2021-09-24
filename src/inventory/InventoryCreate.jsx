@@ -237,7 +237,7 @@ const InventoryCreate = (props) => {
               )}
             </FormGroup>{" "}
             <br />
-            <Button className="btn-pdf" type="submit" onClick={handleClose}>
+            <Button className="btn-pdf" type="submit">
               Click to Add Item
             </Button>{" "}
             <Button className="btn-cancel" onClick={toggle}>
