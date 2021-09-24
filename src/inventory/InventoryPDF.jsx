@@ -1,12 +1,12 @@
 import React from "react";
-import { Button, Container, Row, Col } from 'reactstrap';
-import { jsPDF } from 'jspdf';
-import 'jspdf-autotable';
-import '../App.css';
+import { Button, Container, Row, Col } from "reactstrap";
+import { jsPDF } from "jspdf";
+import "jspdf-autotable";
+import "../App.css";
 
 const InventoryPDF = (props) => {
-    //Parses User's Table & Generates PDF Report of User's current Inventory
-const handlePDF = (e) => {
+  //Parses User's Table & Generates PDF Report of User's current Inventory
+  const handlePDF = (e) => {
     const doc = new jsPDF("landscape");
     doc.autoTable({
       html: "#inventoryTable",
@@ -29,17 +29,17 @@ const handlePDF = (e) => {
     doc.save("My Inventory.pdf");
   };
 
-  return (    
+  return (
     <Container fluid={true}>
       <Row>
-        <Col sm={{ size: 'auto', offset: 9 }}>
+        <Col sm={{ size: "auto", offset: 9 }}>
           <Button className="btn-pdf" active onClick={handlePDF}>
             Export Inventory List to PDF
           </Button>
         </Col>
-      </Row>      
+      </Row>
     </Container>
-  );  
+  );
 };
 
 export default InventoryPDF;

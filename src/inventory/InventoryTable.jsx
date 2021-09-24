@@ -1,6 +1,7 @@
 import React from "react";
 import { Table, Button, Container, Row, Col } from "reactstrap";
 import "../App.css";
+import "../helpers/environment";
 
 const InventoryTable = (props) => {
   const deleteInventory = (inventory) => {

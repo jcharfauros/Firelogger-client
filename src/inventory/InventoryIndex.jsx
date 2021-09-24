@@ -4,6 +4,7 @@ import InventoryCreate from "./InventoryCreate";
 import InventoryTable from "./InventoryTable";
 import InventoryEdit from "./InventoryEdit";
 import InventoryPDF from "./InventoryPDF";
+import "../helpers/environment";
 
 const InventoryIndex = (props) => {
   const [inventory, setInventory] = useState([]);
