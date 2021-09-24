@@ -26,30 +26,18 @@ const Auth = (props) => {
   };
 
   return (
-    <Container fluid>
+    <Container fluid={true}>
+      {signupModalActive ? ( <SignupModal signupModalOFF={signupModalOFF} updateToken={props.updateToken} />
+          ) : (
+            <></>
+          )}
+      {loginModalActive ? ( <LoginModal loginModalOFF={loginModalOFF} updateToken={props.updateToken} />
+          ) : (
+            <></>
+          )}
       <Row>
-        <Col>
-          {signupModalActive ? (
-            <SignupModal
-              signupModalOFF={signupModalOFF}
-              updateToken={props.updateToken}
-            />
-          ) : (
-            <></>
-          )}
-        </Col>
-        <Col>
-          {loginModalActive ? (
-            <LoginModal
-              loginModalOFF={loginModalOFF}
-              updateToken={props.updateToken}
-            />
-          ) : (
-            <></>
-          )}
-        </Col>
-        <Col xs='9'>         
-          <Button className="btn-nav-login-signup"  color='black' onClick={loginModalON} >
+        <Col>         
+          <Button className="btn-nav-login-signup" color='black' onClick={loginModalON} >
             Login
           </Button>       
           <Button className="btn-nav-login-signup" color='black' onClick={signupModalON} >
@@ -63,3 +51,39 @@ const Auth = (props) => {
 };
 
 export default Auth;
+
+// return (
+//   <Container fluid>
+//     <Row>
+//       <Col>
+//         {signupModalActive ? (
+//           <SignupModal
+//             signupModalOFF={signupModalOFF}
+//             updateToken={props.updateToken}
+//           />
+//         ) : (
+//           <></>
+//         )}
+//       </Col>
+//       <Col>
+//         {loginModalActive ? (
+//           <LoginModal
+//             loginModalOFF={loginModalOFF}
+//             updateToken={props.updateToken}
+//           />
+//         ) : (
+//           <></>
+//         )}
+//       </Col>
+//       <Col>         
+//         <Button className="btn-nav-login-signup" color='black' onClick={loginModalON} >
+//           Login
+//         </Button>       
+//         <Button className="btn-nav-login-signup" color='black' onClick={signupModalON} >
+//           Signup
+//         </Button>
+//       </Col>
+//     </Row>
+//   </Container>
+
+// );

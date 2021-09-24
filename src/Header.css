@@ -1,55 +1,31 @@
-.main {
-  height: 100%;
-  min-height: 100%;
+.container-img {
+    background-image: url(./assets/FLback.png);
+    background-size: cover;
+    margin: 0;
+    background-repeat: no-repeat;
+    padding-bottom: 22em;
+    background-position: center center;
+    overflow: hidden;
+    /* background-attachment: fixed; */
+    /* max-width: 100%; */
+    /* height: 100vh; */
 }
+  
+  /*footer is using this*/
+  .font-nospace {
+    font-family: Bubbleboddy Neue, sans-serif;
+    color: #222552;
+    padding: 0 0 0 4em;
+  }
+ 
+  .font-body {
+    font-family: Bubbleboddy Neue, sans-serif;
+    font-weight: bold;
+    letter-spacing: 0.2em;
+    color: #222552;
+    margin-bottom: 5px;
+  }
 
-.mainDiv {
-  margin: auto;
-  width: 100%;
-  /* padding: 5px; */
-}
-
-.text-on-image-top {
-  position: absolute;
-  /* right: 30px; */
-  left: 5%;
-  right: 55%;
-  top: 15vw;
-  font-size: 3vw;
-  font-style: italic;
-}
-
-.text-on-image-middle {
-  position: absolute;
-  left: 5%;
-  top: 30vw;
-  font-size: 1.5vw;
-  width: 35%;
-}
-
-.text-on-image-bottom {
-  position: absolute;
-  /* right: 58%; */
-  left: 5%;
-  /* bottom: 8%; */
-  top: 340px;
-  width: 55%;
-  font-size: 4vw;
-}
-
-.font-nospace {
-  font-family: Bubbleboddy Neue, sans-serif;
-  color: #222552;
-  padding: 1em 0 0 4em;
-}
-
-/* 
-style={{fontSize: 20, marginLeft: 30}}  */
-
-.font-body {
-  font-family: Bubbleboddy Neue, sans-serif;
-  font-weight: 100;
-  letter-spacing: 0.2em;
-  color: #222552;
-  margin-bottom: 5px;
-}
+  .font-p {
+    font-size: 20px;
+  }  

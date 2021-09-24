@@ -1,5 +1,5 @@
 @import "buttons.css";
-@import "Header.css";
+@import 'header.css';
 
 body {
   background: white;
@@ -20,10 +20,8 @@ body {
 .navbar-jc {
   width: 100%;
   overflow: hidden;
-  padding-bottom: 15px;
-  margin-bottom: 15px;
-  padding-top: 35px;
-  padding-left: 15px;
+  margin-bottom: 15px;  
+  padding: 25px 75px 15px 15px;
   background-color: white;
 }
 
@@ -90,7 +88,7 @@ body {
   margin-top: 35px;
 }
 
-
-/* .nav-link {
-  margin: 5px;
-} */
+.nav-link {
+  margin: 20px;
+  /* padding-right: 3em; */
+}
