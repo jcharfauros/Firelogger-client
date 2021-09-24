@@ -1,0 +1,31 @@
+.container-img {
+  background-image: url(./assets/FLback.png);
+  background-size: cover;
+  margin: 0;
+  background-repeat: no-repeat;
+  padding-bottom: 22em;
+  background-position: center center;
+  overflow: hidden;
+  /* background-attachment: fixed; */
+  /* max-width: 100%; */
+  /* height: 100vh; */
+}
+
+/*footer is using this*/
+.font-nospace {
+  font-family: Bubbleboddy Neue, sans-serif;
+  color: #222552;
+  padding: 0 0 0 4em;
+}
+
+.font-body {
+  font-family: Bubbleboddy Neue, sans-serif;
+  font-weight: bold;
+  letter-spacing: 0.2em;
+  color: #222552;
+  margin-bottom: 5px;
+}
+
+.font-p {
+  font-size: 20px;
+}

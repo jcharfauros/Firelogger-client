@@ -67,7 +67,6 @@ const InventoryEdit = (props) => {
               type="select"
               name="category"
               value={editCategory}
-              required
               onChange={(e) => setEditCategory(e.target.value)}
             >
               <option value="Electronics">Electronics</option>
@@ -83,7 +82,6 @@ const InventoryEdit = (props) => {
             <Input
               name="name"
               value={editName}
-              required
               onChange={(e) => setEditName(e.target.value)}
             />
           </FormGroup>
@@ -92,7 +90,6 @@ const InventoryEdit = (props) => {
             <Input
               name="year"
               value={editYear}
-              required
               onChange={(e) => setEditYear(e.target.value)}
             />
           </FormGroup>
@@ -101,7 +98,6 @@ const InventoryEdit = (props) => {
             <Input
               name="model"
               value={editModel}
-              required
               onChange={(e) => setEditModel(e.target.value)}
             />
           </FormGroup>
@@ -110,7 +106,6 @@ const InventoryEdit = (props) => {
             <Input
               name="serial_number"
               value={editSerialNum}
-              required
               onChange={(e) => setEditSerialNum(e.target.value)}
             />
           </FormGroup>
@@ -119,7 +114,6 @@ const InventoryEdit = (props) => {
             <Input
               name="value"
               value={editValue}
-              required
               onChange={(e) => setEditValue(e.target.value)}
             />
           </FormGroup>
