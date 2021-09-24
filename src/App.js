@@ -34,8 +34,7 @@ function App() {
     );
   };
 
-  return (
-    // <div style={{ backgroundImage: `url(${bgHeader})` }}>
+  return (   
     <div>
       <Router>
         <FireloggerNavbar

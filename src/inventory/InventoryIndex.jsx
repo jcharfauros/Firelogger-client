@@ -44,17 +44,6 @@ const InventoryIndex = (props) => {
 
   return (
     <Container fluid={true}>
-      {/* <Row>       
-        <Col xs='4'>
-          <InventoryCreate
-            fetchInventory={fetchInventory}
-            token={props.token}
-          />
-        </Col>
-        <Col xs='4'>
-            <InventoryPDF />
-        </Col>
-      </Row> */}
       <Row>
         <Col>
           <InventoryTable
