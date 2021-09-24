@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useFormik } from "formik"; //import Formik
 import * as Yup from "yup";
 import "../App.css";
+import APIURL from "../helpers/environment";
+
 import {
   Button,
   Form,
@@ -13,7 +15,7 @@ import {
   ModalHeader,
   Row,
   Container,
-  Col
+  Col,
 } from "reactstrap";
 
 const InventoryCreate = (props) => {
@@ -52,11 +54,10 @@ const InventoryCreate = (props) => {
     }),
 
     onSubmit: (values) => {
-      console.log("hello");
+      // console.log("hello");
       postInventory();
     },
   });
-
 
   let UploadImage = async (e) => {
     let files = e.target.files;
@@ -75,9 +76,15 @@ const InventoryCreate = (props) => {
     setImage(File.secure_url);
     setLoading(false);
   };
+
+  const cancelButton = () => {
+    formik.resetForm();
+    toggle();
+  };
+
   const postInventory = (e) => {
     // e.preventDefault();
-    fetch("http://localhost:3000/inventory/create", {
+    fetch(`${APIURL}/inventory/create`, {
       method: "POST",
       body: JSON.stringify({
         inventory: {
@@ -106,19 +113,14 @@ const InventoryCreate = (props) => {
   return (
     <Container fluid={true}>
       <Row>
-      <Col sm={{ size: 'auto', offset: 9 }}>
-      <Button
-        variant="primary"
-        onClick={toggle}        
-        className='btn-create'
-        >
-
-        Add item to Inventory
-      </Button>
-      </Col>
+        <Col sm={{ size: "auto", offset: 9 }}>
+          <Button variant="primary" onClick={toggle} className="btn-create">
+            Add item to Inventory
+          </Button>
+        </Col>
       </Row>
       <Modal isOpen={modal} toggle={toggle}>
-        <ModalHeader className='font-titles'>
+        <ModalHeader className="font-titles">
           <h3>Add item to Inventory</h3>
         </ModalHeader>
         <ModalBody>
@@ -129,18 +131,17 @@ const InventoryCreate = (props) => {
               <Input
                 type="select"
                 name="category"
-
                 value={formik.values.category}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
               >
                 <option>Category of Item</option>
-                <option value="electronics">Electronics</option>
-                <option value="jewelry">Jewelry</option>
-                <option value="furs">Furs</option>
-                <option value="art">Art</option>
-                <option value="antiques">Antiques</option>
-                <option value="other/misc">Other/Misc</option>
+                <option value="Electronics">Electronics</option>
+                <option value="Jewelry">Jewelry</option>
+                <option value="Furs">Furs</option>
+                <option value="Art">Art</option>
+                <option value="Antiques">Antiques</option>
+                <option value="Other/Misc">Other/Misc</option>
               </Input>
               <p style={{ color: "red" }}>
                 {formik.touched.category && formik.errors.category ? (
@@ -153,7 +154,6 @@ const InventoryCreate = (props) => {
               <Input
                 name="name"
                 placeholder="Name of Item"
-
                 value={formik.values.name}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
@@ -163,14 +163,12 @@ const InventoryCreate = (props) => {
                   <div>{formik.errors.name}</div>
                 ) : null}
               </p>
-
             </FormGroup>
             <FormGroup>
               <Label htmlFor="year" />
               <Input
                 name="year"
                 placeholder="Year Purchased"
-
                 value={formik.values.year}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
@@ -180,14 +178,12 @@ const InventoryCreate = (props) => {
                   <div>{formik.errors.year}</div>
                 ) : null}
               </p>
-
             </FormGroup>
             <FormGroup>
               <Label htmlFor="model" />
               <Input
                 name="model"
                 placeholder="Model of Item"
-
                 value={formik.values.model}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
@@ -197,16 +193,12 @@ const InventoryCreate = (props) => {
                   <div>{formik.errors.model}</div>
                 ) : null}
               </p>
-
-          
-
             </FormGroup>
             <FormGroup>
               <Label htmlFor="serial_number" />
               <Input
                 name="serial_number"
                 placeholder="Serial Number"
-
                 value={formik.values.serial_number}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
@@ -216,14 +208,12 @@ const InventoryCreate = (props) => {
                   <div>{formik.errors.serial_number}</div>
                 ) : null}
               </p>
-
             </FormGroup>
             <FormGroup>
               <Label htmlFor="value" />
               <Input
                 name="value"
                 placeholder="Value of Item"
-
                 value={formik.values.value}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
@@ -233,9 +223,6 @@ const InventoryCreate = (props) => {
                   <div>{formik.errors.value}</div>
                 ) : null}
               </p>
-
-  
-
             </FormGroup>
             <FormGroup>
               <Label htmlFor="pic_url" />
@@ -245,26 +232,25 @@ const InventoryCreate = (props) => {
                 name="file"
                 placeholder="Upload Image here"
                 onChange={UploadImage}
-
                 // onChange={handleChange}
                 // onBlur={formik.handleBlur}
               />
-
-
               <br />
               {loading ? (
                 <h6>Loading...</h6>
-                ) : (
+              ) : (
                 <img src={image} style={{ width: "95px" }} />
-                )}
+              )}
             </FormGroup>{" "}
             <br />
-
-            <Button className='btn-pdf' type="submit" onClick={handleClose}>
-              Click to Add Item
-            </Button>{" "}
-            <Button className='btn-cancel' onClick={toggle}>Cancel</Button>
-
+            <div className="d-flex justify-content-between">
+              <Button className="btn-pdf" type="submit">
+                Click to Add Item
+              </Button>{" "}
+              <Button className="btn-cancel" onClick={cancelButton}>
+                Cancel
+              </Button>
+            </div>
           </Form>
         </ModalBody>
       </Modal>

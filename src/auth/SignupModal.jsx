@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import { useFormik } from "formik"; //import Formik
 import * as Yup from "yup";
-
+import APIURL from "../helpers/environment";
 import {
   Alert,
   Form,
@@ -60,7 +60,7 @@ const SignupModal = (props) => {
 
   let handleSignUp = (values) => {
     // event.preventDefault();
-    fetch("http://localhost:3000/user/signup", {
+    fetch(`${APIURL}/user/signup`, {
       method: "POST",
       body: JSON.stringify({
         user: {

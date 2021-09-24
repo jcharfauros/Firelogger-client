@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import '../App.css';
+import "../App.css";
+import APIURL from "../helpers/environment";
 import {
   Form,
   FormGroup,
@@ -10,7 +11,6 @@ import {
   ModalHeader,
   ModalBody,
 } from "reactstrap";
-
 
 const InventoryEdit = (props) => {
   const [modal, setModal] = useState(false);
@@ -31,35 +31,34 @@ const InventoryEdit = (props) => {
 
   const inventoryUpdate = (e, inventory) => {
     e.preventDefault();
-    fetch(
-      `http://localhost:3000/inventory/update/${props.inventoryToEdit.id}`,
-      {
-        method: "PUT",
-        body: JSON.stringify({
-          inventory: {
-            category: editCategory,
-            name: editName,
-            year: editYear,
-            model: editModel,
-            serial_number: editSerialNum,
-            pic_url: editPicUrl,
-            value: editValue,
-          },
-        }),
-        headers: new Headers({
-          "Content-Type": "application/json",
-          Authorization: props.token,
-        }),
-      }
-    ).then((res) => {
+    fetch(`${APIURL}/inventory/update/${props.inventoryToEdit.id}`, {
+      method: "PUT",
+      body: JSON.stringify({
+        inventory: {
+          category: editCategory,
+          name: editName,
+          year: editYear,
+          model: editModel,
+          serial_number: editSerialNum,
+          pic_url: editPicUrl,
+          value: editValue,
+        },
+      }),
+      headers: new Headers({
+        "Content-Type": "application/json",
+        Authorization: props.token,
+      }),
+    }).then((res) => {
       props.fetchInventory();
       props.editOff();
     });
   };
 
-  return ( 
+  return (
     <Modal isOpen={!modal} centered={true} toggle={toggle}>
-      <ModalHeader className='font-titles'><h2>Inventory Items Edit</h2></ModalHeader>
+      <ModalHeader className="font-titles">
+        <h2>Inventory Items Edit</h2>
+      </ModalHeader>
       <ModalBody>
         <Form onSubmit={inventoryUpdate}>
           <FormGroup>
@@ -68,6 +67,7 @@ const InventoryEdit = (props) => {
               type="select"
               name="category"
               value={editCategory}
+              required
               onChange={(e) => setEditCategory(e.target.value)}
             >
               <option value="Electronics">Electronics</option>
@@ -83,6 +83,7 @@ const InventoryEdit = (props) => {
             <Input
               name="name"
               value={editName}
+              required
               onChange={(e) => setEditName(e.target.value)}
             />
           </FormGroup>
@@ -91,6 +92,7 @@ const InventoryEdit = (props) => {
             <Input
               name="year"
               value={editYear}
+              required
               onChange={(e) => setEditYear(e.target.value)}
             />
           </FormGroup>
@@ -99,6 +101,7 @@ const InventoryEdit = (props) => {
             <Input
               name="model"
               value={editModel}
+              required
               onChange={(e) => setEditModel(e.target.value)}
             />
           </FormGroup>
@@ -107,6 +110,7 @@ const InventoryEdit = (props) => {
             <Input
               name="serial_number"
               value={editSerialNum}
+              required
               onChange={(e) => setEditSerialNum(e.target.value)}
             />
           </FormGroup>
@@ -115,6 +119,7 @@ const InventoryEdit = (props) => {
             <Input
               name="value"
               value={editValue}
+              required
               onChange={(e) => setEditValue(e.target.value)}
             />
           </FormGroup>
@@ -126,10 +131,12 @@ const InventoryEdit = (props) => {
               onChange={(e) => setEditPicUrl(e.target.value)}
             />
           </FormGroup>
-          <Button className='btn-pdf' type="submit" onClick={handleClose}>
-              Click to Submit Changes
+          <Button className="btn-pdf" type="submit" onClick={handleClose}>
+            Click to Submit Changes
           </Button>{" "}
-          <Button className='btn-cancel' closebutton="true">Cancel</Button>          
+          <Button className="btn-cancel" closebutton="true">
+            Cancel
+          </Button>
         </Form>
       </ModalBody>
     </Modal>

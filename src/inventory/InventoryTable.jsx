@@ -3,10 +3,11 @@ import { Table, Button, Container, Row, Col } from "reactstrap";
 import "../App.css";
 import ExportPDF from './InventoryPDF';
 import InventoryCreate from './InventoryCreate';
+import APIURL from "../helpers/environment";
 
 const InventoryTable = (props) => {
   const deleteInventory = (inventory) => {
-    fetch(`http://localhost:3000/inventory/delete/${inventory.id}`, {
+    fetch(`${APIURL}/inventory/delete/${inventory.id}`, {
       method: "DELETE",
       headers: new Headers({
         "Content-Type": "application/json",
@@ -86,7 +87,7 @@ const InventoryTable = (props) => {
             <th>Model</th>
             <th>SN#</th>
             <th>Value</th>
-            <th>Picture</th>            
+            <th>Picture</th>
           </tr>
         </thead>
         <tbody>{inventoryMapper()}</tbody>
