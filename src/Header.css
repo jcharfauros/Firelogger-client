@@ -11,9 +11,10 @@
 
 .text-on-image-top {
   position: absolute;
-  right: 30px;
+  /* right: 30px; */
   left: 5%;
-  top: 120px;
+  right: 55%;
+  top: 15vw;
   font-size: 3vw;
   font-style: italic;
 }
@@ -21,7 +22,7 @@
 .text-on-image-middle {
   position: absolute;
   left: 5%;
-  top: 25%;
+  top: 30vw;
   font-size: 1.5vw;
   width: 35%;
 }
@@ -39,11 +40,16 @@
 .font-nospace {
   font-family: Bubbleboddy Neue, sans-serif;
   color: #222552;
+  padding: 1em 0 0 4em;
 }
+
+/* 
+style={{fontSize: 20, marginLeft: 30}}  */
 
 .font-body {
   font-family: Bubbleboddy Neue, sans-serif;
   font-weight: 100;
   letter-spacing: 0.2em;
   color: #222552;
+  margin-bottom: 5px;
 }

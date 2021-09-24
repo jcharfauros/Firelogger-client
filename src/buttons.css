@@ -1,9 +1,90 @@
+/* HOTEL/PET RESOURCE BUTTONS */
+/* .resources-button {
+    background-color: #ccdbdc;
+    font-size: 13.5px;
+    margin-left: 25%;
+    border: none;
+    color: black;
+    border-radius: 3%;
+    border: 0.1px solid black;
+  }   */
+
+.btn-dropdown {
+    color: black;
+    text-decoration: none;
+}
+
+
+.btn-resource {
+    text-align: center;
+    /* background: #AB449F !important; */
+    background: #3F44A4 !important;
+    color:aliceblue;
+    border: none;
+    display: inline-block;
+    padding: 5px 10px 5px 10px;
+    cursor: pointer;
+    position:relative;
+    overflow:hidden;
+    border-radius: 5px;  
+}
+  
+.btn-resource:before {
+    content: "";
+    position: absolute;
+    width: 0;
+    background: #ED5686;
+    left: 45%;
+    height: 3px;
+    bottom: 0;
+    transition: 0.3s;
+}
+  
+.btn-resource:hover:before {
+    background: #C8FCEB;
+    width: 100%;
+    left:0;
+}
+
+/* NAVBAR BUTTON */
+
+
+.btn-navbar {
+    text-align: center;
+    background: none !important;
+    color: black;
+    border: none;
+    display: inline-block;
+    padding: 5px;
+    cursor: pointer;
+    position:relative;
+    overflow:hidden;  
+}
+  
+.btn-navbar:before {
+    content: "";
+    position: absolute;
+    width: 0;
+    background: #00A5A8;
+    left: 45%;
+    height: 3px;
+    bottom: 0;
+    transition: 0.3s;
+}
+  
+.btn-navbar:hover:before {
+    background: #FFBE59;
+    width: 100%;
+    left:0;
+}
+
+
 /* UPDATE BUTTON */
 
 .btn-update {
     text-align: center;
     background: none !important;
-    color: #00A5A8;
+    color: #3F44A4;
     border: none;
     display: inline-block;
     padding: 5px;
@@ -16,7 +97,7 @@
     content: "";
     position: absolute;
     width: 0;
-    background: #00A5A8;
+    background: #007DC2;
     left: 45%;
     height: 3px;
     bottom: 0;
@@ -68,6 +149,7 @@
     border: none;
     display: inline-block;
     padding: 5px;
+    margin: 2px;
     cursor: pointer;
     position:relative;
     overflow:hidden;  
@@ -115,6 +197,67 @@
 }
   
 .btn-cancel:hover:before {
+    background: #FFBE59;
+    width: 100%;
+    left:0;
+}
+
+.btn-create {
+    text-align: center;
+    background: #E5865A !important;
+    border: none;
+    display: inline-block;
+    padding: 5px;
+    margin: 2px;
+    cursor: pointer;
+    position:relative;
+    overflow:hidden;  
+}
+  
+.btn-create:before {
+    content: "";
+    position: absolute;
+    width: 0;
+    background: #ED5686;
+    left: 45%;
+    height: 3px;
+    bottom: 0;
+    transition: 0.3s;
+}
+  
+.btn-create:hover:before {
+    background: #3F44A4;
+    width: 100%;
+    left:0;
+}
+
+.btn-nav-login-signup {
+    text-align: center;
+    left: 28em;
+    background: none !important;
+    color: black;
+    border: none;
+    display: inline-block;
+    padding: 5px;
+    cursor: pointer;
+    position:relative;
+    overflow:hidden; 
+    justify-content: space-between;
+    /* margin: 0 5px; */
+}
+  
+.btn-nav-login-signup:before {
+    content: "";
+    position: absolute;
+    width: 0;
+    background: #00A5A8;
+    left: 45%;
+    height: 3px;
+    bottom: 0;
+    transition: 0.3s;
+}
+  
+.btn-nav-login-signup:hover:before {
     background: #FFBE59;
     width: 100%;
     left:0;

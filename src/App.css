@@ -1,25 +1,13 @@
 @import "buttons.css";
 @import "Header.css";
 
-.hotelTable {
-  width: 75vw;
-  /* margin-left: auto;
-  margin-right: auto; */
-}
-
-.petTable {
-  width: 75vw;
-  /* margin-left: auto;
-  margin-right: auto; */
-}
-
 body {
   background: white;
 }
 
 .logo-img {
   max-width: 100%;
-  width: 80%;
+  width: 65%;
 }
 
 .hr-1 {
@@ -29,21 +17,23 @@ body {
   margin-right: auto;
 }
 
-.pet_title {
-  padding-left: 12%;
-}
-
-.hotel_title {
-  padding-left: 12%;
-}
-
 .navbar-jc {
   width: 100%;
   overflow: hidden;
-  padding-bottom: 75px;
+  padding-bottom: 15px;
+  margin-bottom: 15px;
   padding-top: 35px;
   padding-left: 15px;
-  /* height: 255px; */
+  background-color: white;
+}
+
+/* for the "link not available" in Pet.jsx*/
+.font-err {
+  font-family: Bubbleboddy Neue, sans-serif;
+  font-weight: bold;
+  font-size: 16px;
+  letter-spacing: 2px;
+  color: #ED5686;
 }
 
 .font-test {
@@ -55,60 +45,33 @@ body {
 
 .font-titles {
   font-family: Bubbleboddy Neue, sans-serif;
-  /* font-weight: 100; */
-  color: #ff8469;
-  text-shadow: 1px 1px #3f44a4;
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: #3f44a4;
+  text-shadow: 0.8px 0.8px #ED5686;  
 }
 
 .font-table {
-  font-family: Montserrat !important;
+  /* font-family: Montserrat !important; */
+  font-family: Bubbleboddy Neue, sans-serif;
+  font-size: larger;
+  letter-spacing: 2px;
   font-weight: 100;
   color: #3f44a4;
-  text-align: center;
+  /* text-align: center; */
 }
 
 .footer-font {
   font-family: Bubbleboddy Light;
 }
 
-.hotel_title {
-  font-family: Bubbleboddy Neue, sans-serif;
-  font-weight: bolder;
-  font-size: 45px;
-}
-
-.hotelTable {
-  width: 75vw;
-  margin-left: auto;
-  margin-right: auto;
-  font-family: Montserrat;
-}
-
-.petTable {
-  width: 75vw;
-  margin-left: auto;
-  margin-right: auto;
-  font-family: Montserrat;
-}
-
-.pet_title {
-  font-family: Bubbleboddy Neue, sans-serif;
-  font-weight: bolder;
-  font-size: 45px;
+.footer-font-year {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: smaller;
 }
 
 .temp-icon {
   height: 65px;
-}
-
-.resources-button {
-  background-color: #ccdbdc;
-  font-size: 13.5px;
-  margin-left: 25%;
-  border: none;
-  color: black;
-  border-radius: 3%;
-  border: 0.1px solid black;
 }
 
 .inventory-table-header {
@@ -117,15 +80,17 @@ body {
   font-size: 45px !important;
 }
 
+/* this is important for pdf*/
 #inventoryTable {
-  font-family: Montserrat !important;
-  font-weight: 300;
+  /* font-family: Montserrat !important; */
+  font-weight: 400;
 }
 
-.resource-dropdown {
-  margin-left: 500px;
+.inventory-padding {
+  margin-top: 35px;
 }
 
-/* td {
-  text-align: center;
+
+/* .nav-link {
+  margin: 5px;
 } */

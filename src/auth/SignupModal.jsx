@@ -96,7 +96,7 @@ const SignupModal = (props) => {
       <ModalBody>
         <Form onSubmit={formik.handleSubmit} className="signup">
           <FormGroup>
-            <Label htmlFor="name">Name:</Label>
+            <Label htmlFor="name">Full Name:</Label>
             <Input
               type="text"
               // onChange={(e) => setName(e.target.value)}
@@ -161,7 +161,7 @@ const SignupModal = (props) => {
             <br></br>
             <br></br>
             <div className="d-flex justify-content-between">
-              <Button className="signupbutton" type="submit">
+              <Button className="btn-pdf" type="submit">
                 Submit
               </Button>
               <Button color="danger" onClick={props.signupModalOFF}>
