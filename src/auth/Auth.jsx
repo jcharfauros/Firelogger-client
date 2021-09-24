@@ -49,7 +49,7 @@ const Auth = (props) => {
           )}
         </Col>
         <Col xs='9'>         
-          <Button className="btn-nav-login-signup" color='black' onClick={loginModalON} >
+          <Button className="btn-nav-login-signup"  color='black' onClick={loginModalON} >
             Login
           </Button>       
           <Button className="btn-nav-login-signup" color='black' onClick={signupModalON} >

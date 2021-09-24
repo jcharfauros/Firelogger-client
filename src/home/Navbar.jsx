@@ -98,11 +98,11 @@ const FireLoggerNavbar = (props) => {
             </NavbarBrand>
           </Col>
           <Col>
-            <NavbarToggler onClick={toggle} />
-            <Collapse isOpen={isOpen} navbar>
-              <Nav className="ml-auto" navbar>
-                <NavItem className='nav-link'>{home()}</NavItem>
-                <NavItem className='nav-link'>{resourceViews()}</NavItem>
+            <NavbarToggler  onClick={toggle} />
+            <Collapse  isOpen={isOpen} navbar>
+              <Nav className="ml-auto"  navbar >
+                <NavItem className='nav-link'>{resourceViews()} </NavItem>
+                <NavItem className='nav-link'>{home()} </NavItem>
                 <NavItem className='nav-link'>{loginSignupHide()}</NavItem>
               </Nav>
             </Collapse>

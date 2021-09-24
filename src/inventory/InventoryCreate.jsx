@@ -135,12 +135,12 @@ const InventoryCreate = (props) => {
                 onBlur={formik.handleBlur}
               >
                 <option>Category of Item</option>
-                <option value="electronics">Electronics</option>
-                <option value="jewelry">Jewelry</option>
-                <option value="furs">Furs</option>
-                <option value="art">Art</option>
-                <option value="antiques">Antiques</option>
-                <option value="other/misc">Other/Misc</option>
+                <option value="Electronics">Electronics</option>
+                <option value="Jewelry">Jewelry</option>
+                <option value="Furs">Furs</option>
+                <option value="Art">Art</option>
+                <option value="Antiques">Antiques</option>
+                <option value="Other/Misc">Other/Misc</option>
               </Input>
               <p style={{ color: "red" }}>
                 {formik.touched.category && formik.errors.category ? (
