@@ -44,6 +44,8 @@ const InventoryIndex = (props) => {
 
   return (
     <Container fluid={true}>
+      {/* <Row>       
+        <Col xs='4'>
       <Row>
         <Col xs="4">
           <InventoryCreate
@@ -54,7 +56,7 @@ const InventoryIndex = (props) => {
         <Col xs="4">
           <InventoryPDF />
         </Col>
-      </Row>
+      </Row> */}
       <Row>
         <Col>
           <InventoryTable

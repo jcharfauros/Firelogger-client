@@ -1,6 +1,8 @@
 import React from "react";
 import { Table, Button, Container, Row, Col } from "reactstrap";
 import "../App.css";
+import ExportPDF from './InventoryPDF';
+import InventoryCreate from './InventoryCreate';
 
 const InventoryTable = (props) => {
   const deleteInventory = (inventory) => {
@@ -60,11 +62,19 @@ const InventoryTable = (props) => {
 
   return (
     <Container>
-      <Row className="inventory-padding">
-        <Col>
+      <Row className='inventory-padding'>
+        <Col md='auto'>
           <h1 className="font-titles">Inventory Item List</h1>
-          <hr />
         </Col>
+        <Col md='auto'>
+          <InventoryCreate 
+           InventoryTable={InventoryTable}
+           token={props.token}/>
+        </Col >
+        <Col md='auto'>
+          <ExportPDF />
+        </Col>
+          <hr />        
       </Row>
       <Table id="inventoryTable" borderless hover>
         <thead>
