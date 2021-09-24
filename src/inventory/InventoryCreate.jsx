@@ -17,7 +17,6 @@ import {
   Container,
   Col,
 } from "reactstrap";
-import APIURL from "../helpers/environment";
 
 const InventoryCreate = (props) => {
   // const [category, setCategory] = useState("");
