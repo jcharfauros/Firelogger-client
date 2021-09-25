@@ -1,11 +1,11 @@
 import React, { useEffect, useState, Spinner } from "react";
 import { Row, Container, Table, Button, Col } from "reactstrap";
-
+import APIURL from "../helpers/environment";
 const Hotels = (props) => {
   const [hotel, setHotel] = useState({});
 
   let hotelfetch = (e) => {
-    fetch("http://localhost:3000/hotels", {
+    fetch(`${APIURL}/hotels`, {
       method: "GET",
     })
       .then((response) => response.json())
@@ -31,7 +31,9 @@ const Hotels = (props) => {
               href={`https://maps.google.com/?q=${hotel.formatted_address}`}
               target="_blank"
             >
-              <button className="btn-resource" color='black'>Click for Location</button>
+              <button className="btn-resource" color="black">
+                Click for Location
+              </button>
             </a>
           </td>
         </tr>
@@ -43,11 +45,11 @@ const Hotels = (props) => {
     <Container>
       <Row>
         <Col>
-        <h1 className="font-titles">Hotels Nearby </h1>
-        <hr />
+          <h1 className="font-titles">Hotels Nearby </h1>
+          <hr />
         </Col>
       </Row>
-      <Row >
+      <Row>
         <Table responsive borderless hover>
           <thead>
             <tr className="font-table">

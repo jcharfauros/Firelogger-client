@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { Row, Container, Table, Button, Col } from "reactstrap";
-import '../App.css';
+import "../App.css";
+import APIURL from "../helpers/environment";
 // import ReactHtmlParser from "react-html-parser";
 
 const Pets = (props) => {
   const [pet, setPet] = useState({});
 
   let petfetch = (e) => {
-    fetch("http://localhost:3000/petcare", {
+    fetch(`${APIURL}/petcare`, {
       method: "GET",
     })
       .then((response) => response.json())
@@ -43,7 +44,7 @@ const Pets = (props) => {
                 <button className="btn-resource">Click for Location</button>
               </a>
             ) : (
-              <p className='font-err'>Link unavailable</p>
+              <p className="font-err">Link unavailable</p>
             )}
           </td>
         </tr>
@@ -55,24 +56,22 @@ const Pets = (props) => {
     <Container>
       <Row>
         <Col>
-          <h1 className="font-titles">
-            Pet Boarding Nearby{" "}
-          </h1>
+          <h1 className="font-titles">Pet Boarding Nearby </h1>
           <hr />
         </Col>
       </Row>
-      <Row>        
-          <Table responsive borderless hover>
-             <thead>
-              <tr className='font-table'>
-                <th scope="row">Name:</th>
-                <th scope="row">Address:</th>
-                <th scope="row">Google Map Link:</th>
-              </tr>
-             </thead>
-             <tbody>{pet.length > 0 ? petMapper() : "Loading"}</tbody>
-           </Table>
-       </Row>
+      <Row>
+        <Table responsive borderless hover>
+          <thead>
+            <tr className="font-table">
+              <th scope="row">Name:</th>
+              <th scope="row">Address:</th>
+              <th scope="row">Google Map Link:</th>
+            </tr>
+          </thead>
+          <tbody>{pet.length > 0 ? petMapper() : "Loading"}</tbody>
+        </Table>
+      </Row>
     </Container>
   );
 };
