@@ -1,14 +1,13 @@
 .container-img {
-    background-image: url(./assets/FLback.png);
-    background-size: cover;
-    margin: 0;
+    background-image: url(./assets/FLbackground.png);
+    background-size: 100%;
+    /* height: 75%; */
+    margin: -25px 0 0 0;
     background-repeat: no-repeat;
-    padding-bottom: 22em;
+    padding-bottom: 19em;
     background-position: center center;
     overflow: hidden;
     /* background-attachment: fixed; */
-    /* max-width: 100%; */
-    /* height: 100vh; */
 }
   
   /*footer is using this*/
