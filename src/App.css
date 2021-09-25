@@ -1,12 +1,13 @@
 @import "buttons.css";
-@import 'header.css';
+@import 'Header.css';
 
 body {
   background: white;
 }
 
 .logo-img {
-  max-width: 100%;
+  padding-left: 15px;
+  max-width: 30%;
   width: 65%;
 }
 
@@ -91,4 +92,24 @@ body {
 .nav-link {
   margin: 20px;
   /* padding-right: 3em; */
+}
+
+.landing-col {
+  margin: 5em;
+}
+
+.navbar-brand {
+  width: 75% !important;
+}
+
+.navbar-collapse {
+  margin-left: 120px;
+}
+
+/* #navbar-loggedout {
+  margin-right: 120px;
+} */
+
+#navbar-loggedin {
+  margin-right: 40px;
 }

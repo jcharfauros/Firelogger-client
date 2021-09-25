@@ -131,12 +131,14 @@ const InventoryEdit = (props) => {
               onChange={(e) => setEditPicUrl(e.target.value)}
             />
           </FormGroup>
-          <Button className="btn-pdf" type="submit" onClick={handleClose}>
-            Click to Submit Changes
-          </Button>{" "}
-          <Button className="btn-cancel" closebutton="true">
-            Cancel
-          </Button>
+          <div className="d-flex justify-content-between">
+            <Button className="btn-pdf" type="submit" onClick={handleClose}>
+              Click to Submit Changes
+            </Button>{" "}
+            <Button className="btn-cancel" closebutton="true">
+              Cancel
+            </Button>
+          </div>
         </Form>
       </ModalBody>
     </Modal>

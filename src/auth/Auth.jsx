@@ -9,6 +9,8 @@ import { Container, Row, Col, Button } from "reactstrap";
 const Auth = (props) => {
   const [signupModalActive, setsignupModalActive] = useState(false);
   const [loginModalActive, setloginModalActive] = useState(false);
+  const [collapsed, setCollapsed] = useState(true);
+  const toggleNavbar = () => setCollapsed(!collapsed)
 
   const signupModalON = () => {
     setsignupModalActive(true);
@@ -27,15 +29,23 @@ const Auth = (props) => {
 
   return (
     <Container fluid={true}>
+        {/* <Col> */}
       {signupModalActive ? ( <SignupModal signupModalOFF={signupModalOFF} updateToken={props.updateToken} />
           ) : (
             <></>
           )}
-      {loginModalActive ? ( <LoginModal loginModalOFF={loginModalOFF} updateToken={props.updateToken} />
+          {/* </Col>
+          <Col> */}
+      {loginModalActive ? (
+        <LoginModal
+        loginModalOFF={loginModalOFF}
+        updateToken={props.updateToken}
+        />
           ) : (
             <></>
           )}
-      <Row>
+          {/* </Col> */}
+      <Row id='navbar-loggedout'>
         <Col>         
           <Button className="btn-nav-login-signup" color='black' onClick={loginModalON} >
             Login

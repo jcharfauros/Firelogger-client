@@ -15,6 +15,8 @@ import {
   DropdownToggle,
   DropdownMenu,
   DropdownItem,
+  UncontrolledDropdown,
+  NavbarText,
 
 } from "reactstrap";
 import "../App.css";
@@ -28,13 +30,8 @@ import InventoryIndex from "../inventory/InventoryIndex";
 const FireLoggerNavbar = (props) => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const toggle2 = () => {
-    let newIsOpen = !isOpen;
-    setIsOpen(newIsOpen);
-  };
-
   const [dropdownOpen, setDropdownOpen] = useState(false);
-  const toggle = () => setDropdownOpen((prevState) => !prevState);
+  const toggle = () => setIsOpen(!isOpen);
 
   const loginSignupHide = () => {
     return props.sessionToken === localStorage.getItem("token") ? (
@@ -48,25 +45,19 @@ const FireLoggerNavbar = (props) => {
 
   const resourceViews = () => {
     return props.sessionToken === localStorage.getItem("token") ? (
-      <Dropdown
-        direction='left'
-        className="resource-dropdown"
-        isOpen={dropdownOpen}
-        toggle={toggle}
-      >
+      <UncontrolledDropdown>
         <DropdownToggle caret className="btn-navbar" color="black">
           Resources
         </DropdownToggle>
         <DropdownMenu>
           <DropdownItem>
-
             <Link className='btn-dropdown' to="/hotels"> Hotels in your area </Link>
           </DropdownItem>
           <DropdownItem>
             <Link className='btn-dropdown' to="/petcare">Pet Boarding in your area </Link>
           </DropdownItem>
         </DropdownMenu>
-      </Dropdown>
+      </UncontrolledDropdown>
     ) : (
       ""
     );
@@ -85,10 +76,7 @@ const FireLoggerNavbar = (props) => {
   };
 
   return (
-    <Navbar className="navbar-jc" light expand="md">
-      <Container fluid={true}>
-        <Row>
-          <Col>
+    <Navbar light expand="md">
             <NavbarBrand href="/">
               <img
                 src={fireloggerlogo}
@@ -96,27 +84,55 @@ const FireLoggerNavbar = (props) => {
                 className="logo-img"
               />
             </NavbarBrand>
-          </Col>
-          <Col>
             <NavbarToggler  onClick={toggle} />
-            <Collapse  isOpen={isOpen} navbar className="justify-content-end">
-              <Nav className="ml-auto" navbar >
-                <NavItem>
+            <Collapse id='navbar-loggedin' isOpen={isOpen} navbar>
+              <Nav navbar >
                   {resourceViews()} 
-                </NavItem>
+                {/* <NavItem>
+                </NavItem> */}
                 <NavItem>
                   {home()} 
                 </NavItem>
-                <NavItem>
-                  {loginSignupHide()}
-                </NavItem>
               </Nav>
+              <NavbarText>{loginSignupHide()}</NavbarText>
             </Collapse>
-          </Col>
-        </Row>
-      </Container>
     </Navbar>
   );
 };
 
 export default FireLoggerNavbar;
+
+// return (
+//   <Navbar className="navbar-jc" light expand="md">
+//     <Container fluid={true}>
+//       <Row>
+//         <Col>
+//           <NavbarBrand href="/">
+//             <img
+//               src={fireloggerlogo}
+//               alt="firelogger_logo"
+//               className="logo-img"
+//             />
+//           </NavbarBrand>
+//         </Col>
+//         <Col>
+//           <NavbarToggler  onClick={toggle} />
+//           <Collapse  isOpen={isOpen} navbar className="justify-content-end">
+//             <Nav className="ml-auto" navbar >
+//               <NavItem>
+//                 {resourceViews()} 
+//               </NavItem>
+//               <NavItem>
+//                 {home()} 
+//               </NavItem>
+//               <NavItem>
+//                 {loginSignupHide()}
+//               </NavItem>
+//             </Nav>
+//           </Collapse>
+//         </Col>
+//       </Row>
+//     </Container>
+//   </Navbar>
+// );
+// };
