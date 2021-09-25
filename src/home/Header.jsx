@@ -9,12 +9,13 @@ const Header2 = (props) => {
         <Container>
           <Row>
             <Col xs='6' className='font-body'>
-                <h2>When the unexpected happens...</h2>
+              {/* empty for a reason */}
             </Col>
           </Row>
         <br />
           <Row>
             <Col xs='7' className='font-body'>
+                <h2>When the unexpected happens...</h2> <br />
               <p className='font-p'>Firelogger is an app that keeps track of what you hold dear when the unexpected happens. </p>
             </Col>
           </Row>

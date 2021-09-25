@@ -56,7 +56,7 @@ const Pets = (props) => {
       <Row>
         <Col>
           <h1 className="font-titles">
-            Pet Lodging Nearby{" "}
+            Pet Boarding Nearby{" "}
           </h1>
           <hr />
         </Col>
